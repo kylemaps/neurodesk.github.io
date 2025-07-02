@@ -57,10 +57,14 @@ jobs:
           npm install
 
       - name: Write applist.json
-        if: "${{ secrets.ZENODO_TOKEN != null && secrets.ZENODO_TOKEN != '' }}"
+        env:
+          ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}
         run: |
-          python .github/workflows/write-app-json.py --zenodo_token "${{ secrets.ZENODO_TOKEN }}"
-
+          if [ -n "$ZENODO_TOKEN" ]; then
+            python .github/workflows/write-app-json.py --zenodo_token "$ZENODO_TOKEN"
+          else
+            echo "ZENODO_TOKEN not set — skipping write-app-json.py"
+          fi
       - name: Build with Hugo
         env:
           HUGO_ENVIRONMENT: production
