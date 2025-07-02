@@ -11,7 +11,7 @@ linktitle: Neurodesk
                 <h2>Environment for Imaging Analysis</h2>
                 <div class="mt-4 mb-5">
                     <a class="btn btn-lg btn-light me-2 mb-3" href="docs/support/faq/#what-is-neurodesk">
-                        What is Neurodesk?</a>
+                        Neurodesk FAQ</a>
                     <a class="btn btn-lg btn-light me-2 mb-3" href="tutorials-examples/examples">
                         <i class="fa fa-book"></i> See Examples</a>
 			<a class="btn btn-lg btn-light me-2 mb-3" href="docs/getting-started/local">
