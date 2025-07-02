@@ -12,12 +12,12 @@ linktitle: Neurodesk
                 <div class="mt-4 mb-5">
                     <a class="btn btn-lg btn-light me-2 mb-3" href="docs/support/faq/#what-is-neurodesk">
                         What is Neurodesk?</a>
-                    <a class="btn btn-lg btn-light me-2 mb-3" href="docs/getting-started/local">
-                        <i class="fa fa-laptop"></i> Local</a>
-                    <a class="btn btn-lg btn-light me-2 mb-3" href="docs/getting-started/hosted">
-                        <i class="fa fa-cloud"></i> Hosted</a>
                     <a class="btn btn-lg btn-light me-2 mb-3" href="tutorials-examples/examples">
-                        <i class="fa fa-book"></i> Examples</a>
+                        <i class="fa fa-book"></i> See Examples</a>
+			<a class="btn btn-lg btn-light me-2 mb-3" href="docs/getting-started/local">
+                        <i class="fa fa-laptop"></i> Use Locally</a>
+                    <a class="btn btn-lg btn-light me-2 mb-3" href="docs/getting-started/hosted">
+                        <i class="fa fa-cloud"></i> Use Hosted</a>
                 </div>
             </div>
             <div class="col-md-4 order-md-2 text-center">
