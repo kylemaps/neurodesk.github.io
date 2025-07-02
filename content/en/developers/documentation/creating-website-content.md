@@ -14,7 +14,7 @@ This applies if you with to submit a new tutorial or amend content on a page. Ou
 
 ## Table of contents
 
-* [Create your own copy of *NeuroDesk/neurodesk.github.io* repository](#create-your-own-copy-of-neurodeskneurodeskgithubio-repository-where-you-will-be-able-to-make-modifications)
+* [Create your own copy of *neurodesk/neurodesk.github.io* repository](#create-your-own-copy-of-neurodeskneurodeskgithubio-repository-where-you-will-be-able-to-make-modifications)
 * [Create your content or make your modifications](#create-your-content-or-make-your-modifications)
 * [Contribute your new content to the official documentation](#contribute-your-new-content-to-the-official-documentation)
 * [Formatting guidelines](#formatting-guidelines)
@@ -24,11 +24,11 @@ This applies if you with to submit a new tutorial or amend content on a page. Ou
 * [Tables](#tables)
 * [Lists](#lists)
 
-### Create your own copy of *NeuroDesk/neurodesk.github.io* repository where you will be able to make modifications
+### Create your own copy of *neurodesk/neurodesk.github.io* repository where you will be able to make modifications
 
 
 Begin by creating a copy of our documentation that you can edit:
-1. Visit the GitHub repository for the [Neurodesk documentation](https://github.com/NeuroDesk/neurodesk.github.io).
+1. Visit the GitHub repository for the [Neurodesk documentation](https://github.com/neurodesk/neurodesk.github.io).
 2. [**Fork**](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the repository.
 
 
