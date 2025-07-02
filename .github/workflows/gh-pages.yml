@@ -57,6 +57,7 @@ jobs:
           npm install
 
       - name: Write applist.json
+        if: ${{ secrets.ZENODO_TOKEN != '' }}
         run: |
           python .github/workflows/write-app-json.py --zenodo_token ${{ secrets.ZENODO_TOKEN }}
 
