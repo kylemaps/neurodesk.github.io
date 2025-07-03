@@ -17,6 +17,9 @@ docker exec --user=jovyan -ti neurodeskapp-49977 bash
 ```
 
 # API interface to Jupyter
+
+This currently does not work on Apple Silicon Machines!
+
 Install necessary tools, e.g. for MacOS
 ```
 brew install coreutils
@@ -30,7 +33,7 @@ chmod +x websocat.x86_64-unknown-linux-musl
 sudo mv websocat.x86_64-unknown-linux-musl /usr/local/bin/websocat
 ```
 
-Start a jupyter notebook session, e.g. on EXAMPLE_API_URL="play-europe.neurodesk.org"
+Start a jupyter notebook session, e.g. on EXAMPLE_API_URL=play-europe.neurodesk.org
 
 Then open a terminal in jupyter and find your jupyterhub token and your username:
 ```
@@ -62,7 +65,6 @@ else
     echo "Checking user info..."
     USER_INFO=$(curl -k -s -H "Authorization: token $USER_TOKEN" "https://$API_URL/hub/api/users/$USER" || echo '{"error": "failed"}')
     echo "User info: $USER_INFO"
-    exit 1
 fi
 
 # Function to test WebSocket connection
