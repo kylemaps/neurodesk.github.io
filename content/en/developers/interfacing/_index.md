@@ -17,18 +17,25 @@ docker exec --user=jovyan -ti neurodeskapp-49977 bash
 ```
 
 # API interface to Jupyter
-Install necessary tools, e.g. for macos
+Install necessary tools, e.g. for MacOS
 ```
 brew install coreutils
 brew install websocat
+```
+
+or for linux:
+```
+wget https://github.com/vi/websocat/releases/download/v1.12.0/websocat.x86_64-unknown-linux-musl
+chmod +x websocat.x86_64-unknown-linux-musl
+sudo mv websocat.x86_64-unknown-linux-musl /usr/local/bin/websocat
 ```
 
 Start a jupyter notebook session, e.g. on EXAMPLE_API_URL="play-europe.neurodesk.org"
 
 Then open a terminal in jupyter and find your jupyterhub token and your username:
 ```
-echo $JUPYTERHUB_USER
-echo $JPY_API_TOKEN
+echo JUPYTERHUB_USER=$JUPYTERHUB_USER
+echo JPY_API_TOKEN=$JPY_API_TOKEN
 ```
 
 Now you can interface with Jupyter through:
@@ -66,7 +73,7 @@ test_websocket_connection() {
     
     # Test connection
     WS_TEST=$(echo '["stdin", "echo test_connection\r\n"]' | \
-        timeout 15 websocat --text "ws://$API_URL/user/$USER/terminals/websocket/$TERMINAL_NAME" \
+        timeout 15 websocat --text "wss://$API_URL/user/$USER/terminals/websocket/$TERMINAL_NAME" \
         -H "Authorization: token $token" 2>&1 | head -10)
     
     if [ $? -eq 0 ] && [ -n "$WS_TEST" ]; then
@@ -122,32 +129,32 @@ send_command() {
         
         # Send command
         echo "[\"stdin\", \"$cmd\\r\\n\"]" | \
-            websocat --text \
+            timeout 15 websocat --text \
             "wss://$clean_api_url/user/$USER/terminals/websocket/$TERMINAL_NAME" \
-            -H "Authorization: token $USER_TOKEN" >/dev/null 2>&1
+            -H "Authorization: token $USER_TOKEN"
         
-        # Wait for command to complete
-        sleep 5
+        
+        sleep 10
         
         # get the terminal output
         local output=$(echo '["stdin", ""]' | \
-            timeout 10 websocat --text \
+            timeout 15 websocat --text \
             "wss://$clean_api_url/user/$USER/terminals/websocket/$TERMINAL_NAME" \
-            -H "Authorization: token $USER_TOKEN" 2>/dev/null)
-        
+            -H "Authorization: token $USER_TOKEN")
+
         if [ -n "$output" ]; then
             echo "$output" | \
             grep '^\["stdout"' | \
             sed 's/^\["stdout", *"//; s/"\]$//' | \
             sed 's/\\u001b\[[?]*[0-9;]*[a-zA-Z]//g; s/\\r\\n/\n/g; s/\\r/\n/g' | \
-            sed -n "/\$ $command/,/\$ /p" | \
+            # sed -n "/\$ $cmd/,/\$ /p" | \
             sed '1d; $d' | \
             grep -v "^$"
 
             return 0
         fi
         
-        echo "(no output)"
+        echo "(no output), response: ${output}"
         
         sleep 2
     done
@@ -156,9 +163,11 @@ send_command() {
     echo "  Output: $output"
     return 1
 }
-send_command "touch test.txt"
+send_command "touch test3.txt"
 send_command "ls"
 send_command "ml fsl; fslmaths"
+send_command "pwd"
+send_command "ml ants; antsRegistration"
 
 
 # To start an interactive terminal session
@@ -189,31 +198,33 @@ interactive_terminal() {
         echo "Executing: $user_cmd"
         
         # Send command
+        
         echo "[\"stdin\", \"$user_cmd\\r\\n\"]" | \
-            websocat --text \
+            timeout 15 websocat --text \
             "wss://$clean_api_url/user/$USER/terminals/websocket/$TERMINAL_NAME" \
-            -H "Authorization: token $USER_TOKEN" >/dev/null 2>&1
+            -H "Authorization: token $USER_TOKEN" 
         
-        # Wait for execution
-        sleep 5
         
-        # Get output
+        sleep 10
+        
+        # get the terminal output
         local output=$(echo '["stdin", ""]' | \
-            timeout 10 websocat --text \
+            timeout 15 websocat --text \
             "wss://$clean_api_url/user/$USER/terminals/websocket/$TERMINAL_NAME" \
-            -H "Authorization: token $USER_TOKEN" 2>/dev/null)
-        
+            -H "Authorization: token $USER_TOKEN")
+
+
         if [ -n "$output" ]; then
             echo "$output" | \
             grep '^\["stdout"' | \
             sed 's/^\["stdout", *"//; s/"\]$//' | \
             sed 's/\\u001b\[[?]*[0-9;]*[a-zA-Z]//g; s/\\r\\n/\n/g; s/\\r/\n/g' | \
-            sed -n "/\$ $command/,/\$ /p" | \
+            # sed -n "/\$ $user_cmd/,/\$ /p" | \
             sed '1d; $d' | \
             grep -v "^$"
 
         else
-            echo "(no output)"
+            echo "(output error, response:)  ${output}"
         fi
         
         echo "" 
