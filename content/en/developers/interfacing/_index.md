@@ -31,6 +31,7 @@ or for linux:
 wget https://github.com/vi/websocat/releases/download/v1.12.0/websocat.x86_64-unknown-linux-musl
 chmod +x websocat.x86_64-unknown-linux-musl
 sudo mv websocat.x86_64-unknown-linux-musl /usr/local/bin/websocat
+apt install jq
 ```
 
 Start a jupyter notebook session, e.g. on EXAMPLE_API_URL=play-europe.neurodesk.org
