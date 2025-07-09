@@ -74,6 +74,23 @@ sudo cvmfs_server add-replica -o $USER http://stratum0.neurodesk.cloud.edu.au/cv
 
 sudo cvmfs_server snapshot neurodesk.ardc.edu.au
 
+#If this keeps failing with errors like "Processing chunks [21605 registered chunks]: failed to download #http://stratum0.neurodesk.cloud.edu.au/cvmfs/neurodesk.ardc.edu.au/data/03/99e1faa88d0d66a8707cdecdc9b063cc527e50 (17 - host data transfer cut short)
+#couldn't reach Stratum 0 - please check the network connection
+#terminate called after throwing an instance of 'ECvmfsException'
+#  what():  PANIC: /home/sftnight/jenkins/workspace/CvmfsFullBuildDocker/CVMFS_BUILD_ARCH/docker-x86_64/CVMFS_BUILD_PLATFORM/cc9/build/BUILD/cvmfs-2.13.0/cvmfs/swissknife_pull.cc : 286
+#Download error
+#Aborted (core dumped)"
+
+#Then this is a deep packet inspection issue on the side of the stratum 1. To get around this, create an SSH tunnel to the stratum 0 server and transfer via that tunnel:
+
+#ssh -L 8081:localhost:80 ec2-user@stratum0.neurodesk.cloud.edu.au
+#sudo vi /etc/cvmfs/repositories.d/neurodesk.ardc.edu.au/server.conf
+# change this:
+#CVMFS_STRATUM0=http://stratum0.neurodesk.cloud.edu.au/cvmfs/neurodesk.ardc.edu.au
+# to this:
+#CVMFS_STRATUM0=http://localhost:8081/cvmfs/neurodesk.ardc.edu.au
+
+# Then run the sync again
 
 echo "/var/log/cvmfs/*.log {
     weekly
