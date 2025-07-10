@@ -69,6 +69,7 @@ This server is currently down:
 This CVMFS Stratum 1 server is hosted by ARDC Nectar Cloud and also has a Cloudflare CDN alias.
 - Brisbane, Queensland, Australia: s1brisbane-cvmfs.openhtc.io -> cvmfs-brisbane.neurodesk.org
 - Sydney, New South Wales, Australia: s1sydney-cvmfs.openhtc.io -> cvmfs-sydney.neurodesk.org
+- Melbourne, Victoria, Australia: s1melbourne-cvmfs.openhtc.io -> cvmfs-melbourne.neurodesk.org
 
 
 This CVMFS Stratum 1 server is hosted by Pawseys Nimbus Cloud and also has a Cloudflare CDN alias.
