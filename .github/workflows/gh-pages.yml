@@ -108,7 +108,7 @@ jobs:
         uses: UmbrellaDocs/action-linkspector@v1.3.6  
         with:
           fail_on_error: true
-          reporter: github-pr-review
+          reporter: github-pr-check
           config_file: .linkspector.yml
           filter_mode: nofilter
           github_token: ${{ secrets.github_token }}
