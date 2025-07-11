@@ -113,7 +113,7 @@ jobs:
           filter_mode: nofilter
           github_token: ${{ secrets.github_token }}
           show_stats: true
-          level: info
+          level: error
 
   deploy:
     environment:
