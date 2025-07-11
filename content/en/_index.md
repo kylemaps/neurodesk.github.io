@@ -14,7 +14,7 @@ linktitle: Neurodesk
                         Neurodesk FAQ</a>
                     <a class="btn btn-lg btn-light me-2 mb-3" href="tutorials-examples/examples">
                         <i class="fa fa-book"></i> See Examples</a>
-			<a class="btn btn-lg btn-light me-2 mb-3" href="docs/getting-started/local/neurodeskapp/)">
+			<a class="btn btn-lg btn-light me-2 mb-3" href="docs/getting-started/local/neurodeskapp/">
                         <i class="fa fa-laptop"></i> Use Locally</a>
                     <a class="btn btn-lg btn-light me-2 mb-3" href="docs/getting-started/hosted">
                         <i class="fa fa-cloud"></i> Use Hosted</a>
