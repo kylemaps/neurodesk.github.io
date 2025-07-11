@@ -43,6 +43,7 @@ If you do NOT have privileged access → Use TinyRange Engine, or run remote ins
 - [Windows Installer](https://github.com/NeuroDesk/neurodesk-app/releases/latest/download/NeurodeskApp-Setup-Windows.exe)
 - [Broken link test](https://github.com/NeuroDesk/neurodesk-app/releases/latest/download/Neurodes)
 - [and another broken link test](https://www.neurodesk.org/docs/getting-start)
+- [and yet another broken link test](https://www.neurodeskkkkkkkkkkk.org)
 
 
 {{< alert color="info" >}}
