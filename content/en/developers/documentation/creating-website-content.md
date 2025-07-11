@@ -116,7 +116,7 @@ You might have to correct some merge conflicts, but [vscode](https://learn.micro
 
 ![6_branchswitch](/static/tutorials-examples/tutorials/tutorial-template/6_switchbranch.png 'Switching branches')
 
-4. Now, you can preview the changes before contributing them upstream. For this, if this is your first time to run the Action build, click on the "Actions" tab and enable the Actions ("I understand my tutorials..."). The first build will fail (due to a bug with the Github token), but the second build will work. You can run the workflow if clicking on each of them in the left sidebar.
+4. Now, you can preview the changes before contributing them upstream. For this, if this is your first time to run the Action build, click on the "Actions" tab and enable the Actions ("I understand my tutorials..."). You can run the workflow by clicking on each of them in the left sidebar.
 
 ![7_run_github_workflow](/static/tutorials-examples/tutorials/tutorial-template/7_run_github_workflow.png 'Contribute')
 

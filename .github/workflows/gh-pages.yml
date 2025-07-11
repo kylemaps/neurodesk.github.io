@@ -111,9 +111,11 @@ jobs:
           reporter: github-pr-check
           config_file: .linkspector.yml
           filter_mode: nofilter
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           show_stats: true
           level: error
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   deploy:
     environment:

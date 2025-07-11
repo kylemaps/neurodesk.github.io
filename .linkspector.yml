@@ -18,5 +18,5 @@ httpHeaders:
   - url:
       - https://api.github.com
     headers:
-      Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}
+      Authorization: Bearer ${GITHUB_TOKEN}
       Accept: application/vnd.github+json
