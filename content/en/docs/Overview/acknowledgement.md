@@ -42,8 +42,9 @@ This project is also supported by the **Australian Research Data Commons (ARDC)*
 This work benefits from services and infrastructure provided by:
 
 - The **EGI Federation** with dedicated support from **CESNET-MCC**. Computational resources were provided by the e-INFRA CZ project (ID:90254), supported by the Ministry of Education, Youth and Sports of the Czech Republic.
-- **Indiana University's Jetstream2 Cloud**
-- **ARDC Nectar Cloud**
+- **Indiana University's Jetstream2 Cloud** (NSF award #2005506), which is supported by the National Science Foundation. Jetstream2 is a cloud computing resource managed by the Indiana University Pervasive Technology Institute and part of the ACCESS project.
+- **ARDC Nectar Reserach Cloud** - a collaborative Australian research platform supported by the NCRIS-funded Australian Research Data Commons (ARDC)
+
 
 <div style="display:flex; gap:30px; flex-wrap:wrap; align-items:center; margin: 10px 0;">
   <img src="/static/docs/overview/EGI_Federation_logo.png" width="150">
