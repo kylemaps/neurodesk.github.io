@@ -63,11 +63,17 @@ conda env list
 ```
 
 3. To activate your conda environment and install the required packages from a provided txt file, run:
-
+For *Python*:
 ```bash
 conda activate myenv
 pip install -r requirements.txt
 ```
+or for *R*:
+```bash
+conda activate r_env
+pip install -r requirements.txt
+```
+
 
 4. Given the available environment, when you open a new Launcher tab, there will be a new Notebook option for launching a Jupyter Notebook with that environment active. 
 
