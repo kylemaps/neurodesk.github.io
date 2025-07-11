@@ -41,6 +41,8 @@ If you do NOT have privileged access → Use TinyRange Engine, or run remote ins
 - [Arch-based package via AUR](https://aur.archlinux.org/packages/neurodeskapp-bin)
 - [macOS Intel Installer](https://github.com/NeuroDesk/neurodesk-app/releases/latest/download/NeurodeskApp-Setup-macOS-x64.dmg), [macOS Apple silicon Installer](https://github.com/neurodesk/neurodesk-app/releases/latest/download/NeurodeskApp-Setup-macOS-arm64.dmg)
 - [Windows Installer](https://github.com/NeuroDesk/neurodesk-app/releases/latest/download/NeurodeskApp-Setup-Windows.exe)
+- [Broken link test](https://github.com/NeuroDesk/neurodesk-app/releases/latest/download/Neurodes)
+
 
 {{< alert color="info" >}}
 **On Microsoft edge**, follow these steps to download the executable file:
