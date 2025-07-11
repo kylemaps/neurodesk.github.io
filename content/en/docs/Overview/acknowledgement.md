@@ -41,7 +41,7 @@ This project is also supported by the **Australian Research Data Commons (ARDC)*
 
 This work benefits from services and infrastructure provided by:
 
-- The **EGI Federation** with support from **CESNET-MCC**
+- The **EGI Federation** with dedicated support from **CESNET-MCC**. Computational resources were provided by the e-INFRA CZ project (ID:90254), supported by the Ministry of Education, Youth and Sports of the Czech Republic.
 - **Indiana University's Jetstream2 Cloud**
 - **ARDC Nectar Cloud**
 
