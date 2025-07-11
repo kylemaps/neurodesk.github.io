@@ -30,9 +30,15 @@ Or you can module load any tool you need:
 ml qsmxt/6.4.1
 ```
 
-If you want to use GUI applications (fsleyes, afni, suma, ...) you need to overwrite the temporary directory to be /tmp (otherwise you get an error that it cannot connect to the DISPLAY):
+If you want to use GUI applications (fsleyes, afni, suma, matlab, ...) you need to overwrite the temporary directory to be /tmp (otherwise you get an error that it cannot connect to the DISPLAY):
 ```
 export TMPDIR=/tmp 
+```
+
+For matlab you also need to create a network license file in your ~/Downloads/network.lic:
+```
+SERVER uq-matlab.research.dc.uq.edu.au ANY 27000
+USE_SERVER
 ```
 
 NOTE: If you are using AFNI on Bunya then the default detach behavior will cause SIGBUS errors and a crash. To fix this run AFNI with:
