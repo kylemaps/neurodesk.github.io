@@ -20,3 +20,5 @@ httpHeaders:
     headers:
       Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}
       Accept: application/vnd.github+json
+# Add this to ensure failures cause the action to fail
+fail_on_error: true
