@@ -18,6 +18,6 @@ aliases:
 
 When you install the NeurodeskApp, You can find them under ```example-notebooks/books```.
 
-![button](/static/tutorials-examples/examples/NeurodeskApp-example.png) -->
+![button](/static/tutorials-examples/examples/NeurodeskApp-example.png)
 
 We provide a collection of example Jupyter notebooks to help you get started with Neurodesk and explore its capabilities. These notebooks cover various use cases and analyses.
