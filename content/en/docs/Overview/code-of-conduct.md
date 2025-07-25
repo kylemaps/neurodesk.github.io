@@ -172,6 +172,6 @@ We recognize that fostering an inclusive and respectful community is a continual
 ### Attribution
 This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org/), version 2.0, available at https://www.contributor-covenant.org/version/2/0/code_of_conduct.html.
 
-Community Impact Guidelines were inspired by [Mozilla's code of conduct enforcement ladder](https://github.com/mozilla/diversity), the [Organisation of Human Brain Mapping's Code of Conduct](https://www.humanbrainmapping.org/i4a/pages/index.cfm?pageid=3912) and the [laboratory for brain simulation and exploration - SIMEXP's Code of Conduct](https://simexp.github.io/coc.html).
+Community Impact Guidelines were inspired by [Mozilla's code of conduct enforcement ladder](https://github.com/mozilla/diversity), the [Organisation of Human Brain Mapping's Code of Conduct](https://www.humanbrainmapping.org/i4a/pages/index.cfm?pageid=3912) and the [laboratory for brain simulation and exploration - SIMEXP's Code of Conduct](https://simexp.github.io/coc).
 
 For answers to common questions about this code of conduct, see the FAQ at https://www.contributor-covenant.org/faq. Translations are available at https://www.contributor-covenant.org/translations.
