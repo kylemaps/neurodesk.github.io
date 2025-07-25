@@ -90,9 +90,9 @@ jobs:
               --baseURL "${BASE_URL}"
           fi
 
-      - name: Add custom domain
-        if: github.repository == 'neurodesk/neurodesk.github.io'
-        run: cp ./static/CNAME ./public/CNAME
+      # - name: Add custom domain
+      #   if: github.repository == 'neurodesk/neurodesk.github.io'
+      #   run: cp ./static/CNAME ./public/CNAME
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3.0.1
