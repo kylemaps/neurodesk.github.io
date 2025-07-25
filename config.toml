@@ -1,4 +1,4 @@
-baseURL = "https://www.neurodesk.org/"
+baseURL = "https://neurodesk.org/"
 title = "Neurodesk"
 canonifyURLs=true
 

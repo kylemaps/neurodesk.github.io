@@ -36,7 +36,7 @@ Renton, A.I., Dao, T.T., Johnstone, T., Civier, O., Sullivan, R. P., White, D. J
 
 
 ## Citing specific tools
-For reproducibility, please include the **tool name**, **version number**, and **build date** for any containerized application used in Neurodesk. This information is available in our [application list](https://www.neurodesk.org/docs/overview/applications/). 
+For reproducibility, please include the **tool name**, **version number**, and **build date** for any containerized application used in Neurodesk. This information is available in our [application list](https://neurodesk.org/docs/overview/applications/). 
 
 In addition to citing Neurodesk, please remember to cite any original publication associated with each tool you use. Citation details can be found: 
 - in the tool's ```README.md``` under [neurocontainers/recipes](https://github.com/NeuroDesk/neurocontainers/tree/master/recipes)

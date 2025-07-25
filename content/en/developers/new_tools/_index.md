@@ -29,4 +29,4 @@ To decide if a tool should be packaged in a **Neurocontainers** or be installed 
 
 
 ## Adding new tools to Neurocontainers:
-Follow these instructions to add new tools: https://www.neurodesk.org/developers/new_tools/manual_build
+Follow these instructions to add new tools: https://neurodesk.org/developers/new_tools/manual_build

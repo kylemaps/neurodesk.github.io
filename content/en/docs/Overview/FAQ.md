@@ -40,7 +40,7 @@ In a Desktop VNC session, open a Terminal (LXTerminal) from the bottom toolbar a
 <img width="700" alt="image" src="https://github.com/user-attachments/assets/548941cb-6f7d-47ba-87c0-844fa20da19a">
 
 ### Can I run Neurodesk on an HPC without Docker?
-Yes, our project aims to run on the hardware you have access to. However, without docker support you cannot use our desktop interface [NeuroDesktop](/docs/getting-started/neurodesktop) but you can still use the command line interface [NeuroCommand on HPC](https://www.neurodesk.org/docs/getting-started/neurocommand). This works well for batch processing on HPCs once you developed your pipeline in our desktop interface. If your HPC provides a desktop interface you can use all our graphical applications without any issues and the GUIs even work via SSH x-forwarding - it's not the most performant experience, but it works well enough.
+Yes, our project aims to run on the hardware you have access to. However, without docker support you cannot use our desktop interface [NeuroDesktop](/docs/getting-started/neurodesktop) but you can still use the command line interface [NeuroCommand on HPC](https://neurodesk.org/docs/getting-started/neurocommand). This works well for batch processing on HPCs once you developed your pipeline in our desktop interface. If your HPC provides a desktop interface you can use all our graphical applications without any issues and the GUIs even work via SSH x-forwarding - it's not the most performant experience, but it works well enough.
 
 ### How do I get my files into Neurodesk?
 It depends where you are running Neurodesk and where your files are. We provide many different ways from drag-and-drop, to cloud storage to file mounts in [Storage in Neurodesk](/docs/getting-started/neurodesktop/storage).
@@ -64,10 +64,10 @@ Rioux, Pierre, Gregory Kiar, Alexandre Hutton, Alan C. Evans, and Shawn T. Brown
 However, running Neurodesktop on Windows and Mac will have a performance penalty, because Linux runs in a Hypervisor on these systems. Also, it is important to understand filesystem operation bottlenecks that can occur when accessing files across system boundaries (e.g. processing DICOM files stored on Windows inside Neurodesk).
 
 ### How can I see how many compute resources Neurodesk containers need?
-In Linux the containers run as normal processes and you can use htop and top to inspect the resource footprint. For Windows and Mac the information is not readily available, however, we have written a guide here: [Troubleshooting](https://www.neurodesk.org/docs/support/faq/#i-got-an-error-message-x-killed-or-not-enough-memory)
+In Linux the containers run as normal processes and you can use htop and top to inspect the resource footprint. For Windows and Mac the information is not readily available, however, we have written a guide here: [Troubleshooting](https://neurodesk.org/docs/support/faq/#i-got-an-error-message-x-killed-or-not-enough-memory)
 
 ### Can I just use the containers without neurodesktop or neurocommand?
-Yes, there are multiple ways of using the containers directly and we provide an overview here: https://www.neurodesk.org/docs/getting-started/neurocontainers/
+Yes, there are multiple ways of using the containers directly and we provide an overview here: https://neurodesk.org/docs/getting-started/neurocontainers/
 
 ### Can I keep my modifications in the container?
 We designed neurodesk with reproducibility as a main goal, so the desktop containers should not be modified if one aims for full reproducibility. However, there is one good option to keep your settings across different container versions: You can write a shell script that installs additional packages and modifies the environment so it's perfect for you. This script can then be re-executed in a new desktop version and will enable a reproducible customization.
@@ -151,7 +151,7 @@ rm -rf ~/.local/share/Trash/
 #### I am using a European keyboard layout and I cannot type symbols that require the ALT-GR key (like @ or \\)
 This seems to be a bug in Guacamole and RDP in combination with certain browsers. There are a few workarounds you can try:
 1) Use the connection option "Desktop Fixed-Resolution (VNC)" instead of Desktop Auto-Resolution (RDP)
-2) connect to the desktop using an RDP client instead of the browser (https://www.neurodesk.org/docs/getting-started/neurodesktop/windows/#using-an-rdp-client)
+2) connect to the desktop using an RDP client instead of the browser (https://neurodesk.org/docs/getting-started/neurodesktop/windows/#using-an-rdp-client)
 
 ### Clipboard issues
 #### How do I copy and paste text?
@@ -193,7 +193,7 @@ The copy and paste options in the "Edit" menu of the file browser are used to co
 
 #### I fixed my internet browser clipboard, but copy or paste still do not work in a specific/all applications
 If you're using Mac, you might be trying to use Mac keyboard shortcuts, but Neurodesktop is using Linux keyboard shortcuts.
-For more details, read the "Note for Mac users" [here](https://www.neurodesk.org/docs/support/faq/#how-top-copy-and-paste-text).
+For more details, read the "Note for Mac users" [here](https://neurodesk.org/docs/support/faq/#how-top-copy-and-paste-text).
 
 It is also possible that the text you are trying to copy includes special characters (e.g., non-English characters), which may cause Neurodesktop to not execute your paste command (including the non specials characters). Give special attention to the following characters:
 - Dash: the en (short) dash is the normal one and copies ok, but the em (long) dash is considered a special character. When in doubt, replace all the dashes in the text you want to copy with en dashes.

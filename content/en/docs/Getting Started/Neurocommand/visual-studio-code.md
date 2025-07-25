@@ -55,7 +55,7 @@ Follow the following steps to configure your VS Code instance to connect to neur
 }
 ```
 
-4. Close this VS Code window. Use steps in [previous section](https://www.neurodesk.org/docs/getting-started/neurodesktop/visual-studio-code/#connecting-to-neurodesktop) to connect normally
+4. Close this VS Code window. Use steps in [previous section](https://neurodesk.org/docs/getting-started/neurodesktop/visual-studio-code/#connecting-to-neurodesktop) to connect normally
 
 ## Useful Additions
 Plugins to view neuroimaging data inside VScode:

@@ -45,7 +45,7 @@ Before the first run, create a local folder where the downloaded applications wi
 Then use one of the following options to run Neurodesktop:
 
 #### Option 1 (Recommended for local installations): Neurodesk-App
-Instructions on installing and using the app: https://www.neurodesk.org/docs/getting-started/neurodesktop/neurodeskapp/
+Instructions on installing and using the app: https://neurodesk.org/docs/getting-started/neurodesktop/neurodeskapp/
 
 #### Option 2 (Advanced and for remote installations): Using Terminal
 
@@ -168,7 +168,7 @@ The browser can be closed anytime, and Neurodesktop will continue running in the
 {{< /alert >}}
 
 {{< alert color="info">}}
-If you are using conda environments and you are installing packages or even new kernels, make sure to read this: https://www.neurodesk.org/tutorials-examples/tutorials/programming/conda/
+If you are using conda environments and you are installing packages or even new kernels, make sure to read this: https://neurodesk.org/tutorials-examples/tutorials/programming/conda/
 {{< /alert >}}
 
 {{< alert color="info">}}

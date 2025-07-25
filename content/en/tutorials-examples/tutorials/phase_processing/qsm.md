@@ -18,7 +18,7 @@ description: >
 <!-- -->
 
 > _An example notebook can be found here:_
-> https://www.neurodesk.org/example-notebooks/structural_imaging/qsmxt_example.html
+> https://neurodesk.org/example-notebooks/structural_imaging/qsmxt_example.html
 >
 
 Please see the above example notebook which provides a detailed QSM tutorial using QSMxT.

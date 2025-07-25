@@ -71,10 +71,10 @@ jobs:
           HUGO_ENV: production
         run: |
           if [[ "${{ github.repository }}" == "neurodesk/neurodesk.github.io" ]]; then
-            echo "Building for production domain: https://www.neurodesk.org/"
+            echo "Building for production domain: https://neurodesk.org/"
             hugo \
               --minify \
-              --baseURL "https://www.neurodesk.org/"
+              --baseURL "https://neurodesk.org/"
           else
             # Temporary fix for css paths in forks
             sed -i "s|canonifyURLs=true|canonifyURLs=false|g" config.toml
@@ -136,4 +136,4 @@ jobs:
       #     crawler-api-key: ${{ secrets.CRAWLER_API_KEY }}
       #     algolia-app-id: ${{ secrets.ALGOLIA_APP_ID }}
       #     algolia-api-key: ${{ secrets.ALGOLIA_API_KEY }}
-      #     site-url: 'https://www.neurodesk.org'
+      #     site-url: 'https://neurodesk.org'

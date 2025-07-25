@@ -41,7 +41,7 @@ Some issues in this theme are:
 
 # Improving user experience
 ## Improving documentation
-We would love to have more tutorials and examples that help people perform Neuroimaging analyses in Neurodesk. When we developed our current documentation system (https://www.neurodesk.org/tutorials-examples/), we wanted to develop an interactive documentation system that ensures that examples always work correctly because they are automatically tested. We have a first proof-of-concept that runs jupyter notebooks and converts them to a website: https://www.neurodesk.org/example-notebooks/intro.html - but currently errors are not flagged automatically and it needs manual checking.
+We would love to have more tutorials and examples that help people perform Neuroimaging analyses in Neurodesk. When we developed our current documentation system (https://neurodesk.org/tutorials-examples/), we wanted to develop an interactive documentation system that ensures that examples always work correctly because they are automatically tested. We have a first proof-of-concept that runs jupyter notebooks and converts them to a website: https://neurodesk.org/example-notebooks/intro.html - but currently errors are not flagged automatically and it needs manual checking.
 
 Some issues in this theme are:
 - https://github.com/NeuroDesk/neurodesk.github.io/issues/54

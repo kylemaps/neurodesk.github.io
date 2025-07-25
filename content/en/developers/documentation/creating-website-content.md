@@ -136,7 +136,7 @@ Thanks so much for taking the time to contribute content to the Neurodesk commun
 ----------------
 ### Formatting guidelines
 
-As seen throughout this tutorial, you can embellish your text using markdown conventions; text can be **bold**, _italic_, or ~~strikethrough~~. You can also add [Links](https://www.neurodesk.org/), and you can organise your content with headers, starting at level 2 (the page title is a level 1 header):
+As seen throughout this tutorial, you can embellish your text using markdown conventions; text can be **bold**, _italic_, or ~~strikethrough~~. You can also add [Links](https://neurodesk.org/), and you can organise your content with headers, starting at level 2 (the page title is a level 1 header):
 
 ## Level 2 heading
 

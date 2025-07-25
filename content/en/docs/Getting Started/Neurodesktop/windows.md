@@ -26,7 +26,7 @@ Alternatively, Neurodesk also works with Podman, follow the Podman installation 
 Use one of the following options to run Neurodesktop:
 
 #### Option 1 (Recommended): Neurodesk-App
-Instructions for installing and using the app: https://www.neurodesk.org/docs/getting-started/neurodesktop/neurodeskapp/
+Instructions for installing and using the app: https://neurodesk.org/docs/getting-started/neurodesktop/neurodeskapp/
 
 #### Option 2 (Advanced): Using Terminal
 1. Open a terminal (e.g. Powershell), and type the following command to automatically download the neurodesktop container and run it
@@ -65,7 +65,7 @@ The browser can be closed anytime, and Neurodesktop will continue running in the
 {{< /alert >}}
 
 {{< alert color="info">}}
-If you are using conda environments and you are installing packages or even new kernels, make sure to read this: https://www.neurodesk.org/tutorials-examples/tutorials/programming/conda/
+If you are using conda environments and you are installing packages or even new kernels, make sure to read this: https://neurodesk.org/tutorials-examples/tutorials/programming/conda/
 {{< /alert >}}
 
 ## Deleting neurodesktop:

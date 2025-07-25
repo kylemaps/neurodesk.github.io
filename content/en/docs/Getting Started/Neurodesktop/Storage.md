@@ -46,7 +46,7 @@ If you are running Neurodesktop on your own hardware there will be a direct conn
 ### Mounting external storage on your host-computer
 The -v C:/neurodesktop-storage:/neurodesktop-storage part of the docker command links the directory "neurodesktop-storage" on the “C drive” of your Windows computer to the directory /neurodesktop-storage inside the Desktop environment. Everything you store in there will be available inside the desktop and on the host computer. You can also mount additional directories by adding another -v parameter set (e.g. -v D:/moredata:/data) - this will mount the directory moredata from your D drive to /data inside neurodesktop. Important: the mountpoint inside neurodesktop needs to be named /data, otherwise the applications will not see the files without modifying the SINGULARITY_BINDPATH variable in your .bashrc.
 
-If you are using the NeurodeskApp, you can set an additional storage location through the [settings](https://www.neurodesk.org/docs/getting-started/neurodesktop/neurodeskapp/#add-a-custom-data-directory)
+If you are using the NeurodeskApp, you can set an additional storage location through the [settings](https://neurodesk.org/docs/getting-started/neurodesktop/neurodeskapp/#add-a-custom-data-directory)
 
 If you are starting Neurodesk through the command line, here is an example for Windows adding another storage directory:
 ```cmd

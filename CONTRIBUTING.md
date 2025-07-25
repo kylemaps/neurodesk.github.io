@@ -13,7 +13,7 @@
 
 Thank you for your interest in contributing to the Neurodesk documentation and developer site!
 
-This repository contains the source code for the [Neurodesk developer documentation website](https://www.neurodesk.org). It is built with [Hugo](https://gohugo.io/) and the [Docsy theme](https://www.docsy.dev/).
+This repository contains the source code for the [Neurodesk developer documentation website](https://neurodesk.org). It is built with [Hugo](https://gohugo.io/) and the [Docsy theme](https://www.docsy.dev/).
 
 We welcome contributions to:
 
@@ -58,7 +58,7 @@ We welcome contributions to:
 1. **Fork the repository** to your Github profil
 2. **Clone your fork** and create a new branch for your changes
 3. Make your edits in Markdown files under `content/en/`
-4. Preview the site locally (see `[Local Hugo Docsy page](https://www.neurodesk.org/developers/documentation/local-hugo-docsy/)` for more detailed instructions)
+4. Preview the site locally (see `[Local Hugo Docsy page](https://neurodesk.org/developers/documentation/local-hugo-docsy/)` for more detailed instructions)
 5. Submit a Pull Request
 
 Please follow our [content formatting templates](https://github.com/NeuroDesk/neurodesk.github.io/tree/main/.github/templates) when adding:

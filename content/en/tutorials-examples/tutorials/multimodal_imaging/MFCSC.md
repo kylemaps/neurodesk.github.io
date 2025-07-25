@@ -44,7 +44,7 @@ In short, MFCSC calculates the mismatch between connectomes generated from diffe
 
 1. Use the MEG connectivity tutorial to generate functional connectomes from your MEG data using MNE tools on Neurodesk (Tutorial in progress: https://github.com/benmslade/neurodesk.github.io/blob/main/content/en/tutorials/electrophysiology/meg_connectivity.md)
    
-2. Use the structul connectivity tutorial to generate structural connectomes from your dMRI data using MRtrix tools on Neurodesk (https://www.neurodesk.org/tutorials-examples/tutorials/structural_imaging/structuralconnectivity/)
+2. Use the structul connectivity tutorial to generate structural connectomes from your dMRI data using MRtrix tools on Neurodesk (https://neurodesk.org/tutorials-examples/tutorials/structural_imaging/structuralconnectivity/)
 
 3. Launch mfcsc from either "Neurodesk"-->"Diffusion Imaging --> mfsc --> mfcsc 1.1" or "Neurodesk"-->"Functional Imaging --> mfcsc --> mfcsc 1.1" in the start menu. 
 

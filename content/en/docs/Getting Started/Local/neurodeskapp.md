@@ -172,7 +172,7 @@ podman machine init --rootful --now -v /Volumes:/Volumes -v $HOME:$HOME podman-m
 ![Additional Directory](/static/docs/getting-started/neurodeskapp/additional_dir.png "Add data")
 
 {{< alert color="info">}}
-If you are using conda environments and you are installing packages or even new kernels, make sure to read this: https://www.neurodesk.org/tutorials-examples/tutorials/programming/conda/
+If you are using conda environments and you are installing packages or even new kernels, make sure to read this: https://neurodesk.org/tutorials-examples/tutorials/programming/conda/
 {{< /alert >}}
 
 ## Troubleshooting Neurodesk App

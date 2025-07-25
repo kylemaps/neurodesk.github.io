@@ -18,7 +18,7 @@ Please consult [this page](https://github.com/NeuroDesk/neurodesk.github.io/blob
 ### New Features
 - upgrade to jupyterhub 5.3.0
 - added nbgitpuller, tcsh
-- added neurodesk copilot: https://www.neurodesk.org/developers/neurodesk-copilot/
+- added neurodesk copilot: https://neurodesk.org/developers/neurodesk-copilot/
 - added qsirecon
 ### Improvements
 - updated niivue (with breaking interface change!)
@@ -282,7 +282,7 @@ Please consult [this page](https://github.com/NeuroDesk/neurodesk.github.io/blob
 - oshyx was updated to 0.3
 
 ## 20211220
-- neurodesktop can now be accessed via native RDP client as well (e.g. for multi-monitor support): https://www.neurodesk.org/docs/getting-started/neurodesktop/windows/#using-an-rdp-client
+- neurodesktop can now be accessed via native RDP client as well (e.g. for multi-monitor support): https://neurodesk.org/docs/getting-started/neurodesktop/windows/#using-an-rdp-client
 - there is a new Help button in the menu :)
 - updates of ants 2.3.4 (now includes Scripts as well, including antsCookTemplatePriors.sh) + newly added version 2.3.5
 - new version of [QSMxT](https://qsmxt.github.io/QSMxT/) 1.1.9 20211219
@@ -304,7 +304,7 @@ Please consult [this page](https://github.com/NeuroDesk/neurodesk.github.io/blob
 
 ## 20211018
 - added Rstudio, R and multiple R packages (plotly, car, tidyverse, ...)
-- added ClearSWI and ROMEO for MRI phase processing (including new Tutorials: https://www.neurodesk.org/tutorials-examples/tutorials/phase_processing/)
+- added ClearSWI and ROMEO for MRI phase processing (including new Tutorials: https://neurodesk.org/tutorials-examples/tutorials/phase_processing/)
 - added more categories in applications menu (Body, Electrophysiology, Hippocampus, Phase Processing, Rodent Imaging, Shape Analysis, Spine, Statistics)
 - bugfix: improved startup time of the desktop container (miniconda in homedirectory was causing chmod slowdown)
 - bugfix: ssh, vnc and rdp servers are now restarted in case the container was stopped and started again (e.g. on Standby)

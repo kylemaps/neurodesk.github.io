@@ -24,5 +24,5 @@ Neurodesktop comes packaged with:
 If you can't find an application in Neurodesktop's menu, you may need to [update Neurodesktop](/docs/getting-started/neurodesktop)<br>
 If you can't find an application on the Nectar Desktop Service, visit our [discussion forum](https://github.com/orgs/NeuroDesk/discussions) to create a request<br>
 For more information on data synchronization, visit our [Storage section](/docs/getting-started/neurodesktop/storage)<br>
-For guides and tutorials, refer to the respective [tutorial and examples](https://www.neurodesk.org/tutorials-examples/)<br>
+For guides and tutorials, refer to the respective [tutorial and examples](https://neurodesk.org/tutorials-examples/)<br>
 {{< /alert >}}

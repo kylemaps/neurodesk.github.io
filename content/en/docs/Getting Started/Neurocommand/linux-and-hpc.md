@@ -12,7 +12,7 @@ description: >
 
 
 ## Ways of using Neurocommand in Linux and HPC:
-1) You can use the module files for Neurocontainers directly via CVMFS: https://www.neurodesk.org/docs/getting-started/neurocontainers/cvmfs/
+1) You can use the module files for Neurocontainers directly via CVMFS: https://neurodesk.org/docs/getting-started/neurocontainers/cvmfs/
 2) or you can install Neurocommand as described here: 
 
 ## Requirements:
