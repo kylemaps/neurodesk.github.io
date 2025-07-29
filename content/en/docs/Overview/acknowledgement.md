@@ -37,6 +37,15 @@ This project is also supported by the **Australian Research Data Commons (ARDC)*
   <img src="/static/docs/overview/liege_uni_logo.png" width="120" alt="Liege">
 </div>
 
+This project is also supported by the **Australian National Imaging Facility (NIF)** via the **Foundational Digital Research Infrastructure Project**:  
+
+<div style="display:flex; gap:30px; flex-wrap:wrap; align-items:center; margin: 10px 0;">
+  <img src="/static/docs/overview/nif.png" width="120" alt="NIF">
+  <img src="/static/docs/overview/uq_logo.png" width="120" alt="UQ">
+</div>
+
+
+
 ## Infrastructure and Cloud Support
 
 This work benefits from services and infrastructure provided by:
