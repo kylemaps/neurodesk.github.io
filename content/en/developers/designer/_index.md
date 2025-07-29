@@ -179,7 +179,7 @@ Avoid the following incorrect variations:
 
 ### Slide Decks
 
-[Neurodesk Overview Slides - accessible for the Neurodesk team]([https://github.com/micmas/Scirich-font](https://uq-my.sharepoint.com/:p:/r/personal/uqmmasso_uq_edu_au/Documents/Documents/Neurodesk-slides/neurodesk-overview.pptx?d=we41da540a5444b82a7c7800c07200cee&csf=1&web=1&e=hyiRYO))
+[Neurodesk Overview Slides - accessible for the Neurodesk team](https://uq-my.sharepoint.com/:p:/r/personal/uqmmasso_uq_edu_au/Documents/Documents/Neurodesk-slides/neurodesk-overview.pptx?d=we41da540a5444b82a7c7800c07200cee&csf=1&web=1&e=hyiRYO)
 To request access, please email [mail.neurodesk@gmail.com](mailto:mail.neurodesk@gmail.com)
 
 ### Poster Template
