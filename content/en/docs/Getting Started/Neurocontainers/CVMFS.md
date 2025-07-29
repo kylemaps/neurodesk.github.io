@@ -62,6 +62,7 @@ These CVMFS Stratum 1 servers are hosted by the Open Science Grid and every serv
 - Sao Paulo, Brazil:         s1sampa-cvmfs.openhtc.io:8080    -> sampacs01.if.usp.br:8000
 - Nebraska, USA:             s1osggoc-cvmfs.openhtc.io:8080   -> cvmfs-s1goc.opensciencegrid.org:8000
 - New York, US:              s1bnl-cvmfs.openhtc.io:8080      -> cvmfs-s1bnl.opensciencegrid.org:8000
+- Oxford, UK:                s1ral-cvmfs.openhtc.io:8080      -> cvmfs-egi.gridpp.rl.ac.uk:8000
 
 This server is currently down:
 - Netherlands, Europe:       s1nikhef-cvmfs.openhtc.io:8080   -> cvmfs01.nikhef.nl:8000
@@ -83,14 +84,16 @@ This CMVFS Stratum 1 server is hosted by Jetstream:
 
 Then we have a one geolocation-steered domain: cvmfs-geoproximity.neurodesk.org
 - 153.02 (Longitude),-27.46 (Latitude) -> cvmfs-brisbane.neurodesk.org
-- 151.2073 (Longitude),-33.8678 (Latitude) -> cvmfs-sydney.neurodesk.org
+- 151.2073, -33.8678 -> cvmfs-sydney.neurodesk.org
 - 115.86,-31.95 -> cvmfs-perth.neurodesk.org
 - -88.30,41.84 -> cvmfs-s1fnal.opensciencegrid.org
 - -96.66,40.83 -> cvmfs-s1goc.opensciencegrid.org
+- -1.26, 51.75 -> cvmfs-egi.gridpp.rl.ac.uk
 - 4.90,52.37 -> cvmfs01.nikhef.nl
 - 8.68,50.11 -> ec2-3-72-92-91.eu-central-1.compute.amazonaws.com
 - -46.63,-23.54 -> sampacs01.if.usp.br
 - -86.45,39.22 -> cvmfs-jetstream.neurodesk.org
+- 145.13,-37.92 -> cvmfs-melbourne.neurodesk.org
 
 - Every location has a health check attached to it and doesn't forward to it if the destination is not working.
 
@@ -114,7 +117,6 @@ Default -> cvmfs-s1bnl.opensciencegrid.org
 Oceania -> cvmfs-perth.neurodesk.org
 
 These servers are currently NOT working and are NOT YET mirroring our repository (we are waiting for RAL to come back online, then the others will mirror that):
-- UK:                     s1ral-cvmfs.openhtc.io:8080       -> cvmfs-egi.gridpp.rl.ac.uk:8000
 - Swinburne, Australia:   s1swinburne-cvmfs.openhtc.io:8080 -> cvmfs-s1.hpc.swin.edu.au:8000
 - China:                  s1ihep-cvmfs.openhtc.io:8080      -> cvmfs-stratum-one.ihep.ac.cn:8000
 
