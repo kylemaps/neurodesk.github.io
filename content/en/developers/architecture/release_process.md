@@ -44,3 +44,25 @@ Follow these step-by-step instructions to generate and export the required Macos
 6. Right-click the imported certificate in "Keychain Access.", choose "Export" and save it in .p12 format.
 7. Convert the .p12 file to Base64 using the following command:
 `openssl base64 -in neurodesk_certificate.p12`
+
+### Update the GitHub Secrets for Publish workflow
+
+⚠️ **Security Note**: These values contain highly sensitive credentials. Never commit them to version control or share them publicly. Always store them as GitHub repository secrets.
+
+To set these secrets, go to your repository Settings → Secrets and variables → Actions → Repository secrets:
+
+**APPLEID**: Email address associated with your Apple Developer account
+- Found in: Your Apple ID account settings
+
+**APPLEIDPASS**: App-Specific Password for your Apple account
+- Found in: https://account.apple.com/ → Sign-In and Security → App-Specific Passwords
+- Generate a new one if needed for this specific use case
+
+**APPLE_TEAM_ID**: Your Apple Developer Team ID
+- Found in: https://developer.apple.com/ → Account name (top right corner) → View Membership → Membership Details section
+- Look for the "Team ID" field
+
+**CSC_KEY_PASSWORD**: The password you set when converting the certificate in the "Update MacOS certificate" section above
+
+**CSC_LINK**: Base64-encoded content of the .p12 certificate file
+- This is the output from the `openssl base64 -in neurodesk_certificate.p12` command in step 7 above
