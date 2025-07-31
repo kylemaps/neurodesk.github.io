@@ -19,7 +19,7 @@ description: >
 ## 3. Configure the crawler
 1. In the crawler settings, go to the "Editor" section under "SETUP".
 3. You can specify how the content should be indexed. It can override the default settings.
-{{< alert color="warning" >}}Make sure to configure `startUrls`, `discoveryPatterns`, `pathsToMatch` and other relevant settings to match the base URL for indexing.{{< /alert >}}
+{{< alert color="warning" >}}Make sure to configure `startUrls`, `discoveryPatterns`, `pathsToMatch` and other relevant settings to match the base URL for indexing. Redirect URLs would fail the crawler.{{< /alert >}}
 4. Run the crawler by clicking on "Run Test" in the top right corner.
 5. Once the test is successful, click on "Review and Publish" to start indexing the documentation.
 
