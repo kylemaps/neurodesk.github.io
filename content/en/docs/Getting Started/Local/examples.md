@@ -12,26 +12,56 @@ On this page we show specific examples of the different ways of how Neurodesk ca
 
 ## Highest level, and easiest option: Neurodeskapp
 
-Download the Neurodeskapp: https://github.com/NeuroDesk/neurodesk-app/releases/latest/download/NeurodeskApp-Setup-Debian-x64.deb
-Download Docker: https://docs.docker.com/engine/install
+Download Neurodeskapp: https://github.com/NeuroDesk/neurodesk-app/releases/latest/download/NeurodeskApp-Setup-Debian-x64.deb
 
-After installation, open a terminal (Linux/macOS) or command prompt (Windows) and run the following command to verify that Docker is working correctly:
+and Install:
+```
+sudo apt install ./NeurodeskApp-Setup-Debian-x64.deb
+```
+
+Install Docker:
+```
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+
+sudo chown root:docker /var/run/docker.sock
+sudo chmod 666 /var/run/docker.sock
+```
+
+After installation run the following command to verify that Docker is working correctly:
 
 ```bash
-docker --version
 docker run hello-world
 ```
 
-The Neurodeskapp can be launched directly from your operating system's application menu, or by running the `neurodeskapp` command in the command line.
+The Neurodeskapp can be launched directly from the application menu, or by running the `neurodeskapp` command in the command line.
 
 In the Neurodeskapp settings you can choose if you want to stream or download containers to your system.
+
 
 more information can be found here: https://neurodesk.org/docs/getting-started/local/neurodeskapp/
 
 
 ## High level: Running Neurodesktop via Docker manually
 
-Make sure you have Docker installed (see above), then run on a terminal:
+Make sure you have Docker installed (see above), then run in a terminal:
 
 {{< alert color="warning">}}
 If you run Ubuntu > 23.10 and you haven't installed the Neurodeskapp before you need to create this apparmor profile under /etc/apparmor.d/neurodeskapp
