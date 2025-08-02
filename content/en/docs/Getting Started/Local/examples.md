@@ -15,12 +15,12 @@ On this page we show specific examples of the different ways of how Neurodesk ca
 Download Neurodeskapp: https://github.com/NeuroDesk/neurodesk-app/releases/latest/download/NeurodeskApp-Setup-Debian-x64.deb
 
 and Install:
-```
+```bash
 sudo apt install ./NeurodeskApp-Setup-Debian-x64.deb
 ```
 
 Install Docker:
-```
+```bash
 # Add Docker's official GPG key:
 sudo apt-get update
 sudo apt-get install ca-certificates curl
@@ -77,7 +77,7 @@ profile neurodeskapp "/opt/NeurodeskApp/neurodeskapp" flags=(unconfined) {
 ```
 
 you also need to create the ~/neurodesktop-storage folder if you haven't used the app before:
-```
+```bash
 mkdir -p ~/neurodesktop-storage
 ```
 
@@ -94,7 +94,7 @@ sudo docker run \
   -e NEURODESKTOP_VERSION={{< params/neurodesktop/jupyter_neurodesk_version >}} vnmd/neurodesktop:{{< params/neurodesktop/jupyter_neurodesk_version >}}
 ```
 
-Then open the jupyter link displayed in your browser. It starts with http://127.0.0.1:8888/lab&token=... 
+Then open the jupyter link with the token displayed in your browser. Make sure it starts with 127.0.0.1:8888/lab&token=... 
 
 You can also add a flag to the docker command to activate the offline mode: -e CVMFS_DISABLE=true
 
@@ -104,7 +104,7 @@ more information can be found here: https://neurodesk.org/docs/getting-started/n
 
 For this you do not need Docker, but rather Apptainer or Singularity:
 
-```
+```bash
 sudo apt-get install -y software-properties-common
 sudo add-apt-repository -y ppa:apptainer/ppa
 sudo apt-get update
@@ -113,13 +113,13 @@ sudo apt-get install -y apptainer-suid
 ```
 
 Make sure you have Python configured on your system with pip3:
-```
+```bash
 sudo apt install python3-pip
 ```
 
 
 Then install neurocommand:
-```
+```bash
 cd ~
 git clone https://github.com/NeuroDesk/neurocommand.git 
 cd neurocommand 
@@ -130,7 +130,7 @@ export APPTAINER_BINDPATH=`pwd -P`
 ```
 
 now you can search and install containers:
-```
+```bash
 # this searches for containers and you can install individual containers by running the install commands displayed 
 bash containers.sh itksnap
 
@@ -139,24 +139,24 @@ bash containers.sh --itksnap
 ```
 
 then link the containers directory to the neurodesktop-storage:
-```
+```bash
 ln -s $PWD/local/containers/ ~/neurodesktop-storage/ 
 ```
 
 then you can install lmod:
-```
+```bash
 sudo apt install lmod
 ```
 
 and configure lmod:
 
 Create a the new file /usr/share/module.sh 
-```
+```bash
 sudo vi /usr/share/module.sh
 ```
 
 with the content:
-```
+```bash
 # system-wide profile.modules                                          #
 # Initialize modules for all sh-derivative shells                      #
 #----------------------------------------------------------------------#
@@ -174,12 +174,12 @@ trap - 1 2 3
 ```
 
 then add this to your ~/.bashrc:
-```
+```bash
 vi ~/.bashrc
 ```
 
 Add the following lines to your ~/.bashrc
-```
+```bash
 if [ -f '/usr/share/module.sh' ]; then source /usr/share/module.sh; fi
 
 if [ -d /cvmfs/neurodesk.ardc.edu.au/neurodesk-modules ]; then
@@ -192,13 +192,13 @@ fi
 
 
 then restart the terminal you can load and run the software using:
-```
+```bash
 ml itksnap
 itksnap
 ```
 
 If you need nvidia gpu support activate via exporting this environment variable:
-```
+```bash
 export neurodesk_singularity_opts='--nv'
 ```
 
@@ -212,7 +212,7 @@ more information: https://neurodesk.org/docs/getting-started/neurocommand/linux-
 for this you only need apptainer or singularity installed. See above for installation instructions.
 
 Then you can download a container and run it directly:
-```
+```bash
 #find out which containers are available:
 curl -s https://raw.githubusercontent.com/NeuroDesk/neurocommand/main/cvmfs/log.txt
 
@@ -225,7 +225,7 @@ itksnap
 ```
 
 if you need nvidia GPU support, add --nv:
-```
+```bash
 singularity shell --nv itksnap_3.8.0_20201208.simg
 itksnap
 ```
