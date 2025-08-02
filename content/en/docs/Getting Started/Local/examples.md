@@ -138,16 +138,68 @@ bash containers.sh itksnap
 bash containers.sh --itksnap
 ```
 
-then you can install lmod and use the applications:
+then link the containers directory to the neurodesktop-storage:
 ```
-sudo apt install lmod
-module use $PWD/local/containers/modules/
+ln -s $PWD/local/containers/ ~/neurodesktop-storage/ 
 ```
 
-then you can load and run the software using:
+then you can install lmod:
+```
+sudo apt install lmod
+```
+
+and configure lmod:
+
+Create a the new file /usr/share/module.sh 
+```
+sudo vi /usr/share/module.sh
+```
+
+with the content:
+```
+# system-wide profile.modules                                          #
+# Initialize modules for all sh-derivative shells                      #
+#----------------------------------------------------------------------#
+trap "" 1 2 3
+
+case "$0" in
+    -bash|bash|*/bash) . /usr/share/lmod/8.6.19/init/bash ;;
+       -ksh|ksh|*/ksh) . /usr/share/lmod/8.6.19/init/ksh ;;
+       -zsh|zsh|*/zsh) . /usr/share/lmod/8.6.19/init/zsh ;;
+          -sh|sh|*/sh) . /usr/share/lmod/8.6.19/init/sh ;;
+                    *) . /usr/share/lmod/8.6.19/init/sh ;;  # default for scripts
+esac
+
+trap - 1 2 3
+```
+
+then add this to your ~/.bashrc:
+```
+vi ~/.bashrc
+```
+
+Add the following lines to your ~/.bashrc
+```
+if [ -f '/usr/share/module.sh' ]; then source /usr/share/module.sh; fi
+
+if [ -d /cvmfs/neurodesk.ardc.edu.au/neurodesk-modules ]; then
+        module use /cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/*
+else
+        export MODULEPATH="~/neurodesktop-storage/containers/modules"              
+        module use $MODULEPATH
+fi
+```
+
+
+then restart the terminal you can load and run the software using:
 ```
 ml itksnap
 itksnap
+```
+
+If you need nvidia gpu support activate via exporting this environment variable:
+```
+export neurodesk_singularity_opts='--nv'
 ```
 
 If you do not want to download the containers you can also stream the containers using CVMFS: https://neurodesk.org/docs/getting-started/neurocontainers/cvmfs/
@@ -157,8 +209,26 @@ more information: https://neurodesk.org/docs/getting-started/neurocommand/linux-
 
 ## Low abstraction level: Use the containers on the terminal directly 
 
+for this you only need apptainer or singularity installed. See above for installation instructions.
 
+Then you can download a container and run it directly:
+```
+#find out which containers are available:
+curl -s https://raw.githubusercontent.com/NeuroDesk/neurocommand/main/cvmfs/log.txt
 
+#select a container and download it:
+export container=itksnap_3.8.0_20201208
+curl -X GET https://neurocontainers.neurodesk.org/$container.simg -O
+
+singularity shell itksnap_3.8.0_20201208.simg
+itksnap
+```
+
+if you need nvidia GPU support, add --nv:
+```
+singularity shell --nv itksnap_3.8.0_20201208.simg
+itksnap
+```
 
 More information about CVMFS (online) mode: https://neurodesk.org/docs/getting-started/neurocontainers/cvmfs/
 
