@@ -251,7 +251,12 @@ if you need nvidia GPU support, add --nv:
 singularity shell --nv itksnap_3.8.0_20201208.simg
 itksnap
 ```
+If you want to stream the containers, follow these instructions for setting up CVMFS: https://neurodesk.org/docs/getting-started/neurocontainers/cvmfs/
 
-More information about CVMFS (online) mode: https://neurodesk.org/docs/getting-started/neurocontainers/cvmfs/
+then you can run:
+```
+singularity shell /cvmfs/neurodesk.ardc.edu.au/containers/itksnap_3.8.0_20201208/itksnap_3.8.0_20201208.simg
+```
+and the container will be streamed to you :)
 
 More information about Download (offline) mode: https://neurodesk.org/docs/getting-started/neurocontainers/singularity/
