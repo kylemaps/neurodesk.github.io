@@ -98,6 +98,22 @@ Then open the jupyter link with the token displayed in your browser. Make sure i
 
 You can also add a flag to the docker command to activate the offline mode: -e CVMFS_DISABLE=true
 
+If you want to pass your GPU into the desktop, first install this on the host:
+```
+sudo apt install nvidia-container-toolkit -y
+```
+
+Then start the neurodesktop container with the GPU flag:
+```
+sudo docker run \
+  --shm-size=1gb -it --privileged --user=root --name neurodesktop \
+  -v ~/neurodesktop-storage:/neurodesktop-storage \
+  -e NB_UID="$(id -u)" -e NB_GID="$(id -g)" \
+  --gpus all \
+  -p 8888:8888 -e NEURODESKTOP_VERSION=2025-06-10 \
+  vnmd/neurodesktop:2025-06-10
+```
+
 more information can be found here: https://neurodesk.org/docs/getting-started/neurodesktop/linux/
 
 ## Middle abstraction level: Use the containers through wrapper scripts on the terminal through Neurocommand
