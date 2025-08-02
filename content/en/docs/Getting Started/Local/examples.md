@@ -59,7 +59,7 @@ In the Neurodeskapp settings you can choose if you want to stream or download co
 more information can be found here: https://neurodesk.org/docs/getting-started/local/neurodeskapp/
 
 
-## High level: Running Neurodesktop via Docker manually
+## High abstraction level: Running Neurodesktop via Docker manually
 If you run Ubuntu > 23.10 and you haven't installed the Neurodeskapp before you need to create this apparmor profile under /etc/apparmor.d/neurodeskapp
 ```bash
 # This profile allows everything and only exists to give the
@@ -76,7 +76,12 @@ profile neurodeskapp "/opt/NeurodeskApp/neurodeskapp" flags=(unconfined) {
 }
 ```
 
-Make sure you have Docker installed (see above), then run in a terminal:
+you also need to create the ~/neurodesktop-storage folder if you haven't used the app before:
+```
+mkdir -p ~/neurodesktop-storage
+```
+
+Make sure you have Docker installed and configured correctly (see Neurodeskapp for instructions), then run in a terminal:
 
 ```bash
 docker volume create neurodesk-home &&
@@ -89,16 +94,72 @@ sudo docker run \
   -e NEURODESKTOP_VERSION={{< params/neurodesktop/jupyter_neurodesk_version >}} vnmd/neurodesktop:{{< params/neurodesktop/jupyter_neurodesk_version >}}
 ```
 
-Then open the jupyter link in your browser. You can also add a flag to the docker command to activate the offline mode: -e CVMFS_DISABLE=true
+Then open the jupyter link displayed in your browser. It starts with http://127.0.0.1:8888/lab&token=... 
+
+You can also add a flag to the docker command to activate the offline mode: -e CVMFS_DISABLE=true
 
 more information can be found here: https://neurodesk.org/docs/getting-started/neurodesktop/linux/
 
-## Middle level: Use the containers through wrapper scripts on the terminal through Neurocommand
+## Middle abstraction level: Use the containers through wrapper scripts on the terminal through Neurocommand
+
+For this you do not need Docker, but rather Apptainer or Singularity:
+
+```
+sudo apt-get install -y software-properties-common
+sudo add-apt-repository -y ppa:apptainer/ppa
+sudo apt-get update
+sudo apt-get install -y apptainer
+sudo apt-get install -y apptainer-suid
+```
+
+Make sure you have Python configured on your system with pip3:
+```
+sudo apt install python3-pip
+```
+
+
+Then install neurocommand:
+```
+cd ~
+git clone https://github.com/NeuroDesk/neurocommand.git 
+cd neurocommand 
+python3 -m venv ./venv
+./venv/bin/pip3 install -r neurodesk/requirements.txt
+bash build.sh --cli
+export APPTAINER_BINDPATH=`pwd -P`
+```
+
+now you can search and install containers:
+```
+# this searches for containers and you can install individual containers by running the install commands displayed 
+bash containers.sh itksnap
+
+# this installs all containers matching the pattern itksnap
+bash containers.sh --itksnap
+```
+
+then you can install lmod and use the applications:
+```
+sudo apt install lmod
+module use $PWD/local/containers/modules/
+```
+
+then you can load and run the software using:
+```
+ml itksnap
+itksnap
+```
+
+If you do not want to download the containers you can also stream the containers using CVMFS: https://neurodesk.org/docs/getting-started/neurocontainers/cvmfs/
 
 more information: https://neurodesk.org/docs/getting-started/neurocommand/linux-and-hpc/
 
 
-## Low level: Use the containers on the terminal directly 
+## Low abstraction level: Use the containers on the terminal directly 
+
+
+
 
 More information about CVMFS (online) mode: https://neurodesk.org/docs/getting-started/neurocontainers/cvmfs/
+
 More information about Download (offline) mode: https://neurodesk.org/docs/getting-started/neurocontainers/singularity/
