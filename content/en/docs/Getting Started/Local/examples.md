@@ -10,7 +10,7 @@ On this page we show specific examples of the different ways of how Neurodesk ca
 
 # Running Neurodesk on a Ubuntu 24.04 computer
 
-## Highest level, and easiest option: Neurodeskapp
+## Highest abstraction level, and easiest option: Neurodeskapp
 
 Download Neurodeskapp: https://github.com/NeuroDesk/neurodesk-app/releases/latest/download/NeurodeskApp-Setup-Debian-x64.deb
 
@@ -60,10 +60,6 @@ more information can be found here: https://neurodesk.org/docs/getting-started/l
 
 
 ## High level: Running Neurodesktop via Docker manually
-
-Make sure you have Docker installed (see above), then run in a terminal:
-
-{{< alert color="warning">}}
 If you run Ubuntu > 23.10 and you haven't installed the Neurodeskapp before you need to create this apparmor profile under /etc/apparmor.d/neurodeskapp
 ```bash
 # This profile allows everything and only exists to give the
@@ -79,7 +75,8 @@ profile neurodeskapp "/opt/NeurodeskApp/neurodeskapp" flags=(unconfined) {
   include if exists <local/neurodeskapp>
 }
 ```
-{{< /alert >}}
+
+Make sure you have Docker installed (see above), then run in a terminal:
 
 ```bash
 docker volume create neurodesk-home &&
