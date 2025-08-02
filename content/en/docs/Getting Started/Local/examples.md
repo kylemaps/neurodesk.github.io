@@ -10,6 +10,12 @@ On this page we show specific examples of the different ways of how Neurodesk ca
 
 # Running Neurodesk on a Ubuntu 24.04 computer
 
+On a linux machine you have mutliple options to use Neurodesk:
+1) Highest abstraction level, and easiest option: Neurodeskapp - this provides you a full Linux desktop with everything configured you need. You do not need to think about Docker or Singularity containers and you can just get your work done. This is the recommended option.
+2) High abstraction level: Running Neurodesktop via Docker manually - you still get the desktop with everything configured, but you now have to manage the docker container yourself. This is useful when the app doesn't work well - for example in a remote SSH setup.
+3) Middle abstraction level: Use the containers through wrapper scripts on the terminal through Neurocommand - this is great if you don't need a full desktop environment and you want to use the neurodesk tools in your scripts. Neurocommand handles multiple containers for you and you just run your tools as you are used to without having to think about the fact that they are running in singularity/apptainer containers
+4) Low abstraction level: Use the containers on the terminal directly - if you just want ot use the containers directly and you want to do everything yourself, that's the best option for you :)
+
 ## Highest abstraction level, and easiest option: Neurodeskapp
 
 Download Neurodeskapp: https://github.com/NeuroDesk/neurodesk-app/releases/latest/download/NeurodeskApp-Setup-Debian-x64.deb
