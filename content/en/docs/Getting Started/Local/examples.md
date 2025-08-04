@@ -121,8 +121,8 @@ sudo docker run \
   -v ~/neurodesktop-storage:/neurodesktop-storage \
   -e NB_UID="$(id -u)" -e NB_GID="$(id -g)" \
   --gpus all \
-  -p 8888:8888 -e NEURODESKTOP_VERSION=2025-06-10 \
-  vnmd/neurodesktop:2025-06-10
+  -p 8888:8888 \
+  -e NEURODESKTOP_VERSION={{< params/neurodesktop/jupyter_neurodesk_version >}} vnmd/neurodesktop:{{< params/neurodesktop/jupyter_neurodesk_version >}}
 ```
 
 more information can be found here: https://neurodesk.org/docs/getting-started/neurodesktop/linux/
