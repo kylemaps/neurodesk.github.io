@@ -111,7 +111,19 @@ docker rm neurodesktop
 
 If you want to pass your GPU into the desktop, first install this on the host:
 ```
-sudo apt install nvidia-container-toolkit -y
+# Manually set the distribution to ubuntu22.04 (works with Ubuntu 24.04) - because it doens't exist yet for 24.04
+distribution="ubuntu22.04"
+
+# Add the NVIDIA container toolkit repo using the 22.04 version
+curl -s -L https://nvidia.github.io/libnvidia-container/$distribution/libnvidia-container.list | \
+  sed 's|^deb |deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit.gpg] |' | \
+  sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list > /dev/null
+
+# Update package lists
+sudo apt update
+sudo apt install -y nvidia-container-toolkit
+sudo nvidia-ctk runtime configure --runtime=docker
+sudo systemctl restart docker
 ```
 
 Then start the neurodesktop container with the GPU flag:
@@ -123,6 +135,11 @@ sudo docker run \
   --gpus all \
   -p 8888:8888 \
   -e NEURODESKTOP_VERSION={{< params/neurodesktop/jupyter_neurodesk_version >}} vnmd/neurodesktop:{{< params/neurodesktop/jupyter_neurodesk_version >}}
+```
+
+then export the --nv flag
+```
+export neurodesk_singularity_opts="--nv" 
 ```
 
 more information can be found here: https://neurodesk.org/docs/getting-started/neurodesktop/linux/
