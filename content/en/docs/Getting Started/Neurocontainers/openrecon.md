@@ -60,7 +60,7 @@ You have a GitHub account (public github.com required, so that a container can b
 
 ## Process
 1.	Fork neurodesk/neurocontainers to your personal GitHub account (Go to https://github.com/neurodesk/neurocontainers, in the upper right click “Fork”, if prompted, fork to your personal GitHub account.
-2.	After forking, go to your forked repo, e.g.: https://github.com/YOUR_USERNAME/neurocontainers
+2.	After forking, go to your forked repo, e.g.: github.com/YOUR_GITHUB_USERNAME/neurocontainers
 3.	Create a new codespace (In your forked repo, click the green <> Code button, Select “Create codespace on master”)
 4.	In the terminal created, run neurodocker --version and you should see something like 2.0.0, good!
 5.	Still in the terminal, cd recipes, mkdir projectname (replace with your project name), copy files from recipes/openreconexample to this new directory to give us something to start from
