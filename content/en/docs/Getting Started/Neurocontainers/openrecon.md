@@ -42,5 +42,10 @@ python3 /opt/code/python-ismrmrd-server/main.py -v -r -H=0.0.0.0 -p=9002 -s -S=/
 python3 /opt/code/python-ismrmrd-server/client.py -G dataset -o openrecon_output.h5 input_data.h5
 ```
 
-## 3) submit the container to the https://github.com/NeuroDesk/openrecon/ repository
+## 3) submit the container-recipe to the https://github.com/NeuroDesk/neurocontainers/ repository
+here is an example: https://github.com/NeuroDesk/neurocontainers/tree/main/recipes/openreconexample
+
+Then the container gets build automatically.
+
+## 4) submit the container to the https://github.com/NeuroDesk/openrecon/ repository
 here is an example: https://github.com/NeuroDesk/openrecon/tree/main/recipes/openreconexample
