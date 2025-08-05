@@ -65,21 +65,14 @@ In the Neurodeskapp settings you can choose if you want to stream or download co
 more information can be found here: https://neurodesk.org/docs/getting-started/local/neurodeskapp/
 
 
+
+
+
+
 ## High abstraction level: Running Neurodesktop via Docker manually
 If you run Ubuntu > 23.10 and you haven't installed the Neurodeskapp before you need to create this apparmor profile under /etc/apparmor.d/neurodeskapp
 ```bash
-# This profile allows everything and only exists to give the
-# application a name instead of having the label "unconfined"
-
-abi <abi/4.0>,
-include <tunables/global>
-
-profile neurodeskapp "/opt/NeurodeskApp/neurodeskapp" flags=(unconfined) {
-  userns,
-
-  # Site-specific additions and overrides. See local/README for details.
-  include if exists <local/neurodeskapp>
-}
+echo -e "# This profile allows everything and only exists to give the\n# application a name instead of having the label \"unconfined\"\n\nabi <abi/4.0>,\ninclude <tunables/global>\n\nprofile neurodeskapp \"/opt/NeurodeskApp/neurodeskapp\" flags=(unconfined) {\n  userns,\n\n  # Site-specific additions and overrides. See local/README for details.\n  include if exists <local/neurodeskapp>\n}" | sudo tee /etc/apparmor.d/neurodeskapp
 ```
 
 you also need to create the ~/neurodesktop-storage folder if you haven't used the app before:
@@ -105,12 +98,12 @@ Then open the jupyter link with the token displayed in your browser. Make sure i
 You can also add a flag to the docker command to activate the offline mode: -e CVMFS_DISABLE=true
 
 when finished, make sure to delete the container - otherwise, you will get an error the next time you run the docker command:
-```
+```bash
 docker rm neurodesktop
 ```
 
 If you want to pass your GPU into the desktop, first install this on the host:
-```
+```bash
 # Manually set the distribution to ubuntu22.04 (works with Ubuntu 24.04) - because it doens't exist yet for 24.04
 distribution="ubuntu22.04"
 
@@ -127,7 +120,7 @@ sudo systemctl restart docker
 ```
 
 Then start the neurodesktop container with the GPU flag:
-```
+```bash
 sudo docker run \
   --shm-size=1gb -it --privileged --user=root --name neurodesktop \
   -v ~/neurodesktop-storage:/neurodesktop-storage \
@@ -138,11 +131,15 @@ sudo docker run \
 ```
 
 then export the --nv flag
-```
+```bash
 export neurodesk_singularity_opts="--nv" 
 ```
 
 more information can be found here: https://neurodesk.org/docs/getting-started/neurodesktop/linux/
+
+
+
+
 
 ## Middle abstraction level: Use the containers through wrapper scripts on the terminal through Neurocommand
 
@@ -194,45 +191,45 @@ sudo apt install lmod
 
 and configure lmod:
 
-Create a the new file /usr/share/module.sh 
 ```bash
-sudo vi /usr/share/module.sh
-```
-
-with the content:
-```bash
+# Create the module.sh file
+sudo bash -c 'cat > /usr/share/module.sh << "EOL"
 # system-wide profile.modules                                          #
 # Initialize modules for all sh-derivative shells                      #
 #----------------------------------------------------------------------#
 trap "" 1 2 3
 
 case "$0" in
-    -bash|bash|*/bash) . /usr/share/lmod/8.6.19/init/bash ;;
-       -ksh|ksh|*/ksh) . /usr/share/lmod/8.6.19/init/ksh ;;
-       -zsh|zsh|*/zsh) . /usr/share/lmod/8.6.19/init/zsh ;;
-          -sh|sh|*/sh) . /usr/share/lmod/8.6.19/init/sh ;;
-                    *) . /usr/share/lmod/8.6.19/init/sh ;;  # default for scripts
+  -bash|bash|*/bash) . /usr/share/lmod/8.6.19/init/bash ;;
+     -ksh|ksh|*/ksh) . /usr/share/lmod/8.6.19/init/ksh ;;
+     -zsh|zsh|*/zsh) . /usr/share/lmod/8.6.19/init/zsh ;;
+      -sh|sh|*/sh) . /usr/share/lmod/8.6.19/init/sh ;;
+          *) . /usr/share/lmod/8.6.19/init/sh ;;  # default for scripts
 esac
 
 trap - 1 2 3
+EOL'
 ```
 
-then add this to your ~/.bashrc:
+then add the module setup to your ~/.bashrc:
 ```bash
-vi ~/.bashrc
-```
-
-Add the following lines to your ~/.bashrc
-```bash
+cat >> ~/.bashrc << 'EOL'
 if [ -f '/usr/share/module.sh' ]; then source /usr/share/module.sh; fi
 
 if [ -d /cvmfs/neurodesk.ardc.edu.au/neurodesk-modules ]; then
-        module use /cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/*
+  module use /cvmfs/neurodesk.ardc.edu.au/neurodesk-modules/*
 else
-        export MODULEPATH="~/neurodesktop-storage/containers/modules"              
-        module use $MODULEPATH
+  export MODULEPATH="~/neurodesktop-storage/containers/modules"              
+  module use $MODULEPATH
 fi
+EOL
 ```
+
+make sure you have set the APPTAINER_BINDPATH to all directories that you want the containers to access
+```
+export APPTAINER_BINDPATH=`/data,/scratch`
+```
+you can also add this to your ~/.bashrc
 
 
 then restart the terminal you can load and run the software using:
@@ -245,6 +242,14 @@ If you need nvidia gpu support activate via exporting this environment variable:
 ```bash
 export neurodesk_singularity_opts='--nv'
 ```
+
+If you get errors like this:
+```
+/opt/itksnap-4.0.2/lib/snap-4.0.2/ITK-SNAP: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.38' not found (required by /.singularity.d/libs/libGLX.so.0)
+/opt/itksnap-4.0.2/lib/snap-4.0.2/ITK-SNAP: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.38' not found (required by /.singularity.d/libs/libEGL.so.1)
+/opt/itksnap-4.0.2/lib/snap-4.0.2/ITK-SNAP: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.38' not found (required by /.singularity.d/libs/libGLdispatch.so.0)
+```
+This means that the glibc versions inside the container and outside the container are not compatible. You can either disable the GPU flag --nv or use a newer version of the container.
 
 If you do not want to download the containers you can also stream the containers using CVMFS: https://neurodesk.org/docs/getting-started/neurocontainers/cvmfs/
 
