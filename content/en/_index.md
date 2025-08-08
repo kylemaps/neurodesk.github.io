@@ -179,3 +179,5 @@ linktitle: Neurodesk
 		</div>
 	</div>
 </section>
+
+<script src="/static/js/command.js"></script>

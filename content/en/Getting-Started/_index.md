@@ -118,6 +118,7 @@ description: >
 		</div>
 	</div>
 </section>
+
 <script src="/static/js/command.js"></script>
 
 ## Release
