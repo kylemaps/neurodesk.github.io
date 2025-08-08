@@ -30,7 +30,7 @@ linktitle: Neurodesk
 
 <section>
 	<div style="text-align: center;">
-    <h1 class="mt-0 mt-md-5 pb-2">Neurodesk, both a notebook and desktop environement</h1>
+    <h1 class="mt-0 mt-md-5 pb-2">Neurodesk, both a notebook and desktop environement </h1>
 		<img src="static/favicons/neurodesk.gif" alt="Animated Neurodesk diagram" style="width: 100%; max-width: 1200px;" />
 	</div>
 </section>
