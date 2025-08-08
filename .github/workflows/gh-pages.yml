@@ -90,10 +90,18 @@ jobs:
               --baseURL "${BASE_URL}"
           fi
 
-      # - name: Add custom domain
-      #   if: github.repository == 'neurodesk/neurodesk.github.io'
-      #   run: cp ./static/CNAME ./public/CNAME
-
+      - name: Patch download link (main repo only)
+        run: |
+          if [[ "$GITHUB_REPOSITORY" == "neurodesk/neurodesk.github.io" ]]; then
+            sed -i 's/OLD/NEW/' content/en/docs/Getting\ Started/Local/neurodeskapp.md
+          fi
+      
+      - name: Add custom domain (main repo only)
+        run: |
+          if [[ "$GITHUB_REPOSITORY" == "neurodesk/neurodesk.github.io" ]]; then
+            cp ./static/CNAME ./public/CNAME
+          fi
+          
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3.0.1
         with:
