@@ -5,6 +5,7 @@ weight: 1
 aliases:
 - /docs/getting-started/neurodesktop/neurodeskapp/ 
 - /docs/getting-started/local/neurodeskapp
+- docs/Getting-Started/Local/neurodeskapp
 description: >
   A cross-platform desktop application for Neurodesk: The easiest way to use Neurodesktop
 ---
