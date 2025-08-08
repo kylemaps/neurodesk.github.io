@@ -2,6 +2,8 @@
 title: "Github Codespaces"
 linkTitle: "Github"
 weight: 1
+alias: 
+- /docs/getting-started/hosted/github
 description: >
   Use Neurodesk on GitHub Codespaces
 ---

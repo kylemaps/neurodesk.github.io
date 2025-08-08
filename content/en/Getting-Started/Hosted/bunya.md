@@ -2,6 +2,8 @@
 title: "Bunya"
 linkTitle: "Bunya"
 weight: 2
+alias: 
+- /docs/getting-started/hosted/bunya
 description: >
   Use Neurodesk on Bunya (only for researchers with access to Bunya!)
 ---

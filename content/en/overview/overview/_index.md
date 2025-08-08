@@ -2,6 +2,10 @@
 title: "Neurodesk Overview"
 linkTitle: "Overview"
 weight: 1
+menu:
+  main:
+    weight: 9
+    
 aliases:
 - /docs/overview/
 - /docs

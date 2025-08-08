@@ -5,6 +5,7 @@ weight: 10
 aliases:
 - /docs/neurodesktop/getting-started/nectar
 - /docs/getting-started/neurodesktop/nectar
+- /docs/getting-started/hosted/nectar
 description: >
   Run neurodesktop in the Nectar Virtual Desktop Service (For all Australian Researchers)
 ---

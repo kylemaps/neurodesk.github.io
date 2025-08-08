@@ -7,6 +7,8 @@ weight: 13
 aliases:
 - /docs/neurodesktop/getting-started/play
 - /docs/getting-started/neurodesktop/play
+- /docs/getting-started/hosted/play
+
 # description: >
 #   Neurodesk Play is a publicly available service for accessing Neurodesk without any setup
 ---

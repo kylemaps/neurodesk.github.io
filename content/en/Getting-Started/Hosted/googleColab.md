@@ -4,6 +4,8 @@ linkTitle: "Google Colab"
 aliases:
 - /docs/getting-started/neurocontainers/googleColab
 - /docs/getting-started/neurocontainers/googlecolab
+- /docs/getting-started/hosted/googlecolab
+
 description: >
   Neurodesk Singularity Containers for Google Colab
 ---
