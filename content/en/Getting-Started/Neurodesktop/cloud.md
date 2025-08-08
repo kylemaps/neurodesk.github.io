@@ -4,6 +4,8 @@ linkTitle: "Cloud"
 weight: 5
 aliases:
 - /docs/neurodesktop/getting-started/cloud
+- /docs//getting-started/neurodesktop/cloud
+
 description: >
   Run neurodesktop on cloud computing resources
 ---

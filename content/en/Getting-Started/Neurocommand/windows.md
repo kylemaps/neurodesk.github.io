@@ -2,6 +2,8 @@
 title: "Windows"
 linkTitle: "Windows"
 weight: 2
+aliases: 
+- /docs/getting-started/windows
 description: >
   Install neurocommand on Windows
 ---

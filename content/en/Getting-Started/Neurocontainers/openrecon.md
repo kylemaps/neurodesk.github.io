@@ -1,6 +1,9 @@
 ---
 title: "Open Recon"
 linkTitle: "Open Recon"
+aliases:
+- /docs/getting-started/neurocontainers/openrecon
+
 description: >
   Neurodesktop containers can be used in Open Recon
 ---

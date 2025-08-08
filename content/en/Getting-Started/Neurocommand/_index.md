@@ -4,6 +4,7 @@ linkTitle: "Neurocommand"
 weight: 5
 aliases:
 - /docs/neurocommand
+- /docs/getting-started/neurocommand
 description: >
   For more advanced users who prefer a command-line interface
 ---

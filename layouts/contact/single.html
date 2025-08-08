@@ -1,0 +1,33 @@
+{{ define "main" }}
+<main class="container my-5">
+  <h1>{{ .Title }}</h1>
+
+  <p>{{ .Params.description }}</p>
+
+  <form action="https://api.web3forms.com/submit" method="POST" id="form">
+    <input type="hidden" name="access_key" value="7ebf7eec-3188-470d-a753-6ce889138dd2">
+    <input type="hidden" name="subject" value="New Submission from Web3Forms">
+    <input type="checkbox" name="botcheck" id="" style="display: none;">
+
+    <div class="mb-3">
+      <label for="email">Email</label>
+      <input class="form-control" type="email" name="email" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="name">Name</label>
+      <input class="form-control" type="text" name="name" required>
+    </div>
+
+
+    <div class="mb-3">
+      <label for="message">Message</label>
+      <textarea class="form-control" name="message" required></textarea>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+
+    <div id="result" class="mt-3"></div>
+  </form>
+</main>
+{{ end }}

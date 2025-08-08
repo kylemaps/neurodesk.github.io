@@ -1,12 +1,14 @@
 ---
 title: "Get started with Neurodesk"
 linkTitle: "Getting Started"
-weight: 1
+weight: 20
 menu:
   main:
-    weight: 9
+    weight: 20
+
 alias: 
 - /docs/getting-started/
+
 description: >
 ---
 

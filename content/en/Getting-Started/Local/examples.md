@@ -2,6 +2,8 @@
 title: "Examples"
 linkTitle: "Examples"
 weight: 1
+aliases: 
+- /docs/getting-started/local/examples
 description: >
   Installation Examples
 ---

@@ -5,6 +5,8 @@ weight: 6
 aliases: 
 - /docs/neurodesktop/storage/
 - /docs/getting-started/storage
+- /docs//getting-started/neurodesktop/storage
+
 description: >
   Add storage to Neurodesktop
 ---

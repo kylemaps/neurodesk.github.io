@@ -4,6 +4,8 @@ linkTitle: "Linux"
 weight: 2
 aliases:
 - /docs/neurodesktop/getting-started/linux
+- /docs//getting-started/neurodesktop/linux
+
 description: >
   Install neurodesktop on Linux
 ---

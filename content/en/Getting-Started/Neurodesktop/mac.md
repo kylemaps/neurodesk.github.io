@@ -4,6 +4,8 @@ linkTitle: "MacOS"
 weight: 2
 aliases:
 - /docs/neurodesktop/getting-started/mac
+- /docs//getting-started/neurodesktop/mac
+
 description: >
   Install neurodesktop on MacOS
 ---
