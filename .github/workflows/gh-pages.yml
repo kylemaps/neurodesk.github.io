@@ -80,7 +80,7 @@ jobs:
             sed -i "s|canonifyURLs=true|canonifyURLs=false|g" config.toml
             sed -i "s|/static/|/neurodesk.github.io/static/|g" content/en/_index.md
             [ -f content/en/Getting-Started/Local/neurodeskapp.md ] && sed -i "s|/static/|/neurodesk.github.io/static/|g" content/en/Getting-Started/Local/neurodeskapp.md
-            sed -i "s|/static/|/neurodesk.github.io/static/|g" content/en/overview/acknowledgements.md
+            [ -f content/en/overview/acknowledgement.md ] && sed -i "s|/static/|/neurodesk.github.io/static/|g" content/en/overview/acknowledgement.md
             sed -i "s|/static/|/neurodesk.github.io/static/|g" content/en/overview/metrics.md
             # Construct the base URL for forks
             BASE_URL="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
