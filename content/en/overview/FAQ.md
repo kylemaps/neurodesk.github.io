@@ -105,6 +105,43 @@ Then "Start My Server"
 Open Docker Desktop Dashboard. Find the container under "Containers" and delete the Container there.
 
 ## **Troubleshooting Common Issues**
+### I get an error "Failed to create session. Check if Docker is running and try again." when I try to launch Neurdesk App locally.
+
+1\. You tried to open your Neurodesk locally.
+
+![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-08/3ac1350a-578b-4478-87b6-fa99d3c54dd1/ascreenshot.jpeg?tl_px=356,288&br_px=1732,1057&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=524,276)
+
+
+In this case, Neurodesk is not opening because Docker isn't running.
+
+![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-08/735df0ec-8bbe-4c5e-bab7-c41f3cb0667b/screenshot.webp?tl_px=0,0&br_px=4102,2622&force_format=jpeg&q=100&width=1120.0)
+
+
+2\. Simply turn launch Docker (no need to sign in).
+
+![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-08/bd48abb9-c575-4364-af6e-aaa5d8d1c770/user_cropped_screenshot.webp?tl_px=0,0&br_px=2157,1213&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=214,80)
+
+
+3\. Then you can go back to the Neurodesk Welcome Page
+
+![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-08/2516a0f0-076e-49ef-8878-276f6775c5ac/ascreenshot.jpeg?tl_px=621,553&br_px=1998,1322&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=524,276)
+
+
+4\. Launch Neurodesk locally
+
+![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-08/b894f5a9-f21c-47f8-87b2-eb53c2df8f72/ascreenshot.jpeg?tl_px=334,290&br_px=1711,1059&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=524,277)
+
+
+5\. Neurodesk should now open normally. In the top right corner, you can access the settings and also check for updates.
+
+![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-08/4b29f8de-7614-4506-987d-d16d3137872d/user_cropped_screenshot.webp?tl_px=216,0&br_px=1592,769&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=683,67)
+
+
+6\. As we see here, Neurodesk needs to be updated. That can be done on the [neurodesk.org](https://neurodesk.org) website.
+
+![](https://ajeuwbhvhr.cloudimg.io/https://colony-recorder.s3.amazonaws.com/files/2025-08-08/5bac7639-c9b6-44bb-8aca-32a605437bc9/ascreenshot.jpeg?tl_px=768,260&br_px=2144,1029&force_format=jpeg&q=100&width=1120.0&wat=1&wat_opacity=0.7&wat_gravity=northwest&wat_url=https://colony-recorder.s3.us-west-1.amazonaws.com/images/watermarks/FB923C_standard.png&wat_pad=524,277)
+
+
 ### Freeview 7.2.0 crashes when I open files
 Freeview (and Freesurfer!) need a valid license to work and we are not allowed to distribute a license with Neurodesk!
 
