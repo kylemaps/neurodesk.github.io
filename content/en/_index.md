@@ -12,7 +12,7 @@ linktitle: Neurodesk
                 <div class="mt-4 mb-5">
                     <a class="btn btn-lg btn-light me-2 mb-3" href="docs/support/faq/#what-is-neurodesk">
                         Neurodesk FAQ</a>
-                    <a class="btn btn-lg btn-light me-2 mb-3" href="tutorials-examples/examples">
+                    <a class="btn btn-lg btn-light me-2 mb-3" href="https://neurodesk.org/example-notebooks/intro.html">
                         <i class="fa fa-book"></i> See Examples</a>
 			<a class="btn btn-lg btn-light me-2 mb-3" href="docs/getting-started/local/neurodeskapp/">
                         <i class="fa fa-laptop"></i> Use Locally</a>
