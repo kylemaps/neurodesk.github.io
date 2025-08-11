@@ -28,18 +28,19 @@ linktitle: Neurodesk
 </section>
 
 
-<section>
-	<div style="text-align: center;">
-    <h1 class="mt-0 mt-md-5 pb-2">Neurodesk brings neuroimaging analyses in notebooks and virtual desktops</h1>
-		<div class="gif-container" style="position: relative; width: 100%; max-width: 1200px; margin: 0 auto;">
-			<img src="static/favicons/neurodesk.jpeg"
-				 class="placeholder-image"
-				 alt="Neurodesk overview placeholder"
-				 style="position: absolute; top: 0; left: 0; width: 100%; height: auto;">
-			<img src="static/favicons/neurodesk.gif" 
-				 alt="Neurodesk overview video"
-				 onload="this.previousElementSibling.style.display='none';"
-				 style="position: relative; width: 100%; height: auto;">
+<section class="container-fluid">
+	<div class="row justify-content-center">
+		<div class="col-12 text-center">
+			<h1 class="mt-0 mt-md-5 pb-4">Neurodesk brings neuroimaging analyses in notebooks and virtual desktops</h1>
+			<div class="position-relative" style="max-width: 1200px; margin: 0 auto;">
+				<img src="static/favicons/neurodesk.jpeg"
+					class="w-100 h-auto position-absolute top-0 start-0"
+					alt="Neurodesk overview placeholder">
+				<img src="static/favicons/neurodesk.gif" 
+					class="w-100 h-auto position-relative"
+					alt="Neurodesk overview video"
+					onload="this.previousElementSibling.style.display='none';">
+			</div>
 		</div>
 	</div>
 </section>
@@ -62,44 +63,43 @@ linktitle: Neurodesk
 			<div class="col-12 col-xl-11 component-col">
 				<div class="row justify-content-center">
 					<div class="col-12 col-sm-10 col-md-4 col-lg-4 mb-4">
-						<div class="component-card desktop">
+						<div class="component-card desktop d-flex flex-column">
 							<a class="component-click-btn" href="/docs/getting-started/neurodesktop/">
 								<div class="card-body">
-										<i class=" fa fa-window-maximize"></i>
+										<i class="fa fa-window-maximize"></i>
 									<h4>Neurodesktop</h4>
 									<p class="card-summary">Fully featured desktop in a container</p>
 								</div>
-								<div class="image-wrapper">
-									<img src="/static/favicons/neurodesktop.png" alt="Neurodesktop" style="width: 100%; height: auto;" />
+								<div class="image-wrapper mt-auto">
+									<img src="/static/favicons/neurodesktop.png" alt="Neurodesktop" class="img-fluid" />
 								</div>
 							</a>
 						</div>
 					</div>
 					<div class="col-12 col-sm-10 col-md-4 col-lg-4 mb-4">
-						<div class="component-card containers">
+						<div class="component-card containers d-flex flex-column">
 							<a class="component-click-btn" href="/docs/getting-started/neurocontainers/">
 								<div class="card-body">
 									<i class="fas fa-layer-group"></i>
 									<h4>Neurocontainers</h4>
 									<p class="card-summary">Software container library</p>
 								</div>
-								<div class="image-wrapper">
-									<img src="/static/favicons/neurocontainer.png" alt="neurocontainer" style="width: 100%; height: auto;" />
+								<div class="image-wrapper mt-auto">
+									<img src="/static/favicons/neurocontainer.png" alt="neurocontainer" class="img-fluid" />
 								</div>
 							</a>
 						</div>
 					</div>
 					<div class="col-12 col-sm-10 col-md-4 col-lg-4 mb-4">
-						<div class="component-card command">
-							<a class="component-click-btn" href="/neurodesk.github.io/docs/getting-started/neurocommand/">
+						<div class="component-card command d-flex flex-column">
 							<a class="component-click-btn" href="/neurodesk.github.io/docs/getting-started/neurocommand/">
 								<div class="card-body">
 									<i class="fas fa-terminal"></i>
 									<h4>Neurocommand</h4>
 									<p class="card-summary">Core installer</p>
 								</div>
-								<div class="image-wrapper">
-									<img class="neurocommand" src="/static/favicons/neurocommand.png"
+								<div class="image-wrapper mt-auto">
+									<img class="neurocommand img-fluid" src="/static/favicons/neurocommand.png"
 										alt="Neurocommand" />
 									<div class="fake">
 										<div class=fakeMenu>
