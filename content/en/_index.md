@@ -31,8 +31,12 @@ linktitle: Neurodesk
 <section>
 	<div style="text-align: center;">
     <h1 class="mt-0 mt-md-5 pb-2">Neurodesk brings neuroimaging analyses in notebooks and virtual desktops</h1>
-		<img src="static/favicons/neurodesk.gif" alt="Animated Neurodesk diagram" style="width: 100%; max-width: 1200px;" />
-	</div>
+		<img src="static/favicons/neurodesk.gif" 
+	     loading="lazy"
+    	 alt="Neurodesk overview video"
+    	 poster="static/favicons/neurodesk.jpeg"	
+         style="width: 1200px; max-width: 100%; height: auto;">	
+		 </div>
 </section>
 
 <section
@@ -48,11 +52,11 @@ linktitle: Neurodesk
 		<p class="lead mt-2">Details of each component within the Neurodesk project.<br /> Neurodesk makes it easy for
 			beginners and experts to use neuroimaging tools for desktop, hpc, web, and cloud.</p>
 	</div>
-	<div class="component-start container-fluid ">
+	<div class="component-start container-fluid">
 		<div class="row">
 			<div class="col-12 col-xl-11 component-col">
-				<div class="row">
-					<div class="col-10 col-md-4 col-lg-4">
+				<div class="row justify-content-center">
+					<div class="col-12 col-sm-10 col-md-4 col-lg-4 mb-4">
 						<div class="component-card desktop">
 							<a class="component-click-btn" href="/docs/getting-started/neurodesktop/">
 								<div class="card-body">
@@ -61,12 +65,12 @@ linktitle: Neurodesk
 									<p class="card-summary">Fully featured desktop in a container</p>
 								</div>
 								<div class="image-wrapper">
-									<img src="/static/favicons/neurodesktop.png" alt="Neurodesktop" />
+									<img src="/static/favicons/neurodesktop.png" alt="Neurodesktop" style="width: 100%; height: auto;" />
 								</div>
 							</a>
 						</div>
 					</div>
-					<div class="col-10 col-md-4 col-lg-4">
+					<div class="col-12 col-sm-10 col-md-4 col-lg-4 mb-4">
 						<div class="component-card containers">
 							<a class="component-click-btn" href="/docs/getting-started/neurocontainers/">
 								<div class="card-body">
@@ -75,12 +79,12 @@ linktitle: Neurodesk
 									<p class="card-summary">Software container library</p>
 								</div>
 								<div class="image-wrapper">
-									<img src="/static/favicons/neurocontainer.png" alt="neurocontainer" />
+									<img src="/static/favicons/neurocontainer.png" alt="neurocontainer" style="width: 100%; height: auto;" />
 								</div>
 							</a>
 						</div>
 					</div>
-					<div class="col-10 col-md-4 col-lg-4">
+					<div class="col-12 col-sm-10 col-md-4 col-lg-4 mb-4">
 						<div class="component-card command">
 							<a class="component-click-btn" href="/neurodesk.github.io/docs/getting-started/neurocommand/">
 							<a class="component-click-btn" href="/neurodesk.github.io/docs/getting-started/neurocommand/">
