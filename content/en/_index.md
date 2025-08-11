@@ -31,12 +31,17 @@ linktitle: Neurodesk
 <section>
 	<div style="text-align: center;">
     <h1 class="mt-0 mt-md-5 pb-2">Neurodesk brings neuroimaging analyses in notebooks and virtual desktops</h1>
-		<img src="static/favicons/neurodesk.gif" 
-	     loading="lazy"
-    	 alt="Neurodesk overview video"
-    	 poster="static/favicons/neurodesk.jpeg"	
-         style="width: 1200px; max-width: 100%; height: auto;">	
-		 </div>
+		<div class="gif-container" style="position: relative; width: 100%; max-width: 1200px; margin: 0 auto;">
+			<img src="static/favicons/neurodesk.jpeg"
+				 class="placeholder-image"
+				 alt="Neurodesk overview placeholder"
+				 style="position: absolute; top: 0; left: 0; width: 100%; height: auto;">
+			<img src="static/favicons/neurodesk.gif" 
+				 alt="Neurodesk overview video"
+				 onload="this.previousElementSibling.style.display='none';"
+				 style="position: relative; width: 100%; height: auto;">
+		</div>
+	</div>
 </section>
 
 <section
