@@ -2,10 +2,10 @@
 ---
 title: "Tutorials & Examples"
 linkTitle: "Tutorials & Examples"
-weight: 3
+weight: 30
 menu:
   main:
-    weight: 10
+    weight: 30
 
 description: >
   Tutorials & Examples

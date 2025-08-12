@@ -6,127 +6,136 @@ linktitle: Neurodesk
 <section class="row td-box -bg-secondary justify-content-left h-auto col-big-desktop">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-md-8 order-md-1">
-                <h1 class="mt-0 mt-md-5 pb-2">Flexible. Scalable. Reproducible.</h1>
-                <h2>Environment for Imaging Analysis</h2>
+            <div class="col-md-8 order-md-1 text-center">
+                <h1 class="mt-0 mt-md-5 pb-2">Enabling Reproducible Neuroimaging Analysis</h1>
+                <h2>Your platform for flexible, scalable, accessible research​</h2>
                 <div class="mt-4 mb-5">
-                    <a class="btn btn-lg btn-light me-2 mb-3" href="docs/support/faq/#what-is-neurodesk">
-                        Neurodesk FAQ</a>
-                    <a class="btn btn-lg btn-light me-2 mb-3" href="tutorials-examples/examples">
-                        <i class="fa fa-book"></i> See Examples</a>
-			<a class="btn btn-lg btn-light me-2 mb-3" href="docs/getting-started/local/neurodeskapp/">
-                        <i class="fa fa-laptop"></i> Use Locally</a>
-                    <a class="btn btn-lg btn-light me-2 mb-3" href="docs/getting-started/hosted">
-                        <i class="fa fa-cloud"></i> Use Hosted</a>
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-10 col-sm-6">
+                            <a class="btn btn-lg btn-light w-100 p-3" href="docs/support/faq/#what-is-neurodesk">
+                                <i class="fa fa-question-circle"></i> Neurodesk FAQ
+                            </a>
+                        </div>
+                        <div class="col-10 col-sm-6">
+                            <a class="btn btn-lg btn-light w-100 p-3" href="https://neurodesk.org/example-notebooks/intro.html">
+                                <i class="fa fa-book"></i> See Examples
+                            </a>
+                        </div>
+                        <div class="col-10 col-sm-6">
+                            <a class="btn btn-lg btn-light w-100 p-3" href="docs/getting-started/local/neurodeskapp/">
+                                <i class="fa fa-laptop"></i> Use Locally
+                            </a>
+                        </div>
+                        <div class="col-10 col-sm-6">
+                            <a class="btn btn-lg btn-light w-100 p-3" href="docs/getting-started/hosted">
+                                <i class="fa fa-cloud"></i> Use Hosted
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-md-4 order-md-2 text-center">
-                <img src="/static/favicons/neurodesk-logo.svg" style="height:250px; max-width:100%;" alt="Neurodesk logo" />
+                <img src="/static/favicons/neurodesk-logo.svg" style="height:350px; max-width:100%;" alt="Neurodesk logo" />
             </div>
         </div>
     </div>
 </section>
 
-<section id="startup" class="row -bg-light justify-content-left h-auto col-big-desktop">
-	<div class="td-box">
-		<h2>Get started with Neurodesk</h2>
-		<p class="lead mt-2">Select your setups and follow further instructions in the provided link.
-		</p>
+
+<section class="container-fluid">
+	<div class="row justify-content-center">
+		<div class="col-12 text-center">
+			<h1 class="mt-0 mt-md-5 pb-4">Neurodesk brings neuroimaging analyses in notebooks and virtual desktops</h1>
+			<div class="position-relative" style="max-width: 1200px; margin: 0 auto;">
+				<div style="padding-top: 56.25%; position: relative;">
+					<img src="static/favicons/neurodesk.jpeg"
+						class="w-100 h-100 position-absolute top-0 start-0 object-fit-contain"
+						style="z-index: 1;"
+						alt="Neurodesk overview placeholder">
+					<img src="static/favicons/neurodesk.gif" 
+						class="w-100 h-100 position-absolute top-0 start-0 object-fit-contain"
+						style="z-index: 2;"
+						alt="Neurodesk overview video"
+						onload="this.previousElementSibling.style.display='none';">
+				</div>
+			</div>
+		</div>
 	</div>
-	<div class="container-fluid quick-starts">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-10 start-locally-col">
-					<div class="row">
-						<div class="col-md-3 headings">
-							<div class="col-md-12 title-block">
-								<div class="option-text">Compute Platform</div>
-							</div>
-							<div class="col-md-12 title-block">
-								<div class="option-text">Your OS</div>
-							</div>
-							<div class="col-md-12 title-block">
-								<div class="option-text">Interface</div>
-							</div>
-							<div class="col-md-12 title-block">
-								<div class="option-text">Processor</div>
-							</div>
-							<div class="col-md-12 title-block command-block">
-								<div class="option-text command-text">Instructions:</div>
-							</div>
+</section>
+
+<section
+  id="startup"
+  class="row -bg-light justify-content-left h-auto col-big-desktop"
+  style="
+    background-image: url('/static/favicons/background-bottom.svg');
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: 100% auto;">
+	<div class="td-box">
+		<h2>Neurodesk Components</h2>
+		<p class="lead mt-2">Details of each component within the Neurodesk project.<br /> Neurodesk makes it easy for
+			beginners and experts to use neuroimaging tools for desktop, hpc, web, and cloud.</p>
+	</div>
+	<div class="component-start container-fluid py-3">
+		<div class="row">
+			<div class="col-12 col-xl-11 component-col">
+				<div class="row justify-content-center">
+					<div class="col-12 col-sm-10 col-md-4 col-lg-4 mb-3">
+						<div class="component-card desktop d-flex flex-column h-100">
+							<a class="component-click-btn text-decoration-none" href="/docs/getting-started/neurodesktop/">
+								<div class="card-body">
+										<i class="fa fa-window-maximize"></i>
+									<h4 class="mt-2">Neurodesktop</h4>
+									<p class="card-summary">Fully featured desktop in a container</p>
+								</div>
+								<div class="image-wrapper mt-2">
+									<img src="/static/favicons/neurodesktop.png" alt="Neurodesktop" class="img-fluid shadow-sm" />
+								</div>
+							</a>
 						</div>
-						<div class="col-md-9">
-							<div class="row platform">
-								<div class="col-md-12 title-block mobile-heading">
-									<div class="option-text">Compute Platform</div>
+					</div>
+					<div class="col-12 col-sm-10 col-md-4 col-lg-4 mb-4">
+						<div class="component-card containers d-flex flex-column">
+							<a class="component-click-btn" href="/docs/getting-started/neurocontainers/">
+								<div class="card-body">
+									<i class="fas fa-layer-group"></i>
+									<h4>Neurocontainers</h4>
+									<p class="card-summary">Software container library</p>
 								</div>
-								<div class="col-md-3 option block version" id="local">
-									<div class="option-text">Local PC</div>
+								<div class="image-wrapper mt-auto">
+									<img src="/static/favicons/neurocontainer.png" alt="neurocontainer" class="img-fluid" />
 								</div>
-								<div class="col-md-3 option block version" id="hpc">
-									<div class="option-text">HPC</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-12 col-sm-10 col-md-4 col-lg-4 mb-4">
+						<div class="component-card command d-flex flex-column">
+							<a class="component-click-btn" href="/neurodesk.github.io/docs/getting-started/neurocommand/">
+								<div class="card-body">
+									<i class="fas fa-terminal"></i>
+									<h4>Neurocommand</h4>
+									<p class="card-summary">Core installer</p>
 								</div>
-								<div class="col-md-3 option block version" id="cloud">
-									<div class="option-text">Cloud</div>
-								</div>
-								<div class="col-md-3 option block version" id="colab">
-									<div class="option-text">Google Colab</div>
-								</div>
-							</div>
-							<div class="row os">
-								<div class="col-md-12 title-block mobile-heading">
-									<div class="option-text">Operating System</div>
-								</div>
-								<div class="col-md-4 option block" id="linux">
-									<div class="option-text">Linux</div>
-								</div>
-								<div class="col-md-4 option block" id="macos">
-									<div class="option-text">Mac</div>
-								</div>
-								<div class="col-md-4 option block" id="windows">
-									<div class="option-text">Windows</div>
-								</div>
-							</div>
-							<div class="row interface">
-								<div class="col-md-12 title-block mobile-heading">
-									<div class="option-text">Interface</div>
-								</div>
-								<div class="col-md-3 option block version selected" id="gui">
-									<div class="option-text">Desktop</div>
-								</div>
-								<div class="col-md-3 option block version" id="cmd">
-									<div class="option-text">Command Line</div>
-								</div>
-								<div class="col-md-3 option block version" id="container">
-									<div class="option-text">Container</div>
-								</div>
-								<div class="col-md-3 option block version" id="vscode">
-									<div class="option-text">VSCode</div>
-								</div>
-							</div>
-							<div class="row processor">
-								<div class="col-md-12 title-block mobile-heading">
-									<div class="option-text">Processor</div>
-								</div>
-								<div class="col-md-4 option block" id="x86">
-									<div class="option-text">x86</div>
-								</div>
-								<div class="col-md-4 option block" id="arm">
-									<div class="option-text">ARM</div>
-								</div>
-								<div class="col-md-4 option block" id="gpu">
-									<div class="option-text">GPU</div>
-								</div>
-							</div>
-							<div class="row instruction">
-								<div class="col-md-12 title-block command-mobile-heading">
-									<div class="option-text">Instructions:</div>
-								</div>
-								<div class="command-container">
-									<div class="col-md-12" id="command">
+								<div class="image-wrapper mt-auto">
+									<img class="neurocommand img-fluid" src="/static/favicons/neurocommand.png"
+										alt="Neurocommand" />
+									<div class="fake">
+										<div class=fakeMenu>
+											<div class="fakeButtons fakeClose"></div>
+											<div class="fakeButtons fakeMinimize"></div>
+											<div class="fakeButtons fakeZoom"></div>
+										</div>
+										<div class="fakeScreen">
+											<span class="typewriter type" style="--n:53">$ pip3 install -r
+												neurodesk/requirements.txt --user</br />
+												$ bash build.sh --cli</br />
+												$ bash containers.sh</br />
+												$ module use $PWD/local/containers/modules
+											</span>
+										</div>
 									</div>
 								</div>
-							</div>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -188,88 +197,6 @@ linktitle: Neurodesk
 									<h4>Contribution Guide</h4>
 									<p class="card-summary">Learn how you can contribute to Neurodesk code and
 										documentation</p>
-								</div>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-<section
-  id="startup"
-  class="row -bg-light justify-content-left h-auto col-big-desktop"
-  style="
-    background-image: url('/static/favicons/background-bottom.svg');
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    background-size: 100% auto;">
-	<div class="td-box">
-		<h2>Neurodesk Components</h2>
-		<p class="lead mt-2">Details of each component within the Neurodesk project.<br /> Neurodesk makes it easy for
-			beginners and experts to use neuroimaging tools for desktop, hpc, web, and cloud.</p>
-	</div>
-	<div class="component-start container-fluid ">
-		<div class="row">
-			<div class="col-12 col-xl-11 component-col">
-				<div class="row">
-					<div class="col-10 col-md-4 col-lg-4">
-						<div class="component-card containers">
-							<a class="component-click-btn" href="/docs/getting-started/neurocontainers/">
-								<div class="card-body">
-									<i class="fas fa-layer-group"></i>
-									<h4>Neurocontainers</h4>
-									<p class="card-summary">Software container library</p>
-								</div>
-								<div class="image-wrapper">
-									<img src="/static/favicons/neurocontainer.png" alt="neurocontainer" />
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-10 col-md-4 col-lg-4">
-						<div class="component-card command">
-							<a class="component-click-btn" href="/neurodesk.github.io/docs/getting-started/neurocommand/">
-							<a class="component-click-btn" href="/neurodesk.github.io/docs/getting-started/neurocommand/">
-								<div class="card-body">
-									<i class="fas fa-terminal"></i>
-									<h4>Neurocommand</h4>
-									<p class="card-summary">Core installer</p>
-								</div>
-								<div class="image-wrapper">
-									<img class="neurocommand" src="/static/favicons/neurocommand.png"
-										alt="Neurocommand" />
-									<div class="fake">
-										<div class=fakeMenu>
-											<div class="fakeButtons fakeClose"></div>
-											<div class="fakeButtons fakeMinimize"></div>
-											<div class="fakeButtons fakeZoom"></div>
-										</div>
-										<div class="fakeScreen">
-											<span class="typewriter type" style="--n:53">$ pip3 install -r
-												neurodesk/requirements.txt --user</br />
-												$ bash build.sh --cli</br />
-												$ bash containers.sh</br />
-												$ module use $PWD/local/containers/modules
-											</span>
-										</div>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-10 col-md-4 col-lg-4">
-						<div class="component-card desktop">
-							<a class="component-click-btn" href="/docs/getting-started/neurodesktop/">
-								<div class="card-body">
-										<i class=" fa fa-window-maximize"></i>
-									<h4>Neurodesktop</h4>
-									<p class="card-summary">Fully featured desktop in a container</p>
-								</div>
-								<div class="image-wrapper">
-									<img src="/static/favicons/neurodesktop.png" alt="Neurodesktop" />
 								</div>
 							</a>
 						</div>
