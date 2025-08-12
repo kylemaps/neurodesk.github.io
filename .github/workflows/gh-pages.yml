@@ -93,7 +93,7 @@ jobs:
       - name: Patch download link (main repo only)
         run: |
           if [[ "$GITHUB_REPOSITORY" == "neurodesk/neurodesk.github.io" ]]; then
-            sed -i 's/OLD/NEW/' content/en/docs/Getting\ Started/Local/neurodeskapp.md
+            sed -i 's/OLD/NEW/' content/en/Getting-Started/Local/neurodeskapp.md
           fi
       
       - name: Add custom domain (main repo only)
