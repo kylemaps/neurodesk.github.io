@@ -10,23 +10,23 @@ linktitle: Neurodesk
                 <h1 class="mt-0 mt-md-5 pb-2">Enabling Reproducible Neuroimaging Analysis</h1>
                 <h2>Your platform for flexible, scalable, accessible research​</h2>
                 <div class="mt-4 mb-5">
-                    <div class="row g-4 justify-content-center px-3">
-                        <div class="col-8 col-sm-6">
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-10 col-sm-6">
                             <a class="btn btn-lg btn-light w-100 p-3" href="docs/support/faq/#what-is-neurodesk">
                                 <i class="fa fa-question-circle"></i> Neurodesk FAQ
                             </a>
                         </div>
-                        <div class="col-8 col-sm-6">
+                        <div class="col-10 col-sm-6">
                             <a class="btn btn-lg btn-light w-100 p-3" href="https://neurodesk.org/example-notebooks/intro.html">
                                 <i class="fa fa-book"></i> See Examples
                             </a>
                         </div>
-                        <div class="col-8 col-sm-6">
+                        <div class="col-10 col-sm-6">
                             <a class="btn btn-lg btn-light w-100 p-3" href="docs/getting-started/local/neurodeskapp/">
                                 <i class="fa fa-laptop"></i> Use Locally
                             </a>
                         </div>
-                        <div class="col-8 col-sm-6">
+                        <div class="col-10 col-sm-6">
                             <a class="btn btn-lg btn-light w-100 p-3" href="docs/getting-started/hosted">
                                 <i class="fa fa-cloud"></i> Use Hosted
                             </a>
