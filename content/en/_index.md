@@ -21,7 +21,7 @@ linktitle: Neurodesk
                 </div>
             </div>
             <div class="col-md-4 order-md-2 text-center">
-                <img src="/static/favicons/neurodesk-logo.svg" style="height:250px; max-width:100%;" alt="Neurodesk logo" />
+                <img src="/static/favicons/neurodesk-logo.svg" style="height:350px; max-width:100%;" alt="Neurodesk logo" />
             </div>
         </div>
     </div>
@@ -76,30 +76,30 @@ linktitle: Neurodesk
 							</a>
 						</div>
 					</div>
-					<div class="col-12 col-sm-10 col-md-4 col-lg-4 mb-3">
-						<div class="component-card containers d-flex flex-column h-100">
-							<a class="component-click-btn text-decoration-none" href="/docs/getting-started/neurocontainers/">
+					<div class="col-12 col-sm-10 col-md-4 col-lg-4 mb-4">
+						<div class="component-card containers d-flex flex-column">
+							<a class="component-click-btn" href="/docs/getting-started/neurocontainers/">
 								<div class="card-body">
 									<i class="fas fa-layer-group"></i>
-									<h4 class="mt-2">Neurocontainers</h4>
+									<h4>Neurocontainers</h4>
 									<p class="card-summary">Software container library</p>
 								</div>
-								<div class="image-wrapper mt-2">
-									<img src="/static/favicons/neurocontainer.png" alt="neurocontainer" class="img-fluid shadow-sm" />
+								<div class="image-wrapper mt-auto">
+									<img src="/static/favicons/neurocontainer.png" alt="neurocontainer" class="img-fluid" />
 								</div>
 							</a>
 						</div>
 					</div>
-					<div class="col-12 col-sm-10 col-md-4 col-lg-4 mb-3">
-						<div class="component-card command d-flex flex-column h-100">
-							<a class="component-click-btn text-decoration-none" href="/neurodesk.github.io/docs/getting-started/neurocommand/">
+					<div class="col-12 col-sm-10 col-md-4 col-lg-4 mb-4">
+						<div class="component-card command d-flex flex-column">
+							<a class="component-click-btn" href="/neurodesk.github.io/docs/getting-started/neurocommand/">
 								<div class="card-body">
 									<i class="fas fa-terminal"></i>
-									<h4 class="mt-2">Neurocommand</h4>
+									<h4>Neurocommand</h4>
 									<p class="card-summary">Core installer</p>
 								</div>
-								<div class="image-wrapper mt-2">
-									<img class="neurocommand img-fluid shadow-sm" src="/static/favicons/neurocommand.png"
+								<div class="image-wrapper mt-auto">
+									<img class="neurocommand img-fluid" src="/static/favicons/neurocommand.png"
 										alt="Neurocommand" />
 									<div class="fake">
 										<div class=fakeMenu>
