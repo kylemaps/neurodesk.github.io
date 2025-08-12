@@ -1,21 +1,21 @@
 ---
-title: "NeuroContainer Copilot using Google Jules agent"
+title: "Neurocontainer Copilot using Google Jules agent"
 linkTitle: "Google Jules agent"
 weight: 2
 description: >
-  NeuroContainer Copilot: How to use LLM agents to automate NeuroContainer recipe generation in NeuroDesk ecosystem.
+  Neurocontainer Copilot: How to use LLM agents to automate Neurocontainer recipe generation in Neurodesk ecosystem.
 ---
 
-While NeuroDesk significantly reduces the friction associated with portability and reproducibility, incorporating new neuroimaging tools remains challenging. Incorporating new neuroimaging tools into NeuroDesk is challenging due setting the correct environment variables, finding specific versions of the software dependencies, version requirements or specific build steps. However, writing accurate and efficient container recipes requires expertise in containerization technologies and knowledge of software dependencies. NeuroContainer Copilot can help identify these details from provided documentation (README or installation documentation) and code samples. The development involves the following steps: 1) We use existing neurocontainer recipes to generate the recipes for new tools using LLM agents. 2) We use Google Jules agent to automate the process of generating NeuroContainer recipes. 3) We use the generated recipes to create pull requests in the NeuroContainers repository, which can be reviewed and merged by the NeuroContainers team or user can use it to test the recipe locally.
+While Neurodesk significantly reduces the friction associated with portability and reproducibility, incorporating new neuroimaging tools remains challenging. Incorporating new neuroimaging tools into Neurodesk is challenging due setting the correct environment variables, finding specific versions of the software dependencies, version requirements or specific build steps. However, writing accurate and efficient container recipes requires expertise in containerization technologies and knowledge of software dependencies. Neurocontainer Copilot can help identify these details from provided documentation (README or installation documentation) and code samples. The development involves the following steps: 1) We use existing neurocontainer recipes to generate the recipes for new tools using LLM agents. 2) We use Google Jules agent to automate the process of generating Neurocontainer recipes. 3) We use the generated recipes to create pull requests in the Neurocontainers repository, which can be reviewed and merged by the Neurocontainers team or user can use it to test the recipe locally.
 
-In this example, we use Google Jules agent, to automate NeuroContainer recipe generation in NeuroDesk ecosystem.
+In this example, we use Google Jules agent, to automate Neurocontainer recipe generation in Neurodesk ecosystem.
 
 
 After logging in wth google, you can access [Jules agent](https://jules.google) dashboard. You can create an environment and use the **neurocontainers GitHub repository** as the base. Make sure to enable internet access so that the agent can search for relevant information online to assist with building accurate container recipes.
 
 You can then start a new task, where you can provide the name of the tool you want to containerize, and the agent will generate a recipe for you. For example, if you want to containerize `hcp-asl`, you can provide following prompt: 
 
-> I want you to act as NeuroDesk recipe generator, compile the dependency lists required for the Github repository and install them in the neurodocker container format. Please follow the notation in https://github.com/NeuroDesk/neurocontainers/blob/main/builder/README.md carefully. Now create a docker build.yaml for recipes/hcp-asl/build.yaml based on the hcp-asl https://github.com/physimals/hcp-asl/blob/master/README.md repository README.md file, use neurocontainers GitHub repository it contains examples such as recipes/dsistudio/build.yaml. Note than if there are conda and pip install use appropriately. Please follow the notation in https://github.com/NeuroDesk/neurocontainers/blob/main/builder/README.md properly. Run recipes/hcp-asl/build.yaml file and recursively modify the neurocontainers/recipes/hcp-asl/build.yaml file.
+> I want you to act as Neurodesk recipe generator, compile the dependency lists required for the Github repository and install them in the neurodocker container format. Please follow the notation in https://github.com/Neurodesk/neurocontainers/blob/main/builder/README.md carefully. Now create a docker build.yaml for recipes/hcp-asl/build.yaml based on the hcp-asl https://github.com/physimals/hcp-asl/blob/master/README.md repository README.md file, use neurocontainers GitHub repository it contains examples such as recipes/dsistudio/build.yaml. Note than if there are conda and pip install use appropriately. Please follow the notation in https://github.com/Neurodesk/neurocontainers/blob/main/builder/README.md properly. Run recipes/hcp-asl/build.yaml file and recursively modify the neurocontainers/recipes/hcp-asl/build.yaml file.
 
 ![Create Jules environment](/static/developers/recipe_generator/start_jules.png)
 

@@ -1,9 +1,9 @@
 ---
-title: "NeuroDesk Copilot"
-linkTitle: "NeuroDesk Copilot"
+title: "Neurodesk Copilot"
+linkTitle: "Neurodesk Copilot"
 weight: 2
 description: >
-  NeuroDesk Copilot: How to use LLMs for code autocompletion, chat support in NeuroDesk ecosystem
+  Neurodesk Copilot: How to use LLMs for code autocompletion, chat support in Neurodesk ecosystem
 ---
 
 
