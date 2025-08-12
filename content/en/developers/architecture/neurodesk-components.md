@@ -35,6 +35,23 @@ More info: [transparent-singularity](/developers/architecture/transparent_singul
 * this repo provides a way of using our containers on HPCs for large scale processing of the pipelines (including the support of SLURM and other job schedulers)
 * CI: test if exposing of binaries from container works
 
+## TinyRange Integration
+
+To ensure accessibility for users without privileged system access (root/admin permissions), Neurodesk has integrated [TinyRange](https://github.com/tinyrange/tinyrange), a lightweight container runtime that operates without requiring root privileges. This integration represents a significant advancement in making neuroimaging tools accessible to all users, regardless of their system permissions.
+
+<div style="text-align: center; margin: 2em 0;">
+    <img src="/static/developers/architecture/neurodesk-components/tinyrange.png" alt="TinyRange Architecture" style="max-width: 800px; width: 100%;">
+</div>
+
+TinyRange provides:
+- Rootless container execution
+- User-space networking
+- Simplified container management
+- Seamless integration with Neurodesk's interface
+- Cross-platform compatibility
+
+This solution is particularly valuable in environments where users don't have administrative privileges, such as shared computing facilities or institutional workstations.
+
 ## Neurocontainers: 
 _neurocontainers_ contains scripts for building sub-containers for neuroimaging data-analysis software. These containers can be used alongside _neurocommand_ or _transparent-singularity_. 
 

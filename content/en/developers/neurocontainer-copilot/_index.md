@@ -1,9 +1,9 @@
 ---
-title: "NeuroContainer Copilot"
-linkTitle: "NeuroContainer Copilot"
+title: "Neurocontainer Copilot"
+linkTitle: "Neurocontainer Copilot"
 weight: 2
 description: >
-  NeuroContainer Copilot:  How to use LLM agents to automate NeuroContainer recipe generation in NeuroDesk ecosystem
+  Neurocontainer Copilot:  How to use LLM agents to automate Neurocontainer recipe generation in Neurodesk ecosystem
 ---
 
 
