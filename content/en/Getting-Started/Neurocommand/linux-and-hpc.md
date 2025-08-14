@@ -7,6 +7,7 @@ aliases:
 - /docs/getting-started/neurocommand/hpc
 - /docs/getting-started/neurodesktop/hpc
 - /docs/getting-started/linux-and-hpc
+- /docs/getting-started/neurocommand/linux-and-hpc/
 
 description: >
   Install neurocommand on Linux, HPC

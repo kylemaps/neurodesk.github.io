@@ -6,8 +6,9 @@ menu:
   main:
     weight: 20
 
-alias: 
+aliases: 
 - /docs/getting-started/
+- /docs/getting-started
 
 description: >
 ---
