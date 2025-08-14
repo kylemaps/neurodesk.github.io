@@ -66,7 +66,7 @@ Consider these factors when selecting a hosted solution:
 
 Need help deciding which option is best for you?
 - Check our [FAQ section](/docs/overview/faq)
-- Join our [Discussion Forum](https://github.com/NeuroDesk/neurodesk/discussions)
+- Join our [Discussion Forum](https://github.com/orgs/neurodesk/discussions)
 - Contact your institutional IT support for HPC deployments
 
 ## Security and Data Privacy
