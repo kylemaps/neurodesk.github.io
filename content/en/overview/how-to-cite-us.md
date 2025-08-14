@@ -4,7 +4,7 @@ linkTitle: "Citation Guide"
 weight: 4
 aliases:
 - /docs/how-to-cite-us
-- /docs/overview/how-to-cite
+- /docs/overview/how-to-cite-us
 
 description: >
   How to cite Neurodesk and the tools used through the platform.
