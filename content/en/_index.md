@@ -83,7 +83,7 @@ linktitle: Neurodesk
 		<div class="row">
 			<div class="col-12 col-xl-11 component-col">
 				<div class="row justify-content-center">
-					<div class="col-12 col-sm-10 col-md-4 col-lg-4 mb-3">
+					<div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-3">
 						<div class="component-card desktop d-flex flex-column h-100">
 							<a class="component-click-btn text-decoration-none" href="/docs/getting-started/neurodesktop/">
 								<div class="card-body">
@@ -97,7 +97,7 @@ linktitle: Neurodesk
 							</a>
 						</div>
 					</div>
-					<div class="col-12 col-sm-10 col-md-4 col-lg-4 mb-4">
+					<div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4">
 						<div class="component-card containers d-flex flex-column">
 							<a class="component-click-btn" href="/docs/getting-started/neurocontainers/">
 								<div class="card-body">
@@ -111,7 +111,7 @@ linktitle: Neurodesk
 							</a>
 						</div>
 					</div>
-					<div class="col-12 col-sm-10 col-md-4 col-lg-4 mb-4">
+					<div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4">
 						<div class="component-card command d-flex flex-column">
 							<a class="component-click-btn" href="/neurodesk.github.io/docs/getting-started/neurocommand/">
 								<div class="card-body">
