@@ -52,11 +52,12 @@ linktitle: Neurodesk
 						class="w-100 h-100 position-absolute top-0 start-0 object-fit-contain"
 						style="z-index: 1;"
 						alt="Neurodesk overview placeholder">
-					<img src="static/favicons/neurodesk.gif" 
+					<video src="static/favicons/neurodesk.webm" 
 						class="w-100 h-100 position-absolute top-0 start-0 object-fit-contain"
 						style="z-index: 2;"
 						alt="Neurodesk overview video"
-						onload="this.previousElementSibling.style.display='none';">
+						autoplay muted loop
+						onloadstart="this.previousElementSibling.style.display='none';"></video>
 				</div>
 			</div>
 		</div>
