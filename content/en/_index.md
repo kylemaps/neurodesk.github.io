@@ -52,12 +52,14 @@ linktitle: Neurodesk
 						class="w-100 h-100 position-absolute top-0 start-0 object-fit-contain"
 						style="z-index: 1;"
 						alt="Neurodesk overview placeholder">
-					<video src="static/favicons/neurodesk.webm" 
-						class="w-100 h-100 position-absolute top-0 start-0 object-fit-contain"
+					<video class="w-100 h-100 position-absolute top-0 start-0 object-fit-contain"
 						style="z-index: 2;"
-						alt="Neurodesk overview video"
 						autoplay muted loop
-						onloadstart="this.previousElementSibling.style.display='none';"></video>
+						onloadstart="this.previousElementSibling.style.display='none';">
+						<source src="static/favicons/neurodesk.webm" type="video/webm">
+						<source src="static/favicons/neurodesk.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
 				</div>
 			</div>
 		</div>
