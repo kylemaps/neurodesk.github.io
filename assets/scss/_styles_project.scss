@@ -476,7 +476,10 @@ p.lead.mt-2 {
 }
 
 .component-start {
-  padding-left: 65px;
+  @include desktop {
+    padding-left: 65px;
+  }
+  
 
   @include nav-menu-desktop {
     margin-left: 5px;
@@ -485,7 +488,7 @@ p.lead.mt-2 {
   .image-wrapper {
     @include very-small-desktop {
       position: relative;
-      width: 40%;
+      width: 35%;
     }
 
     .fake {
@@ -638,6 +641,7 @@ p.lead.mt-2 {
         display: flex;
         flex-direction: column;
         min-width: 160px;
+        text-align: center;
         // align-items: flex-start;
 
         @include desktop {
