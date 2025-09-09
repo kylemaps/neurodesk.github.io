@@ -1,6 +1,7 @@
 ---
 title: Neurodesk
 linktitle: Neurodesk
+type: landing
 ---
 
 <section class="row td-box -bg-secondary justify-content-left h-auto col-big-desktop">
@@ -209,5 +210,3 @@ linktitle: Neurodesk
 		</div>
 	</div>
 </section>
-
-<script src="/static/js/command.js"></script>
