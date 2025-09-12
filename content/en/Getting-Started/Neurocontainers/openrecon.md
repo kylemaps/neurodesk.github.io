@@ -13,6 +13,11 @@ These instructions were tested on GitHub Codespaces, and we recommend this as a 
 For a local setup you need Docker (https://www.docker.com/), Python3 and you need to install neurodocker and add it to your path:
 ```
 python -m pip install neurodocker
+
+#check if neurodocker is already on the path:
+which neurodocker
+
+# if not:
 #the path depends on your local setup
 export PATH=$PATH:~/.local/lib/python3.12/site-packages/bin
 export PATH=$PATH:~/.local/bin
