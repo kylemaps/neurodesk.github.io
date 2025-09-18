@@ -39,8 +39,10 @@ export TMPDIR=/tmp
 
 For matlab you also need to create a network license file in your ~/Downloads/network.lic:
 ```
+cat <<EOF > ~/Downloads/network.lic
 SERVER uq-matlab.research.dc.uq.edu.au ANY 27000
 USE_SERVER
+EOF
 ```
 
 NOTE: If you are using AFNI on Bunya then the default detach behavior will cause SIGBUS errors and a crash. To fix this run AFNI with:
