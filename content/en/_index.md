@@ -67,6 +67,8 @@ type: landing
 	</div>
 </section>
 
+
+
 <section
   id="startup"
   class="row -bg-light justify-content-left h-auto col-big-desktop"

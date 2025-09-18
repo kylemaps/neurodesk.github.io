@@ -1,0 +1,127 @@
+<style>
+.iaward-banner {
+    background: linear-gradient(135deg, #f0f7e7 0%, #e6f1d6 100%) !important;
+    color: #161c10 !important;
+    padding: 25px 0 10px 0 !important;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 3px solid #6aa329;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+}
+
+.iaward-banner .award-content {
+    padding-left: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 50px;
+    margin: auto 0;
+}
+
+.iaward-banner .award-title {
+    font-family: 'Pontano Sans', sans-serif !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+    font-size: 1.51rem !important;
+    line-height: 1.1;
+    color: #161c10 !important;
+}
+
+.iaward-banner .award-subtitle {
+    font-family: 'Pontano Sans', sans-serif !important;
+    font-size: 1.2rem !important;
+    margin: 2px 0 0 0 !important;
+    color: #1e2a16 !important;
+    line-height: 1.2;
+}
+
+.iaward-banner .cta-btn {
+    background: #4f7b38 !important;
+    border: 2px solid #4f7b38 !important;
+    color: white !important;
+    padding: 4px 10px !important;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.8rem;
+    display: inline-block;
+}
+
+.iaward-banner .cta-btn:hover {
+    background: #161c10 !important;
+    border-color: #161c10 !important;
+    color: white !important;
+}
+
+.iaward-banner .btn-close-banner {
+    background: rgba(22, 28, 16, 0.1) !important;
+    border: 1px solid rgba(22, 28, 16, 0.3) !important;
+    color: #161c10 !important;
+    font-size: 0.85rem;
+    padding: 4px 6px !important;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+@media (max-width: 768px) {
+    .iaward-banner {
+        padding: 1px 0 !important;
+    }
+    .iaward-banner .award-content {
+        padding-left: 8px !important;
+        min-height: 40px !important;
+    }
+    .iaward-banner .award-title {
+        font-size: 0.95rem !important;
+    }
+    .iaward-banner .award-subtitle {
+        font-size: 0.75rem !important;
+    }
+    .iaward-banner .cta-btn {
+        display: none !important;
+    }
+}
+</style>
+
+<section class="iaward-banner" id="iaward-banner">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-2 col-sm-3 text-center">
+                <img src="/static/favicons/2025_NAT Winner - Tech.png" 
+                     alt="iAward 2025 National Winner - Technology Platform" 
+                     class="award-badge"
+                     style="height: 100px !important; width: 100px !important; max-width: 100px !important; max-height: 100px !important; object-fit: contain !important;">
+            </div>
+            <div class="col-md-8 col-sm-7">
+                <div class="award-content">
+                    <h3 class="award-title">🏆 National Winner - Technology Platform</h3>
+                    <p class="award-subtitle">Neurodesk recognized by iAwards 2025 for advancing reproducible neuroimaging analysis</p>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-2 text-end">
+                <a href="https://aiia.com.au/wp-content/uploads/2025/08/2025-08-29-National-iAwards-Media-Release.docx.pdf" class="cta-btn d-none d-md-inline-block mb-2" target="_blank">
+                    Learn More
+                </a>
+                <button class="btn-close-banner" onclick="dismissBanner()" aria-label="Close banner">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function dismissBanner() {
+    document.getElementById('iaward-banner').style.display = 'none';
+    localStorage.setItem('neurodesk-iaward-dismissed', 'true');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (localStorage.getItem('neurodesk-iaward-dismissed') === 'true') {
+        const banner = document.getElementById('iaward-banner');
+        if (banner) banner.style.display = 'none';
+    }
+});
+</script>
