@@ -20,6 +20,10 @@ For instructions on how to cite Neurodesk and specific tools, visit our [Citatio
 
 - Renton, A.I., Dao, T.T., Johnstone, T., Civier, O., Sullivan, R. P., White, D. J., ... Narayanan, A. & Bollmann, S. Neurodesk: an accessible, flexible and portable data analysis environment for reproducible neuroimaging. Nat Methods (2024). https://doi.org/10.1038/s41592-023-02145-x
 
+- Masson-Trottier, M., Dao, T. T., Narayanan, A., & Bollmann, S. (2025). Toward the Future of Scientific Publishing through Reproducible Research Artefacts Enabled by Neurodesk. Aperture Neuro, 12. https://doi.org/10.52294/001c.143700 
+
+
+
 <!-- Add additional entries here manually or via integration -->
 
 If you've published work using Neurodesk, we'd love to include it here.
