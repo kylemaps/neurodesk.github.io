@@ -9,9 +9,9 @@ description: >
 ## 1. Prerequisites
 - Git
 - [Go](https://go.dev/dl/) (required for Hugo modules)
-- Hugo **extended** version (0.121 recommended). See https://github.com/gohugoio/hugo/releases for Hugo releases. 
-  - [Download for Mac OS and Linux](https://github.com/gohugoio/hugo/releases/download/v0.121.0/hugo_extended_0.121.0_darwin-universal.tar.gz).  
-  - [Download for Windows](https://github.com/gohugoio/hugo/releases/download/v0.88.1/hugo_extended_0.88.1_Windows-64bit.zip) 
+- Hugo **extended** version (0.146.0 recommended). See https://github.com/gohugoio/hugo/releases for Hugo releases. 
+  - [Download for Mac OS and Linux](https://github.com/gohugoio/hugo/releases/download/v0.146.0/hugo_extended_0.146.0_darwin-universal.tar.gz).  
+  - [Download for Windows](https://github.com/gohugoio/hugo/releases/download/v0.146.0/hugo_extended_0.146.0_Windows-64bit.zip) 
 
 ## 2. Cloning the repository
 This step is the same for macOS, Windows, and Linux.
@@ -65,7 +65,7 @@ Go to System Settings > Privacy & Security, and allow the app to run.
 
 You should expect something like this (look for the mention of **extended** to be sure it worked)
 ```bash 
-hugo v0.121.0-e321c3502aa8e80a7a7c951359339a985f082757+extended darwin/arm64 BuildDate=2023-12-05T15:22:31Z VendorInfo=gohugoio
+hugo v0.146.0-5d1b9d39858bb0b2e505af9f649bfb55295ecca1+extended darwin/arm64 BuildDate=2025-04-10T14:57:56Z VendorInfo=gohugoio
 ```
 
 Once installed, you can run the server for Mac using: 
