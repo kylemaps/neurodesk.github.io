@@ -1,3 +1,3 @@
-FROM klakegg/hugo:0.146.0-ext-alpine
+FROM hugomods/hugo:exts-0.146.0
 
 RUN apk add git
