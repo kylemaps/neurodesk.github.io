@@ -1,4 +1,8 @@
-{{ $js := resources.Get "js/search.js" | js.Build (dict "params" (dict "api" "http://localhost:1313/docs/overview/applications/")) }}
+{{ $searchJs := resources.Get "js/search.js" }}
+{{ $js := "" }}
+{{ if $searchJs }}
+  {{ $js = $searchJs | js.Build (dict "params" (dict "api" "http://localhost:1313/docs/overview/applications/")) }}
+{{ end }}
 <!doctype html>
 <html itemscope itemtype="http://schema.org/WebPage" lang="{{ .Site.Language.Lang }}" class="no-js">
   <head>

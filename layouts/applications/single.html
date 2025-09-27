@@ -33,18 +33,16 @@
 
 		{{ $applist := dict }}
 		{{ $url := "js/applist.json" }}
-		{{ with resources.Get $url }}
-		{{ with .Err }}
-			{{ errorf "%s" . }}
+		{{ $resource := resources.Get $url }}
+		{{ if $resource }}
+			{{ $applist = $resource | transform.Unmarshal }}
 		{{ else }}
-			{{ $applist = . | transform.Unmarshal }}
-		{{ end }}
-		{{ else }}
-		{{ errorf "Unable to get resource %q" $url }}
+			{{ errorf "Unable to get resource %q" $url }}
 		{{ end }}
 
 
 		{{/*  {{ $applist := getJSON "applist.json" }}  */}}
+		{{ if $applist.list }}
 		{{ range $applist.list }}
 		<li>	
 			{{ .application }} 
@@ -55,6 +53,9 @@
 			<a class="taxonomy-term doi" href={{ .doi_url }}>{{ .doi }}</a>
 			{{ end }}
 		</li>
+		{{ end }}
+		{{ else }}
+		<li>No applications available</li>
 		{{ end }}
 		</ul>
 	{{ if (and (not .Params.hide_feedback) (.Site.Params.ui.feedback.enable) (.Site.GoogleAnalytics)) }}
