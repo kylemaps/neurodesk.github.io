@@ -10,8 +10,6 @@ description: >
 - Git
 - [Go](https://go.dev/dl/) (required for Hugo modules)
 - Hugo **extended** version (0.146.0 recommended). See https://github.com/gohugoio/hugo/releases for Hugo releases. 
-  - [Download for Mac OS and Linux](https://github.com/gohugoio/hugo/releases/download/v0.146.0/hugo_extended_0.146.0_darwin-universal.tar.gz).  
-  - [Download for Windows](https://github.com/gohugoio/hugo/releases/download/v0.146.0/hugo_extended_0.146.0_Windows-64bit.zip) 
 
 ## 2. Cloning the repository
 This step is the same for macOS, Windows, and Linux.
