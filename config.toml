@@ -226,7 +226,7 @@ enable = false
     desc = "Uptime"
 [[params.links.user]]
 	name = "Acknowledgements"
-	url = "/docs/overview/acknowledgement/"
+	url = "/overview/acknowledgement/"
  	icon = "fa fa-handshake"
     desc = "Acknowledgements support and fundings for the project"
 
