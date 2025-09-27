@@ -90,8 +90,8 @@ nvm install node
 
 one example for Linux or for the [Windows Sub-system for Linux](https://docs.microsoft.com/en-us/windows/wsl/install):
 ```bash
-wget https://github.com/gohugoio/hugo/releases/download/v0.92.2/hugo_extended_0.92.2_Linux-64bit.tar.gz
-tar xfz hugo_extended_0.92.2_Linux-64bit.tar.gz
+wget https://github.com/gohugoio/hugo/releases/download/v0.146.0/hugo_extended_0.146.0_Linux-64bit.tar.gz
+tar xfz hugo_extended_0.146.0_Linux-64bit.tar.gz
 echo "export PATH=`pwd`:\$PATH" >> ~/.bashrc
 source ~/.bashrc
 which hugo
