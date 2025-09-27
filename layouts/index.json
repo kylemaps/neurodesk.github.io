@@ -1,11 +1,8 @@
 {{ $data := dict }}
 {{ $url := "js/applist.json" }}
-{{ with resources.Get $url }}
-  {{ with .Err }}
-    {{ errorf "%s" . }}
-  {{ else }}
-    {{ $data = . | transform.Unmarshal }}
-  {{ end }}
+{{ $resource := resources.Get $url }}
+{{ if $resource }}
+  {{ $data = $resource | transform.Unmarshal }}
 {{ else }}
   {{ errorf "Unable to get resource %q" $url }}
 {{ end }}
