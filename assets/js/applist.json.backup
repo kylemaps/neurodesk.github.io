@@ -1,8 +1,0 @@
-{
-    "list": [
-        {
-            "application": "test_app_1.0.0",
-            "categories": ["neuroimaging", "analysis"]
-        }
-    ]
-}
