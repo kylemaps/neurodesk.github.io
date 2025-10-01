@@ -55,35 +55,38 @@ def write_to_file(zenodo_token, filename):
         filename (str): Filename to write to
     """
     # Fetch the list of DOIs from Zenodo
+    all_depositions = []
+    page_size = 100
     page = 1
-    params = {
-        "access_token": zenodo_token,
-        "status": "published",
-        "page": 1,
-        "size": 100,
-    }
     url = "https://sandbox.zenodo.org/api/deposit/depositions"
-    response = requests.get(url, params=params)
-    if response.status_code != 200:
-        raise Exception(f"Failed to fetch DOIs: {response.status_code} {response.text}")
-    depositions = response.json()
 
-    while 'next' in response.links:
-        page += 1
+    while True:
+        print(f"Fetching page {page} of packages from Zenodo")
         params = {
             "access_token": zenodo_token,
             "status": "published",
             "page": page,
-            "size": 100,
+            "size": page_size,
         }
         # print(f"Fetching next page of packages from Github", response.links['next']['url'], params, page)
         response=requests.get(url, params=params)
-
         if response.status_code != 200:
             raise Exception(f"Failed to fetch DOIs: {response.status_code} {response.text}")
         # print(f"Fetched {len(response.json())} packages from Github", response.json())
-        depositions.extend(response.json())
+        depositions = response.json()
+        
+        if not depositions or len(depositions) < page_size:
+            all_depositions.extend(depositions)
+            break
+
+        if len(depositions) == page_size:
+            page += 1
+            all_depositions.extend(depositions)
+        else:
+            break
+
     app_list = get_apps()
+    print(f"Found {len(app_list)} apps in neurocommand/apps.json")
     # Write application, categories, doi, and doi_url to applist.json file
     my_dict = {}
     val = []
@@ -91,7 +94,8 @@ def write_to_file(zenodo_token, filename):
 
         categories = get_app_categories(app.split("_")[0])
 
-        for deposition in depositions:
+        found_doi = False
+        for deposition in all_depositions:
             if 'title' not in deposition or 'doi' not in deposition or 'doi_url' not in deposition:
                 print(f"Skipping DOI: {deposition['title']}")
                 continue
@@ -100,9 +104,11 @@ def write_to_file(zenodo_token, filename):
                 doi = deposition['doi']
                 doi_url = deposition['doi_url']
                 val.append({"application": app, "categories": categories, "doi": doi, "doi_url": doi_url})
+                found_doi = True
                 break
-        val.append({"application": app, "categories": categories})
-
+        if not found_doi:
+            val.append({"application": app, "categories": categories})
+    print(f"Writing {len(val)} entries to {filename}")
     my_dict['list'] = val
     with open(filename, 'w') as fp:     
         json.dump(my_dict, fp, sort_keys=True, indent=4)
