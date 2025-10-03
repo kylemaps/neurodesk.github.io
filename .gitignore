@@ -6,3 +6,4 @@ tech-doc-hugo
 *.exe
 .DS_Store
 themes/
+homebrew/
