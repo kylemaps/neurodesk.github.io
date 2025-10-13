@@ -85,12 +85,6 @@ description = "Neurodesk"
     style = "github"
     # Uncomment if you want your chosen highlight style used for code blocks without a specified language
     guessSyntax = true
-    anchorLineNos = false
-    codeFences = true
-    lineNos = false
-    lineNumbersInTable = true
-    noClasses = false
-    tabWidth = 4
 
   [markup.tableOfContents]
     endLevel = 4
