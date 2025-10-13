@@ -1,0 +1,6 @@
+{{ $lang := .Type | default "bash" }}
+{{ $options := dict "lang" $lang }}
+{{ $result := transform.HighlightCodeBlock . $options }}
+<div class="highlight">
+  {{ $result.Wrapped }}
+</div>
