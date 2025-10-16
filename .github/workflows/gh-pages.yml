@@ -90,6 +90,31 @@ jobs:
               --baseURL "${BASE_URL}"
           fi
 
+      - name: Patch public for fork previews (fix absolute /static/ links)
+        if: ${{ github.repository != 'neurodesk/neurodesk.github.io' }}
+        run: |
+          REPO_PATH="${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}"
+          echo "Replacing /static/ → /${REPO_PATH}/static/ in public/"
+          # Find text files inside public/ that contain /static/ and replace with forked path
+          grep -RIl --exclude-dir=.git '/static/' public/ | xargs -r sed -i "s|/static/|/${REPO_PATH}/static/|g"
+
+      - name: Verify assets in public
+        run: |
+          set -e
+          MISSING=0
+          # Find referenced /static/ paths in generated HTML/CSS/JS and ensure files exist
+          for p in $(grep -Rho 'src=\"\/[^\"]*static\/[^\"]*\"' public/ | sed -E 's/.*src=\"(\/[^\"]*)\".*/\1/' | sort -u) ; do
+            FILE=public${p}
+            if [ ! -f "$FILE" ]; then
+              echo "Missing asset: $p -> expected $FILE"
+              MISSING=1
+            fi
+          done
+          if [ "$MISSING" -eq 1 ]; then
+            echo "One or more assets missing from public/ — failing the job"
+            exit 1
+          fi
+
       - name: Patch download link (main repo only)
         run: |
           if [[ "$GITHUB_REPOSITORY" == "neurodesk/neurodesk.github.io" ]]; then
