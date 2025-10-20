@@ -93,4 +93,5 @@ jobs:
           path: |
             preview-deploy/
             pr-metadata/
-          retention-days: 1
+          retention-days: 7
+          if-no-files-found: error

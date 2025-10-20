@@ -25,6 +25,7 @@ jobs:
           name: pr-preview-${{ github.event.workflow_run.pull_requests[0].number }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           run-id: ${{ github.event.workflow_run.id }}
+        continue-on-error: false
 
       - name: Read PR metadata
         id: pr-meta
