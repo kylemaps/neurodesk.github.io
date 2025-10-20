@@ -1,0 +1,96 @@
+name: PR Preview Build
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: preview-build-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    env:
+      HUGO_VERSION: 0.146.0
+    steps:
+      - name: Install Hugo CLI
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+
+      - name: Checkout PR head
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+          submodules: recursive
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Install Node dependencies
+        run: npm install
+
+      - name: Write applist.json
+        env:
+          ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}
+        run: |
+          if [ -n "$ZENODO_TOKEN" ]; then
+            python .github/workflows/write-app-json.py --zenodo_token "$ZENODO_TOKEN"
+          else
+            echo "ZENODO_TOKEN not set, skipping applist generation"
+          fi
+
+      - name: Build preview
+        env:
+          HUGO_ENVIRONMENT: preview
+          HUGO_ENV: preview
+        run: |
+          PREVIEW_PATH="pr-${{ github.event.pull_request.number }}"
+          
+          # Use the target repo's domain (where PR is being merged to)
+          if [[ "${{ github.event.pull_request.base.repo.full_name }}" == "neurodesk/neurodesk.github.io" ]]; then
+            BASE_URL="https://neurodesk.org/${PREVIEW_PATH}/"
+            echo "Building PR preview for production: ${BASE_URL}"
+          else
+            # For PRs to forks (rare case)
+            BASE_URL="https://${{ github.event.pull_request.base.repo.owner.login }}.github.io/${{ github.event.pull_request.base.repo.name }}/${PREVIEW_PATH}/"
+            echo "Building PR preview for fork: ${BASE_URL}"
+          fi
+          
+          hugo --minify --baseURL "${BASE_URL}"
+          
+          mkdir -p preview-deploy/${PREVIEW_PATH}
+          cp -r public/* preview-deploy/${PREVIEW_PATH}/
+
+      - name: Save PR metadata
+        run: |
+          mkdir -p pr-metadata
+          echo "${{ github.event.pull_request.number }}" > pr-metadata/pr-number.txt
+          echo "${{ github.event.pull_request.base.repo.full_name }}" > pr-metadata/base-repo.txt
+          echo "${{ github.event.pull_request.base.repo.owner.login }}" > pr-metadata/base-owner.txt
+          echo "${{ github.event.pull_request.base.repo.name }}" > pr-metadata/base-name.txt
+          echo "${{ github.event.pull_request.head.sha }}" > pr-metadata/head-sha.txt
+          echo "${{ github.event.pull_request.head.ref }}" > pr-metadata/head-ref.txt
+
+      - name: Upload preview artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-preview-${{ github.event.pull_request.number }}
+          path: |
+            preview-deploy/
+            pr-metadata/
+          retention-days: 1
