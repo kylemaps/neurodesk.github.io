@@ -144,6 +144,35 @@ jobs:
           if [[ "$GITHUB_REPOSITORY" == "neurodesk/neurodesk.github.io" ]]; then
             cp ./static/CNAME ./public/CNAME
           fi
+
+      - name: Merge PR previews into artifact (preserve pr-* directories)
+        run: |
+          set -e
+          # Check if gh-pages branch exists
+          if git ls-remote --exit-code --heads origin gh-pages >/dev/null 2>&1; then
+            echo "Found gh-pages branch, merging preview directories..."
+            
+            # Fetch gh-pages branch
+            git fetch origin gh-pages:refs/remotes/origin/gh-pages
+            
+            # Create temporary worktree for gh-pages
+            mkdir -p /tmp/gh-pages-checkout
+            git worktree add /tmp/gh-pages-checkout origin/gh-pages
+            
+            # Copy any pr-* directories into public/ (preserving previews)
+            if ls /tmp/gh-pages-checkout/pr-* 1> /dev/null 2>&1; then
+              echo "Copying preview directories to public/..."
+              cp -r /tmp/gh-pages-checkout/pr-* public/ || true
+              echo "Previews merged successfully"
+            else
+              echo "No preview directories found (no active PRs)"
+            fi
+            
+            # Clean up worktree
+            git worktree remove /tmp/gh-pages-checkout
+          else
+            echo "No gh-pages branch exists yet, skipping preview merge"
+          fi
           
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3.0.1
