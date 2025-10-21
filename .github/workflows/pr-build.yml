@@ -77,7 +77,8 @@ jobs:
           cp -r public/* preview-deploy/${PREVIEW_PATH}/
           
           # Remove CNAME file from preview - it breaks subdirectory deployment
-          rm -f preview-deploy/${PREVIEW_PATH}/static/CNAME
+          # Hugo copies static/CNAME to the root of public/, so we remove it from the root
+          rm -f preview-deploy/${PREVIEW_PATH}/CNAME
 
       - name: Save PR metadata
         run: |
