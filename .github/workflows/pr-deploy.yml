@@ -72,6 +72,14 @@ jobs:
           echo "head-sha=${HEAD_SHA}" >> $GITHUB_OUTPUT
           echo "head-ref=${HEAD_REF}" >> $GITHUB_OUTPUT
 
+      - name: Remove legacy CNAME files
+        run: |
+          # Clean up any CNAME files that may exist from previous deployments
+          # This is needed because keep_files: true doesn't remove old files
+          PR_NUM=$(cat pr-metadata/pr-number.txt)
+          rm -f preview-deploy/pr-${PR_NUM}/static/CNAME || true
+          echo "Cleaned up legacy CNAME files for pr-${PR_NUM}"
+
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
