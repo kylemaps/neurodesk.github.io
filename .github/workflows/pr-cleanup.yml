@@ -13,19 +13,25 @@ jobs:
   cleanup:
     runs-on: ubuntu-22.04
     steps:
-      - name: Checkout gh-pages
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          ref: gh-pages
           fetch-depth: 0
 
       - name: Remove preview directory
         run: |
           PREVIEW_PATH="pr-${{ github.event.pull_request.number }}"
 
+          # Check whether gh-pages exists on the remote; if not, nothing to do
+          if ! git ls-remote --exit-code --heads origin gh-pages >/dev/null 2>&1; then
+            echo "No gh-pages branch found on remote; skipping cleanup"
+            exit 0
+          fi
+
           # Ensure we have latest gh-pages to avoid push conflicts
           git fetch origin gh-pages
-          git checkout gh-pages
+          # Create or reset a local gh-pages branch to match remote
+          git checkout -B gh-pages origin/gh-pages
           git pull --rebase origin gh-pages || true
 
           if [ -d "$PREVIEW_PATH" ]; then
