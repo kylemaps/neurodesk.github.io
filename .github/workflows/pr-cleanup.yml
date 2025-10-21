@@ -1,0 +1,104 @@
+name: PR Preview Cleanup
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: write
+  issues: write
+  actions: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          fetch-depth: 0
+
+      - name: Remove preview directory
+        run: |
+          PREVIEW_PATH="pr-${{ github.event.pull_request.number }}"
+
+          # Ensure we have latest gh-pages to avoid push conflicts
+          git fetch origin gh-pages
+          git checkout gh-pages
+          git pull --rebase origin gh-pages || true
+
+          if [ -d "$PREVIEW_PATH" ]; then
+            echo "Removing preview directory: $PREVIEW_PATH"
+            git rm -rf "$PREVIEW_PATH" || true
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            if git diff --staged --quiet; then
+              echo "Nothing to commit after removal (nothing staged)"
+            else
+              git commit -m "cleanup: remove preview for PR #${{ github.event.pull_request.number }}" || true
+              git push origin gh-pages || true
+              echo "Preview cleaned up successfully"
+            fi
+          else
+            echo "Preview directory not found, may have been already cleaned up"
+          fi
+
+      - name: Comment cleanup
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = context.issue.number;
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              body: 'Preview cleaned up after PR closure.'
+            });
+
+      - name: Delete preview artifacts
+        uses: actions/github-script@v7
+        continue-on-error: true
+        with:
+          script: |
+            const prNumber = context.payload.pull_request.number;
+            const artifactName = `pr-preview-${prNumber}`;
+            
+            console.log(`Searching for artifacts named: ${artifactName}`);
+            
+            // List all artifacts for the repo (paginate if needed)
+            let page = 1;
+            let deletedCount = 0;
+            
+            while (page <= 5) {  // Safety limit: check first 5 pages (500 artifacts max)
+              const { data } = await github.rest.actions.listArtifactsForRepo({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                per_page: 100,
+                page: page
+              });
+              
+              if (!data.artifacts || data.artifacts.length === 0) {
+                break;
+              }
+              
+              for (const artifact of data.artifacts) {
+                if (artifact.name === artifactName) {
+                  try {
+                    await github.rest.actions.deleteArtifact({
+                      owner: context.repo.owner,
+                      repo: context.repo.repo,
+                      artifact_id: artifact.id
+                    });
+                    console.log(`✓ Deleted artifact: ${artifact.name} (ID: ${artifact.id})`);
+                    deletedCount++;
+                  } catch (error) {
+                    console.log(`✗ Failed to delete artifact ${artifact.id}: ${error.message}`);
+                  }
+                }
+              }
+              
+              page++;
+            }
+            
+            console.log(`Cleanup complete. Deleted ${deletedCount} artifact(s).`);
