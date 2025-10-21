@@ -76,19 +76,9 @@ jobs:
           mkdir -p preview-deploy/${PREVIEW_PATH}
           cp -r public/* preview-deploy/${PREVIEW_PATH}/
           
-          # Debug: Check what files exist before removal
-          echo "=== Files before CNAME removal ==="
-          ls -la preview-deploy/${PREVIEW_PATH}/ | grep CNAME || echo "No CNAME at root"
-          ls -la preview-deploy/${PREVIEW_PATH}/static/ | grep CNAME || echo "No CNAME in static/"
-          
           # Remove CNAME file from preview - it breaks subdirectory deployment on custom domains
           rm -f preview-deploy/${PREVIEW_PATH}/CNAME
           rm -f preview-deploy/${PREVIEW_PATH}/static/CNAME
-          
-          # Debug: Verify removal
-          echo "=== Files after CNAME removal ==="
-          ls -la preview-deploy/${PREVIEW_PATH}/ | grep CNAME || echo "No CNAME at root"
-          ls -la preview-deploy/${PREVIEW_PATH}/static/ | grep CNAME || echo "No CNAME in static/"
 
       - name: Save PR metadata
         run: |
