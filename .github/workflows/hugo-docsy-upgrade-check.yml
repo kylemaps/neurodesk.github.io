@@ -143,7 +143,7 @@ jobs:
         run: |
           set -o pipefail
           echo "Building scenario ${{ matrix.id }}"
-          hugo --minify -v 2>&1 | tee "$REPORT_DIR/${{ matrix.id }}/build.log"
+          hugo --minify --logLevel info 2>&1 | tee "$REPORT_DIR/${{ matrix.id }}/build.log"
           echo "status=$?" >> "$GITHUB_OUTPUT"
 
       - name: Summarize warnings/errors
