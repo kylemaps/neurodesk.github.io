@@ -75,6 +75,10 @@ jobs:
           
           mkdir -p preview-deploy/${PREVIEW_PATH}
           cp -r public/* preview-deploy/${PREVIEW_PATH}/
+          
+          # Remove CNAME file from preview - it breaks subdirectory deployment on custom domains
+          rm -f preview-deploy/${PREVIEW_PATH}/CNAME
+          rm -f preview-deploy/${PREVIEW_PATH}/static/CNAME
 
       - name: Save PR metadata
         run: |

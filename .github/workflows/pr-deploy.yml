@@ -72,6 +72,35 @@ jobs:
           echo "head-sha=${HEAD_SHA}" >> $GITHUB_OUTPUT
           echo "head-ref=${HEAD_REF}" >> $GITHUB_OUTPUT
 
+      - name: Remove legacy CNAME on gh-pages (target branch)
+        if: ${{ steps.pr-meta.outputs.base-repo == 'neurodesk/neurodesk.github.io' }}
+        env:
+          PR_NUMBER: ${{ steps.pr-meta.outputs.pr-number }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          echo "Cleaning legacy CNAME from gh-pages for pr-${PR_NUMBER}"
+          # Clone gh-pages with token auth
+          git clone --depth=1 --single-branch --branch gh-pages "https://x-access-token:${GH_TOKEN}@github.com/neurodesk/neurodesk.github.io.git" gh-pages-work
+          cd gh-pages-work
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Remove any CNAME files under the PR preview path (root and static), if present
+          TARGET_DIR="pr-${PR_NUMBER}"
+          rm -f "${TARGET_DIR}/CNAME" || true
+          rm -f "${TARGET_DIR}/static/CNAME" || true
+
+          # Only commit if there are changes
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "chore(preview): remove legacy CNAME for ${TARGET_DIR}"
+            git push origin gh-pages
+            echo "Pushed cleanup commit for ${TARGET_DIR}"
+          else
+            echo "No legacy CNAME found for ${TARGET_DIR}; nothing to clean"
+          fi
+
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -79,6 +108,19 @@ jobs:
           publish_dir: ./preview-deploy
           destination_dir: .
           keep_files: true
+
+      - name: Sanity check preview URL
+        if: ${{ steps.pr-meta.outputs.base-repo == 'neurodesk/neurodesk.github.io' }}
+        run: |
+          PR_NUM="${{ steps.pr-meta.outputs.pr-number }}"
+          URL="https://neurodesk.org/pr-${PR_NUM}/"
+          CODE=$(curl -I -s "$URL" | awk 'NR==1{print $2}')
+          echo "Preview URL: $URL => HTTP $CODE"
+          if [ -z "$CODE" ]; then
+            echo "::warning::Failed to reach $URL (empty HTTP code)."
+          elif [ "$CODE" -ge 400 ]; then
+            echo "::warning::Preview URL returned HTTP $CODE. If this persists, check for stale CNAME under pr-${PR_NUM}/static/ on gh-pages."
+          fi
 
       - name: Comment preview URL
         uses: actions/github-script@v7
