@@ -1,0 +1,315 @@
+name: Scheduled Hugo + Docsy Compatibility Check
+
+on:
+  schedule:
+    # Run at 06:00 UTC on the 1st and 15th of each month
+    - cron: '0 6 1,15 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+  issues: write
+
+concurrency:
+  group: hugo-docsy-compat
+  cancel-in-progress: true
+
+env:
+  # Where we stash per-scenario logs
+  REPORT_DIR: upgrade-report
+
+jobs:
+  prepare:
+    name: Detect current versions
+    runs-on: ubuntu-latest
+    if: >-
+      ${{ github.repository == 'NeuroDesk/neurodesk.github.io' && github.ref == 'refs/heads/main' }}
+    outputs:
+      current_hugo: ${{ steps.detect.outputs.current_hugo }}
+      current_docsy: ${{ steps.detect.outputs.current_docsy }}
+      current_docsy_deps: ${{ steps.detect.outputs.current_docsy_deps }}
+      date_tag: ${{ steps.detect.outputs.date_tag }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Detect current Hugo and Docsy versions
+        id: detect
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # Default/fallbacks
+          current_hugo=""
+          if grep -q "HUGO_VERSION:" .github/workflows/gh-pages.yml; then
+            current_hugo=$(grep -Po 'HUGO_VERSION:\s*"?\K([0-9]+\.[0-9]+\.[0-9]+)' .github/workflows/gh-pages.yml | head -n1 || true)
+          fi
+          if [[ -z "$current_hugo" ]] && grep -q "HUGO_VERSION:" .github/workflows/pr-build.yml; then
+            current_hugo=$(grep -Po 'HUGO_VERSION:\s*"?\K([0-9]+\.[0-9]+\.[0-9]+)' .github/workflows/pr-build.yml | head -n1 || true)
+          fi
+          if [[ -z "$current_hugo" ]]; then
+            # Last known version in repo (update here if you bump and don’t declare in workflows)
+            current_hugo="0.146.0"
+          fi
+
+          # Parse Docsy versions from go.mod
+          current_docsy=$(grep -Po '^\s*github.com/google/docsy\s+v\K([^\s]+)' go.mod | head -n1 || true)
+          current_docsy_deps=$(grep -Po '^\s*github.com/google/docsy/dependencies\s+v\K([^\s]+)' go.mod | head -n1 || true)
+
+          echo "current_hugo=$current_hugo" >> "$GITHUB_OUTPUT"
+          echo "current_docsy=${current_docsy:-unknown}" >> "$GITHUB_OUTPUT"
+          echo "current_docsy_deps=${current_docsy_deps:-unknown}" >> "$GITHUB_OUTPUT"
+          echo "date_tag=$(date -u +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
+
+          echo "Detected: HUGO=${current_hugo} DOCSY=${current_docsy:-unknown} DOCSY_DEPS=${current_docsy_deps:-unknown}"
+
+  test-builds:
+    name: Run matrix builds (Hugo/Docsy combos)
+    needs: prepare
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - id: latest-hugo_current-docsy
+            hugo: latest
+            docsy: current
+          - id: current-hugo_latest-docsy
+            hugo: current
+            docsy: latest
+          - id: latest-hugo_latest-docsy
+            hugo: latest
+            docsy: latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Go (for Hugo Modules)
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22.x'
+          check-latest: true
+
+      - name: "Set up Hugo"
+        id: hugo-setup
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: ${{ matrix.hugo == 'latest' && 'latest' || needs.prepare.outputs.current_hugo }}
+          extended: true
+
+      - name: Print selected versions
+        id: print-versions
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$REPORT_DIR/${{ matrix.id }}"
+          echo "Scenario: ${{ matrix.id }}" | tee "$REPORT_DIR/${{ matrix.id }}/versions.txt"
+          echo "Hugo: $(hugo version)" | tee -a "$REPORT_DIR/${{ matrix.id }}/versions.txt"
+          echo "Go: $(go version)" | tee -a "$REPORT_DIR/${{ matrix.id }}/versions.txt"
+
+      - name: "Configure Docsy version"
+        id: docsy-config
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${{ matrix.docsy }}" == "latest" ]]; then
+            echo "Upgrading Docsy to latest in module cache (no commit)"
+            # Update Docsy and its dependency bundle to latest available
+            hugo mod get -u github.com/google/docsy@latest
+            hugo mod get -u github.com/google/docsy/dependencies@latest
+          else
+            echo "Using Docsy as pinned in go.mod"
+          fi
+          # Tidy and vendor to ensure a hermetic build
+          hugo mod tidy
+          hugo mod vendor
+
+          # Record final resolved Docsy versions
+          DOCSY_VER=$(go list -m -f '{{.Version}}' github.com/google/docsy || true)
+          DOCSY_DEPS_VER=$(go list -m -f '{{.Version}}' github.com/google/docsy/dependencies || true)
+          {
+            echo "Docsy (resolved): ${DOCSY_VER:-unknown}"
+            echo "Docsy dependencies (resolved): ${DOCSY_DEPS_VER:-unknown}"
+          } | tee -a "$REPORT_DIR/${{ matrix.id }}/versions.txt"
+
+      - name: Build site with Hugo (capture logs)
+        id: build
+        shell: bash
+        continue-on-error: true
+        env:
+          HUGO_ENVIRONMENT: production
+          HUGO_ENV: production
+        run: |
+          set -o pipefail
+          echo "Building scenario ${{ matrix.id }}"
+          hugo --minify -v 2>&1 | tee "$REPORT_DIR/${{ matrix.id }}/build.log"
+          echo "status=$?" >> "$GITHUB_OUTPUT"
+
+      - name: Summarize warnings/errors
+        id: summarize
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$REPORT_DIR/${{ matrix.id }}"
+          # Extract WARN/ERROR lines (case-insensitive)
+          grep -iE 'WARN|ERROR' "$REPORT_DIR/${{ matrix.id }}/build.log" || true > "$REPORT_DIR/${{ matrix.id }}/warnings-errors.log"
+          warn_count=$(grep -ic 'warn' "$REPORT_DIR/${{ matrix.id }}/warnings-errors.log" || true)
+          err_count=$(grep -ic 'error' "$REPORT_DIR/${{ matrix.id }}/warnings-errors.log" || true)
+          echo "warn_count=$warn_count" >> "$GITHUB_OUTPUT"
+          echo "err_count=$err_count" >> "$GITHUB_OUTPUT"
+
+      - name: Create per-scenario JSON summary
+        if: always()
+        id: write-json
+        shell: bash
+        run: |
+          set -euo pipefail
+          SCENARIO='${{ matrix.id }}'
+          STATUS='${{ steps.build.outputs.status }}'
+          # Extract version lines
+          HUGO_LINE=$(grep -E '^Hugo:' "$REPORT_DIR/${{ matrix.id }}/versions.txt" | sed 's/^Hugo: //')
+          DOCSY_LINE=$(grep -E '^Docsy \(resolved\):' "$REPORT_DIR/${{ matrix.id }}/versions.txt" | sed 's/^Docsy (resolved): //')
+          DEPS_LINE=$(grep -E '^Docsy dependencies \(resolved\):' "$REPORT_DIR/${{ matrix.id }}/versions.txt" | sed 's/^Docsy dependencies (resolved): //')
+          WARN_COUNT='${{ steps.summarize.outputs.warn_count }}'
+          ERR_COUNT='${{ steps.summarize.outputs.err_count }}'
+          mkdir -p "$REPORT_DIR/meta"
+          STATUS_INT=${STATUS:-1}
+          WARN_INT=${WARN_COUNT:-0}
+          ERR_INT=${ERR_COUNT:-0}
+          printf '%s' "{\n  \"scenario\": \"${SCENARIO}\",\n  \"status\": ${STATUS_INT},\n  \"hugo\": \"${HUGO_LINE}\",\n  \"docsy\": \"${DOCSY_LINE}\",\n  \"docsy_deps\": \"${DEPS_LINE}\",\n  \"warn_count\": ${WARN_INT},\n  \"err_count\": ${ERR_INT},\n  \"log_dir\": \"${SCENARIO}\"\n}\n" > "$REPORT_DIR/meta/${SCENARIO}.json"
+
+      - name: "Upload artifacts (logs + summary)"
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: compat-${{ matrix.id }}-${{ needs.prepare.outputs.date_tag }}
+          path: |
+            ${{ env.REPORT_DIR }}/${{ matrix.id }}/build.log
+            ${{ env.REPORT_DIR }}/${{ matrix.id }}/warnings-errors.log
+            ${{ env.REPORT_DIR }}/${{ matrix.id }}/versions.txt
+            ${{ env.REPORT_DIR }}/meta/${{ matrix.id }}.json
+          if-no-files-found: warn
+          retention-days: 7
+
+  report:
+    name: Open/update compatibility report issue
+    needs: [test-builds, prepare]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+      - name: Download all scenario artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: downloaded-artifacts
+
+      - name: Build issue body
+        id: build-issue
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Use a stable monthly title to accumulate results within the month
+          MONTH_TITLE="Hugo + Docsy compatibility check report - $(date -u +%Y-%m)"
+
+          # Aggregate JSON summaries
+          tmpdir=$(mktemp -d)
+          find downloaded-artifacts -name '*.json' -print0 | xargs -0 -I{} cp {} "$tmpdir/"
+
+          echo "MONTH_TITLE=$MONTH_TITLE" >> "$GITHUB_OUTPUT"
+
+          # Start composing Markdown
+          BODY_FILE=$RUNNER_TEMP/issue_body.md
+          {
+            echo "# Hugo + Docsy Compatibility Check"
+            echo "Date: ${{ needs.prepare.outputs.date_tag }}"
+            echo
+            echo "This automated report checks whether the site can build with newer versions of Hugo and Docsy."
+            echo
+            echo "Run: https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+            echo
+            echo "## Summary"
+            echo
+            echo "| Scenario | Result | Hugo | Docsy | Docsy Deps | Warnings | Errors |"
+            echo "|---|---|---|---|---:|---:|---:|"
+          } > "$BODY_FILE"
+
+          for j in "$tmpdir"/*.json; do
+            [[ -e "$j" ]] || continue
+            scenario=$(jq -r .scenario "$j")
+            status=$(jq -r .status "$j")
+            hugo=$(jq -r .hugo "$j")
+            docsy=$(jq -r .docsy "$j")
+            deps=$(jq -r .docsy_deps "$j")
+            warns=$(jq -r .warn_count "$j")
+            errs=$(jq -r .err_count "$j")
+            badge=$([ "$status" = "0" ] && echo "✅ Pass" || echo "❌ Fail")
+            printf "| %s | %s | %s | %s | %s | %s | %s |\n" "$scenario" "$badge" "$hugo" "$docsy" "$deps" "$warns" "$errs" >> "$BODY_FILE"
+          done
+
+          {
+            echo
+            echo "## Details"
+          } >> "$BODY_FILE"
+
+          # Attach per-scenario details (tail of warnings/errors and link to full logs)
+          while IFS= read -r -d '' dir; do
+            name=$(basename "$dir")
+            buildLog=$(find "$dir" -type f -name build.log -print -quit)
+            warnLog=$(find "$dir" -type f -name warnings-errors.log -print -quit)
+            echo >> "$BODY_FILE"
+            echo "### $name" >> "$BODY_FILE"
+            echo >> "$BODY_FILE"
+            echo "Artifacts: See this run’s artifacts for full logs (search for: $name)." >> "$BODY_FILE"
+            echo >> "$BODY_FILE"
+            echo "<details><summary>Warnings/Errors (last 150 lines)</summary>" >> "$BODY_FILE"
+            echo >> "$BODY_FILE"
+            if [[ -f "$warnLog" ]]; then
+              tail -n 150 "$warnLog" | sed 's/^/    /' >> "$BODY_FILE"
+            else
+              echo "    (none)" >> "$BODY_FILE"
+            fi
+            echo >> "$BODY_FILE"
+            echo "</details>" >> "$BODY_FILE"
+          done < <(find downloaded-artifacts -type d -name 'compat-*' -print0)
+
+          echo "body_path=$BODY_FILE" >> "$GITHUB_OUTPUT"
+          echo "month_title=$MONTH_TITLE" >> "$GITHUB_OUTPUT"
+
+      - name: Create or update monthly compatibility issue
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const body = fs.readFileSync('${{ steps.build-issue.outputs.body_path }}', 'utf8');
+            const title = '${{ steps.build-issue.outputs.month_title }}';
+
+            // Find existing open issue by title
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 100,
+            });
+            const existing = issues.find(i => i.title === title);
+
+            if (existing) {
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body,
+              });
+              core.info(`Updated existing issue #${existing.number}`);
+            } else {
+              const { data: created } = await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: ['ci', 'dependencies']
+              });
+              core.info(`Created new issue #${created.number}`);
+            }
