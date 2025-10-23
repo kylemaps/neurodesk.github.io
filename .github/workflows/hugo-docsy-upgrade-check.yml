@@ -47,7 +47,7 @@ jobs:
           fi
           if [[ -z "$current_hugo" ]] && grep -q "HUGO_VERSION:" .github/workflows/pr-build.yml; then
             current_hugo=$(grep -Po 'HUGO_VERSION:\s*"?\K([0-9]+\.[0-9]+\.[0-9]+)' .github/workflows/pr-build.yml | head -n1 || true)
-          echo "<details><summary>Warnings/Errors (last 150 lines)</summary>" >> "$BODY_FILE"
+          fi
           if [[ -z "$current_hugo" ]]; then
             # Last known version in repo (update here if you bump and don’t declare in workflows)
             current_hugo="0.146.0"
