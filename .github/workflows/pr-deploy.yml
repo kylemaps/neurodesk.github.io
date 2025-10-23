@@ -150,7 +150,7 @@ jobs:
             }
 
             const marker = '<!-- pr-preview:neurodesk -->';
-            const commentBody = `${marker}\n## 🚀 Preview Deployment in Progress\n\n**Preview URL:** ${previewUrl}\n\n⏳ **Status:** The preview is being deployed and will be live in ~1–3 minutes.\n\nThis preview updates automatically when you push new commits to this PR and will be cleaned up when the PR is closed or merged.\n\n<details>\n<summary>Build Details</summary>\n\n- Commit: ${headSha.substring(0, 7)}\n- Branch: \`${headRef}\`\n- Hugo Version: ${process.env.HUGO_VERSION}\n- Deployed to: \`gh-pages\` branch at \`pr-${prNumber}/\`\n\n</details>`;
+            const commentBody = `${marker}\n## Preview Deployment in Progress\n\n**Preview URL:** ${previewUrl}\n\n **Status:** The preview is being deployed and will be live in ~1–3 minutes.\n\nThis preview updates automatically when you push new commits to this PR and will be cleaned up when the PR is closed or merged.\n\n<details>\n<summary>Build Details</summary>\n\n- Commit: ${headSha.substring(0, 7)}\n- Branch: \`${headRef}\`\n- Hugo Version: ${process.env.HUGO_VERSION}\n- Deployed to: \`gh-pages\` branch at \`pr-${prNumber}/\`\n\n</details>`;
 
             const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
