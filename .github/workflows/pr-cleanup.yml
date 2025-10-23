@@ -52,6 +52,7 @@ jobs:
 
       - name: Comment cleanup
         uses: actions/github-script@v7
+        continue-on-error: true
         with:
           script: |
             const prNumber = context.issue.number;
