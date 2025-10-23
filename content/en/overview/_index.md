@@ -9,7 +9,7 @@ aliases:
 - /docs/overview/
 - /docs
 description: >
-  A flexible, scalable and easy to use data analysis environment for reproducible neuroimaging.
+  A flexible, scalable and easy to use data analysis environment for reproducible neuroimaging!
 ---
 
 ## What is Neurodesk?
