@@ -117,10 +117,6 @@ jobs:
       - name: Install Node dependencies
         run: npm ci
 
-      - name: Copy Bootstrap into Hugo assets (for module mounts)
-        run: |
-          mkdir -p ./assets/vendor/bootstrap
-          cp -R node_modules/bootstrap/* ./assets/vendor/bootstrap/
 
       - name: "Configure Docsy version"
         id: docsy-config
