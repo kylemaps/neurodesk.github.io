@@ -108,6 +108,20 @@ jobs:
           echo "Hugo: $(hugo version)" | tee -a "$REPORT_DIR/${{ matrix.id }}/versions.txt"
           echo "Go: $(go version)" | tee -a "$REPORT_DIR/${{ matrix.id }}/versions.txt"
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Copy Bootstrap into Hugo assets (for module mounts)
+        run: |
+          mkdir -p ./assets/vendor/bootstrap
+          cp -R node_modules/bootstrap/* ./assets/vendor/bootstrap/
+
       - name: "Configure Docsy version"
         id: docsy-config
         shell: bash
@@ -154,7 +168,7 @@ jobs:
           set -euo pipefail
           mkdir -p "$REPORT_DIR/${{ matrix.id }}"
           # Extract WARN/ERROR lines (case-insensitive)
-          grep -iE 'WARN|ERROR' "$REPORT_DIR/${{ matrix.id }}/build.log" || true > "$REPORT_DIR/${{ matrix.id }}/warnings-errors.log"
+          grep -iE 'WARN|ERROR' "$REPORT_DIR/${{ matrix.id }}/build.log" > "$REPORT_DIR/${{ matrix.id }}/warnings-errors.log" || true
           warn_count=$(grep -ic 'warn' "$REPORT_DIR/${{ matrix.id }}/warnings-errors.log" || true)
           err_count=$(grep -ic 'error' "$REPORT_DIR/${{ matrix.id }}/warnings-errors.log" || true)
           echo "warn_count=$warn_count" >> "$GITHUB_OUTPUT"
@@ -179,6 +193,27 @@ jobs:
           WARN_INT=${WARN_COUNT:-0}
           ERR_INT=${ERR_COUNT:-0}
           printf '%s' "{\n  \"scenario\": \"${SCENARIO}\",\n  \"status\": ${STATUS_INT},\n  \"hugo\": \"${HUGO_LINE}\",\n  \"docsy\": \"${DOCSY_LINE}\",\n  \"docsy_deps\": \"${DEPS_LINE}\",\n  \"warn_count\": ${WARN_INT},\n  \"err_count\": ${ERR_INT},\n  \"log_dir\": \"${SCENARIO}\"\n}\n" > "$REPORT_DIR/meta/${SCENARIO}.json"
+
+      - name: Truncate large logs (keep last 2000 lines)
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          for f in "$REPORT_DIR"/*/build.log; do
+            if [ -f "$f" ]; then
+              tail -n 2000 "$f" > "${f}.tail" || true
+              mv "${f}.tail" "$f" || true
+            fi
+          done
+
+      - name: Cleanup temporary build directories
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Remove node modules and hugo vendor to avoid large accidental uploads
+          rm -rf node_modules || true
+          rm -rf vendor || true
 
       - name: "Upload artifacts (logs + summary)"
         if: always()
@@ -302,7 +337,7 @@ jobs:
                 issue_number: existing.number,
                 body,
               });
-              core.info(`Updated existing issue #${existing.number}`);
+              console.log(`Updated existing issue #${existing.number}`);
             } else {
               const { data: created } = await github.rest.issues.create({
                 owner: context.repo.owner,
@@ -311,5 +346,5 @@ jobs:
                 body,
                 labels: ['ci', 'dependencies']
               });
-              core.info(`Created new issue #${created.number}`);
+              console.log(`Created new issue #${created.number}`);
             }
