@@ -66,17 +66,21 @@ jobs:
           git config user.name "staging-promotion-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${{ env.PROD_OWNER }}/${{ env.PROD_REPO }}.git"
+          # Prepare target branch locally (create if it doesn't exist)
           git fetch origin "${{ env.PROD_BRANCH }}" || true
-          git checkout -B "${{ env.PROD_BRANCH }}"
-          rsync -av --delete "${GITHUB_WORKSPACE}/public/" ./
+          if git ls-remote --exit-code --heads origin "${{ env.PROD_BRANCH }}" >/dev/null 2>&1; then
+            git checkout -B "${{ env.PROD_BRANCH }}" "origin/${{ env.PROD_BRANCH }}"
+          else
+            git checkout --orphan "${{ env.PROD_BRANCH }}"
+          fi
+          # Sync built files into repo root, but NEVER delete .git
+          rsync -av --delete --exclude='.git' "${GITHUB_WORKSPACE}/public/" ./
           git add -A
           if git diff --cached --quiet; then
             echo "No changes to deploy"
-            CHANGED=0
           else
             git commit -m "Deploy from $GITHUB_REPOSITORY@$GITHUB_SHA"
             git push -u origin "${{ env.PROD_BRANCH }}"
-            CHANGED=1
           fi
 
       - name: Trigger production deploy workflow
