@@ -53,6 +53,27 @@ jobs:
           hugo --minify --baseURL "https://neurodesk.org/"
           echo "neurodesk.org" > public/CNAME
 
+      - name: Include example-notebooks (clone gh-pages branch)
+        run: |
+          set -e
+          NOTEBOOKS_DIR="${GITHUB_WORKSPACE}/public/example-notebooks"
+          mkdir -p "$NOTEBOOKS_DIR"
+          
+          echo "Cloning example-notebooks repo gh-pages branch..."
+          git clone --depth=1 --branch gh-pages https://github.com/neurodesk/example-notebooks.git /tmp/example-notebooks
+          
+          echo "Copying example-notebooks HTML into public/example-notebooks/..."
+          # Copy all files from gh-pages root into public/example-notebooks/
+          # Skip git/repo metadata
+          cp -r /tmp/example-notebooks/* "$NOTEBOOKS_DIR/" || true
+          
+          # Verify some key files exist
+          if [ -f "$NOTEBOOKS_DIR/intro.html" ]; then
+            echo "✓ intro.html found in public/example-notebooks/"
+          else
+            echo "⚠ Warning: intro.html not found — notebooks may not have copied correctly"
+          fi
+
       - name: Push built site to prod repo
         env:
           GH_TOKEN: ${{ secrets.PROD_REPO_TOKEN }}
