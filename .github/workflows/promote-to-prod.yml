@@ -74,6 +74,36 @@ jobs:
             echo "⚠ Warning: intro.html not found — notebooks may not have copied correctly"
           fi
 
+      - name: Include neurocontainers-ui (build from source)
+        run: |
+          set -e
+          UI_DIR="${GITHUB_WORKSPACE}/public/neurocontainers-ui"
+          mkdir -p "$UI_DIR"
+          
+          echo "Building neurocontainers-ui from source..."
+          # Clone the repo
+          git clone --depth=1 https://github.com/neurodesk/neurocontainers-ui.git /tmp/neurocontainers-ui
+          
+          # Install Bun (same as deploy.yaml)
+          curl -fsSL https://bun.sh/install | bash
+          export PATH="$HOME/.bun/bin:$PATH"
+          
+          # Build it (same as deploy.yaml)
+          cd /tmp/neurocontainers-ui
+          bun install
+          PAGES_BASE_PATH="/neurocontainers-ui/" bun run build
+          
+          # Copy built output to public/neurocontainers-ui/
+          cp -r out/* "$UI_DIR/" || true
+          
+          # Verify files
+          if [ -f "$UI_DIR/index.html" ]; then
+            echo "✓ neurocontainers-ui built and copied successfully"
+          else
+            echo "⚠ Warning: neurocontainers-ui build failed or output not found"
+            exit 1
+          fi
+
       - name: Push built site to prod repo
         env:
           GH_TOKEN: ${{ secrets.PROD_REPO_TOKEN }}
