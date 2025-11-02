@@ -61,10 +61,10 @@ jobs:
         run: |
           PREVIEW_PATH="pr-${{ github.event.pull_request.number }}"
           
-          # Use the target repo's domain (where PR is being merged to)
+          # Use the target repo's Pages domain for previews (staging or fork)
           if [[ "${{ github.event.pull_request.base.repo.full_name }}" == "neurodesk/neurodesk.github.io" ]]; then
-            BASE_URL="https://neurodesk.org/${PREVIEW_PATH}/"
-            echo "Building PR preview for production: ${BASE_URL}"
+            BASE_URL="https://neurodesk.github.io/${PREVIEW_PATH}/"
+            echo "Building PR preview for staging: ${BASE_URL}"
           else
             # For PRs to forks (rare case)
             BASE_URL="https://${{ github.event.pull_request.base.repo.owner.login }}.github.io/${{ github.event.pull_request.base.repo.name }}/${PREVIEW_PATH}/"

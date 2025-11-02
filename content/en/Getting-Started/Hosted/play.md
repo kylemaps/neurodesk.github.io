@@ -28,6 +28,6 @@ Ready to get started? Click the button below to launch Neurodesk Play:
 Note: While Neurodesk Play is free to use, it comes with some resource limitations. For more intensive workloads, consider [installing Neurodesk locally](/docs/getting-started/local/neurodeskapp/) or using one of our [other hosting options](/docs/getting-started/hosted/).
 
 <div style="text-align: center; margin: 2em 0;">
-    <img src="/static/docs/getting-started/hosted/play-screenshot.png" style="max-width: 800px; width: 100%; border: 1px solid #ddd; border-radius: 8px;" alt="Neurodesk Play Interface">
+    <img src="{{ "/static/docs/getting-started/hosted/play-screenshot.png" | relURL }}" style="max-width: 800px; width: 100%; border: 1px solid #ddd; border-radius: 8px;" alt="Neurodesk Play Interface">
     <p style="margin-top: 1em; font-style: italic;">The Neurodesk Play interface provides a full-featured environment in your browser</p>
 </div>

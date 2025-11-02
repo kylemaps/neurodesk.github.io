@@ -1,0 +1,8 @@
+{{/* Custom render hook for Markdown images to make /static and static/ paths baseURL-aware */}}
+{{- $src := .Destination -}}
+{{- if hasPrefix $src "/static/" -}}
+  {{- $src = ($src | relURL) -}}
+{{- else if hasPrefix $src "static/" -}}
+  {{- $src = (printf "/%s" $src) | relURL -}}
+{{- end -}}
+<img src="{{ $src }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}"{{ end }} {{- range $k, $v := .Attributes }} {{ $k }}="{{ $v }}"{{ end -}} />

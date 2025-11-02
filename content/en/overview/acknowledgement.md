@@ -22,8 +22,9 @@ This project is not tied to a single place, but we honour Indigenous sovereignty
 This work is supported by the **Wellcome Trust** with a Discretionary Award as part of the **Chan Zuckerberg Initiative (CZI)**, **The Kavli Foundation**, and **Wellcome’s Essential Open Source Software for Science (Cycle 6) Program** (Grant Ref: [313306/Z/24/Z])
 
 <div style="display:flex; align-items:center; gap:40px; flex-wrap:wrap; margin-top:10px;">
-  <img src="/static/docs/overview/Wellcome_Trust_logo.png" width="150">
-  <img src="/static/docs/overview/czi_logo.png" width="250">
+  <img src="{{ "/static/docs/overview/Wellcome_Trust_logo.png" | relURL }}" width="150">
+  <img src="{{ "/static/docs/overview/czi_logo.png" | relURL }}" width="250">
+  
 </div>
 
 
@@ -33,17 +34,19 @@ This project is also supported by the **Australian Research Data Commons (ARDC)*
 <img src="https://user-images.githubusercontent.com/4021595/119062104-3caf4400-ba19-11eb-8211-e2e9ce831a16.png" width="250">
 
 <div style="display:flex; gap:30px; flex-wrap:wrap; align-items:center; margin: 10px 0;">
-  <img src="/static/docs/overview/nif.png" width="120" alt="NIF">
-  <img src="/static/docs/overview/uq_logo.png" width="120" alt="UQ">
-  <img src="/static/docs/overview/swinburne_uni_logo.png" width="120" alt="Swinburne">
-  <img src="/static/docs/overview/liege_uni_logo.png" width="120" alt="Liege">
+  <img src="{{ "/static/docs/overview/nif.png" | relURL }}" width="120" alt="NIF">
+  <img src="{{ "/static/docs/overview/uq_logo.png" | relURL }}" width="120" alt="UQ">
+  <img src="{{ "/static/docs/overview/swinburne_uni_logo.png" | relURL }}" width="120" alt="Swinburne">
+  <img src="{{ "/static/docs/overview/liege_uni_logo.png" | relURL }}" width="120" alt="Liege">
+  
 </div>
 
 This project is also supported by the **Australian National Imaging Facility (NIF)** via the **Foundational Digital Research Infrastructure Project**:  
 
 <div style="display:flex; gap:30px; flex-wrap:wrap; align-items:center; margin: 10px 0;">
-  <img src="/static/docs/overview/nif.png" width="120" alt="NIF">
-  <img src="/static/docs/overview/uq_logo.png" width="120" alt="UQ">
+  <img src="{{ "/static/docs/overview/nif.png" | relURL }}" width="120" alt="NIF">
+  <img src="{{ "/static/docs/overview/uq_logo.png" | relURL }}" width="120" alt="UQ">
+  
 </div>
 
 
@@ -58,8 +61,9 @@ This work benefits from services and infrastructure provided by:
 
 
 <div style="display:flex; gap:30px; flex-wrap:wrap; align-items:center; margin: 10px 0;">
-  <img src="/static/docs/overview/EGI_Federation_logo.png" width="150">
-  <img src="/static/docs/overview/indiana_university_logo.jpeg" width="100">
+  <img src="{{ "/static/docs/overview/EGI_Federation_logo.png" | relURL }}" width="150">
+  <img src="{{ "/static/docs/overview/indiana_university_logo.jpeg" | relURL }}" width="100">
+  
 </div>
 
 
@@ -69,9 +73,10 @@ We are also grateful for:
 - **Google Cloud Platform** (support from 2024–2025)  
 - **Oracle for Research** (support from 2022–2023)
 <div style="display:flex; gap:30px; flex-wrap:wrap; align-items:center; margin: 10px 0;">
-  <img src="/static/docs/overview/aws.png" width="150">
-  <img src="/static/docs/overview/google_cloud.png" width="200">
-  <img src="/static/docs/overview/oracle.png" width="150">
+  <img src="{{ "/static/docs/overview/aws.png" | relURL }}" width="150">
+  <img src="{{ "/static/docs/overview/google_cloud.png" | relURL }}" width="200">
+  <img src="{{ "/static/docs/overview/oracle.png" | relURL }}" width="150">
+  
 </div>
 
 ## Citations and Credit

@@ -35,9 +35,9 @@ type: landing
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 order-md-2 text-center">
-                <img src="/static/favicons/neurodesk-logo.svg" style="height:350px; max-width:100%;" alt="Neurodesk logo" />
-            </div>
+			<div class="col-md-4 order-md-2 text-center">
+				<img src="{{ "/static/favicons/neurodesk-logo.svg" | relURL }}" style="height:350px; max-width:100%;" alt="Neurodesk logo" />
+			</div>
         </div>
     </div>
 </section>
@@ -49,7 +49,7 @@ type: landing
 			<h1 class="mt-0 mt-md-5 pb-4">Neurodesk brings neuroimaging analyses in notebooks and virtual desktops</h1>
 			<div class="position-relative" style="max-width: 1200px; margin: 0 auto;">
 				<div style="padding-top: 56.25%; position: relative;">
-					<img src="static/favicons/neurodesk.jpeg"
+					<img src="{{ "static/favicons/neurodesk.jpeg" | relURL }}"
 						class="w-100 h-100 position-absolute top-0 start-0 object-fit-contain"
 						style="z-index: 1;"
 						alt="Neurodesk overview placeholder">
@@ -57,8 +57,8 @@ type: landing
 						style="z-index: 2;"
 						autoplay muted loop
 						onloadstart="this.previousElementSibling.style.display='none';">
-						<source src="static/favicons/neurodesk.webm" type="video/webm">
-						<source src="static/favicons/neurodesk.mp4" type="video/mp4">
+						<source src="{{ "static/favicons/neurodesk.webm" | relURL }}" type="video/webm">
+						<source src="{{ "static/favicons/neurodesk.mp4" | relURL }}" type="video/mp4">
 						Your browser does not support the video tag.
 					</video>
 				</div>
@@ -72,8 +72,8 @@ type: landing
 <section
   id="startup"
   class="row -bg-light justify-content-left h-auto col-big-desktop"
-  style="
-    background-image: url('/static/favicons/background-bottom.svg');
+	style="
+		background-image: url('{{ "/static/favicons/background-bottom.svg" | relURL }}');
     background-repeat: no-repeat;
     background-position: bottom center;
     background-size: 100% auto;">
@@ -88,42 +88,42 @@ type: landing
 				<div class="row justify-content-center">
 					<div class="col-10 col-md-4 col-lg-4 mb-4">
 						<div class="component-card shadow-sm desktop">
-							<a class="component-click-btn d-flex flex-column" href="/docs/getting-started/neurodesktop/">
+							<a class="component-click-btn d-flex flex-column" href="{{ "/docs/getting-started/neurodesktop/" | relURL }}">
 								<div class="card-body">
 										<i class="fa fa-window-maximize"></i>
 									<h4 class="mt-2">Neurodesktop</h4>
 									<p class="card-summary">Fully featured desktop in a container</p>
 								</div>
 								<div class="image-wrapper mt-2">
-									<img src="/static/favicons/neurodesktop.png" alt="Neurodesktop" class="img-fluid shadow-sm" />
+									<img src="{{ "/static/favicons/neurodesktop.png" | relURL }}" alt="Neurodesktop" class="img-fluid shadow-sm" />
 								</div>
 							</a>
 						</div>
 					</div>
 					<div class="col-10 col-md-4 col-lg-4 mb-4">
 						<div class="component-card shadow-sm containers">
-							<a class="component-click-btn d-flex flex-column" href="/docs/getting-started/neurocontainers/">
+							<a class="component-click-btn d-flex flex-column" href="{{ "/docs/getting-started/neurocontainers/" | relURL }}">
 								<div class="card-body">
 									<i class="fas fa-layer-group"></i>
 									<h4>Neurocontainers</h4>
 									<p class="card-summary">Software container library</p>
 								</div>
 								<div class="image-wrapper mt-auto">
-									<img src="/static/favicons/neurocontainer.png" alt="neurocontainer" class="img-fluid" />
+									<img src="{{ "/static/favicons/neurocontainer.png" | relURL }}" alt="neurocontainer" class="img-fluid" />
 								</div>
 							</a>
 						</div>
 					</div>
 					<div class="col-10 col-md-4 col-lg-4 mb-4">
 						<div class="component-card shadow-sm command">
-							<a class="component-click-btn d-flex flex-column" href="/neurodesk.github.io/docs/getting-started/neurocommand/">
+							<a class="component-click-btn d-flex flex-column" href="{{ "/docs/getting-started/neurocommand/" | relURL }}">
 								<div class="card-body">
 									<i class="fas fa-terminal"></i>
 									<h4>Neurocommand</h4>
 									<p class="card-summary">Core installer</p>
 								</div>
 								<div class="image-wrapper mt-auto">
-									<img class="neurocommand img-fluid" src="/static/favicons/neurocommand.png"
+									<img class="neurocommand img-fluid" src="{{ "/static/favicons/neurocommand.png" | relURL }}"
 										alt="Neurocommand" />
 									<div class="fake">
 										<div class=fakeMenu>
