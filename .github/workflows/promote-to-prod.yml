@@ -45,6 +45,27 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests
 
+      - name: Build applications index (applist.json)
+        env:
+          ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}
+        run: |
+          set -e
+          if [ -n "$ZENODO_TOKEN" ]; then
+            echo "ZENODO_TOKEN present — generating assets/js/applist.json via script"
+            python .github/workflows/write-app-json.py --zenodo_token "$ZENODO_TOKEN"
+          else
+            echo "ZENODO_TOKEN not set — falling back to staging index.json"
+            # Best-effort fallback so prod still has application data
+            mkdir -p assets/js
+            if curl -fsSL https://neurodesk.github.io/index.json -o /tmp/index.json; then
+              # index.json has the same structure we need, write it to applist.json
+              cp /tmp/index.json assets/js/applist.json
+              echo "Fetched staging index.json and wrote to assets/js/applist.json"
+            else
+              echo "Warning: could not fetch staging index.json; Applications page may be empty"
+            fi
+          fi
+
       - name: Build with Hugo (prod baseURL)
         env:
           HUGO_ENVIRONMENT: production
@@ -52,6 +73,15 @@ jobs:
         run: |
           hugo --minify --baseURL "https://neurodesk.org/"
           echo "neurodesk.org" > public/CNAME
+
+      - name: Verify Applications JSON (non-empty)
+        run: |
+          set -e
+          if [ ! -f public/index.json ]; then
+            echo "public/index.json missing; Applications page will be empty"
+            exit 1
+          fi
+          node -e "const fs=require('fs');const d=JSON.parse(fs.readFileSync('public/index.json','utf8'));const n=Array.isArray(d.list)?d.list.length:0;console.log('Applications in index.json:',n);if(n===0){process.exit(1)}"
 
       - name: Include example-notebooks (clone gh-pages branch)
         run: |
@@ -74,34 +104,44 @@ jobs:
             echo "⚠ Warning: intro.html not found — notebooks may not have copied correctly"
           fi
 
-      - name: Include neurocontainers-ui (build from source)
+      - name: Checkout neurocontainers-ui (source)
         run: |
           set -e
-          UI_DIR="${GITHUB_WORKSPACE}/public/neurocontainers-ui"
-          mkdir -p "$UI_DIR"
-          
-          echo "Building neurocontainers-ui from source..."
-          # Clone the repo
-          git clone --depth=1 https://github.com/neurodesk/neurocontainers-ui.git /tmp/neurocontainers-ui
-          
-          # Install Bun (same as deploy.yaml)
-          curl -fsSL https://bun.sh/install | bash
-          export PATH="$HOME/.bun/bin:$PATH"
-          
-          # Build it (same as deploy.yaml)
-          cd /tmp/neurocontainers-ui
+          mkdir -p "${GITHUB_WORKSPACE}/.tmp"
+          git clone --depth=1 https://github.com/neurodesk/neurocontainers-ui.git "${GITHUB_WORKSPACE}/.tmp/neurocontainers-ui"
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "latest"
+
+      - name: Cache Bun dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.bun/install/cache
+            ${{ github.workspace }}/.tmp/neurocontainers-ui/node_modules
+          key: ${{ runner.os }}-bun-${{ hashFiles('.tmp/neurocontainers-ui/bun.lockb') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-
+
+      - name: Build neurocontainers-ui (export)
+        working-directory: ${{ github.workspace }}/.tmp/neurocontainers-ui
+        run: |
+          set -e
           bun install
           # NOTE: Next.js expects basePath without a trailing slash
           PAGES_BASE_PATH="/neurocontainers-ui" bun run build
-
-          # Show built out/ contents for debugging
           echo "Built output (out/):"
           ls -la out || true
 
-          # Copy built output to public/neurocontainers-ui/ (use rsync to be robust)
-          rsync -av --delete out/ "$UI_DIR/"
-
-          # Verify files
+      - name: Copy neurocontainers-ui to public
+        env:
+          UI_DIR: ${{ github.workspace }}/public/neurocontainers-ui
+        run: |
+          set -e
+          mkdir -p "$UI_DIR"
+          rsync -av --delete "${GITHUB_WORKSPACE}/.tmp/neurocontainers-ui/out/" "$UI_DIR/"
           if [ -f "$UI_DIR/index.html" ]; then
             echo "✓ neurocontainers-ui built and copied successfully"
           else
