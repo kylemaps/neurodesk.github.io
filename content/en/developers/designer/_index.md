@@ -27,12 +27,12 @@ Use these logos on light or neutral backgrounds.
   <h4 style="color:#0c0e0a; margin-top: 0;">Simple logo</h4>
   <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center;">
       <div style="text-align: center;">
-      <img src="{{ "/static/logos/neurodesk.png" | relURL }}" width="200"><br>
-    <a href="{{ "/static/logos/neurodesk.png" | relURL }}" download>Download PNG</a>
+      <img src="{{< relurl "/static/logos/neurodesk.png" >}}" width="200"><br>
+    <a href="{{< relurl "/static/logos/neurodesk.png" >}}" download>Download PNG</a>
     </div>
     <div style="text-align: center;">
-  <img src="{{ "/static/logos/neurodesk.org.png" | relURL }}" width="200"><br>
-  <a href="{{ "/static/logos/neurodesk.org.png" | relURL }}" download>Download PNG</a>
+  <img src="{{< relurl "/static/logos/neurodesk.org.png" >}}" width="200"><br>
+  <a href="{{< relurl "/static/logos/neurodesk.org.png" >}}" download>Download PNG</a>
     </div>
   </div>
 </div>
@@ -43,12 +43,12 @@ Use these logos on light or neutral backgrounds.
   <h4 style="color:#0c0e0a; margin-top: 0;">Inclusivity & Pride logo</h4>
   <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center;">
     <div style="text-align: center;">
-  <img src="{{ "/static/logos/neurodesk-pride.png" | relURL }}" width="200"><br>
-  <a href="{{ "/static/logos/neurodesk-pride.png" | relURL }}" download>Download PNG</a>
+  <img src="{{< relurl "/static/logos/neurodesk-pride.png" >}}" width="200"><br>
+  <a href="{{< relurl "/static/logos/neurodesk-pride.png" >}}" download>Download PNG</a>
     </div>
     <div style="text-align: center;">
-  <img src="{{ "/static/logos/neurodesk.org-pride.png" | relURL }}" width="200"><br>
-  <a href="{{ "/static/logos/neurodesk.org-pride.png" | relURL }}" download>Download PNG</a>
+  <img src="{{< relurl "/static/logos/neurodesk.org-pride.png" >}}" width="200"><br>
+  <a href="{{< relurl "/static/logos/neurodesk.org-pride.png" >}}" download>Download PNG</a>
     </div>
   </div>
 </div>
@@ -60,12 +60,12 @@ Use these logos on light or neutral backgrounds.
     <h4 style="color:#0c0e0a; margin-top: 0;">Horizontal format logo</h4>
     <div style="display: flex; flex-wrap: nowrap; gap: 10px; justify-content: flex-start;">
       <div style="text-align: center;">
-  <img src="{{ "/static/logos/neurodesk_horizontal.png" | relURL }}" width="200"><br>
-  <a href="{{ "/static/logos/neurodesk_horizontal.png" | relURL }}" download>Download PNG</a>
+  <img src="{{< relurl "/static/logos/neurodesk_horizontal.png" >}}" width="200"><br>
+  <a href="{{< relurl "/static/logos/neurodesk_horizontal.png" >}}" download>Download PNG</a>
       </div>
       <div style="text-align: center;">
-  <img src="{{ "/static/logos/neurodesk.org_horizontal.png" | relURL }}" width="200"><br>
-  <a href="{{ "/static/logos/neurodesk.org_horizontal.png" | relURL }}" download>Download PNG</a>
+  <img src="{{< relurl "/static/logos/neurodesk.org_horizontal.png" >}}" width="200"><br>
+  <a href="{{< relurl "/static/logos/neurodesk.org_horizontal.png" >}}" download>Download PNG</a>
       </div>
     </div>
   </div>
@@ -81,12 +81,12 @@ These logos are optimized for use on dark backgrounds:
   <h4 style="color: white; margin-top: 0;">Simple logo</h4>
   <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center;">
     <div style="text-align: center;">
-  <img src="{{ "/static/logos/neurodesk-on-dark.png" | relURL }}" width="200"><br>
-  <a href="{{ "/static/logos/neurodesk-on-dark.png" | relURL }}" download>Download PNG</a>
+  <img src="{{< relurl "/static/logos/neurodesk-on-dark.png" >}}" width="200"><br>
+  <a href="{{< relurl "/static/logos/neurodesk-on-dark.png" >}}" download>Download PNG</a>
     </div>
     <div style="text-align: center;">
-  <img src="{{ "/static/logos/neurodesk.org-on-dark.png" | relURL }}" width="200"><br>
-  <a href="{{ "/static/logos/neurodesk.org-on-dark.png" | relURL }}" download>Download PNG</a>
+  <img src="{{< relurl "/static/logos/neurodesk.org-on-dark.png" >}}" width="200"><br>
+  <a href="{{< relurl "/static/logos/neurodesk.org-on-dark.png" >}}" download>Download PNG</a>
     </div>
   </div>
 </div>
@@ -97,12 +97,12 @@ These logos are optimized for use on dark backgrounds:
   <h4 style="color: white; margin-top: 0;">Inclusivity & Pride logo</h4>
   <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center;">
     <div style="text-align: center;">
-  <img src="{{ "/static/logos/neurodesk-pride-on-dark.png" | relURL }}" width="200"><br>
-  <a href="{{ "/static/logos/neurodesk-pride-on-dark.png" | relURL }}" download>Download PNG</a>
+  <img src="{{< relurl "/static/logos/neurodesk-pride-on-dark.png" >}}" width="200"><br>
+  <a href="{{< relurl "/static/logos/neurodesk-pride-on-dark.png" >}}" download>Download PNG</a>
     </div>
     <div style="text-align: center;">
-  <img src="{{ "/static/logos/neurodesk.org-pride-on-dark.png" | relURL }}" width="200"><br>
-  <a href="{{ "/static/logos/neurodesk.org-pride-on-dark.png" | relURL }}" download>Download PNG</a>
+  <img src="{{< relurl "/static/logos/neurodesk.org-pride-on-dark.png" >}}" width="200"><br>
+  <a href="{{< relurl "/static/logos/neurodesk.org-pride-on-dark.png" >}}" download>Download PNG</a>
     </div>
   </div>
 </div>
@@ -114,8 +114,8 @@ These logos are optimized for use on dark backgrounds:
 **No image**
 <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-top: 10px;">
   <div>
-  <img src="{{ "/static/logos/neurodesk.org-no-logo.png" | relURL }}" width="200"><br>
-  <a href="{{ "/static/logos/neurodesk.org-no-logo.png" | relURL }}" download>Download PNG</a>
+  <img src="{{< relurl "/static/logos/neurodesk.org-no-logo.png" >}}" width="200"><br>
+  <a href="{{< relurl "/static/logos/neurodesk.org-no-logo.png" >}}" download>Download PNG</a>
   </div>
 </div>
 
@@ -186,13 +186,13 @@ To request access, please email [mail.neurodesk@gmail.com](mailto:mail.neurodesk
 ### Poster Template
 
 <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
-  <a href="{{ "/static/template-presentations/Neurodesk-vertical-poster.potx" | relURL }}" download>
+  <a href="{{< relurl "/static/template-presentations/Neurodesk-vertical-poster.potx" >}}" download>
     📄 Download Neurodesk Vertical Poster Template (.pptx)
   </a>
 
   <div style="border-left: 1px solid #ccc; height: 1.2em;"></div>
 
-  <a href="{{ "/static/template-presentations/Neurodesk-horizontal-poster.potx" | relURL }}" download>
+  <a href="{{< relurl "/static/template-presentations/Neurodesk-horizontal-poster.potx" >}}" download>
     📄 Download Neurodesk Horizontal Poster Template (.pptx)
   </a>
 </div>

@@ -24,7 +24,7 @@ Once you've chosen your setup, follow the instructions provided in the link.
 For example, if you're using Linux on a local PC with a desktop interface, you would follow the instructions at https://neurodesk.org/docs/getting-started/neurodesktop/linux/.
 
 <div style="max-width: 900px; margin-left: 0;">
-  <img src="{{ "/static/tutorials-examples/startup_table.png" | relURL }}" alt="startup" style="width: 100%; height: auto;">
+  <img src="{{< relurl "/static/tutorials-examples/startup_table.png" >}}" alt="startup" style="width: 100%; height: auto;">
 </div>
 
 ## 4. Video tutorial

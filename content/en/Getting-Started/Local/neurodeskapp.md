@@ -10,7 +10,7 @@ description: >
   A cross-platform desktop application for Neurodesk: The easiest way to use Neurodesktop
 ---
 
-<img style="float: right;" src="{{ "/static/docs/getting-started/neurodeskapp/neurodesk-desktop.png" | relURL }}" width="750">
+<img style="float: right;" src="{{< relurl "/static/docs/getting-started/neurodeskapp/neurodesk-desktop.png" >}}" width="750">
 
 
 <!-- ![Neurodesk App](/static/docs/getting-started/neurodeskapp/neurodesk-desktop.png 'neurodeskapp') -->
@@ -23,7 +23,7 @@ If you have privileged access → Use Docker or Podman Engine
 
 If you do NOT have privileged access → Use TinyRange Engine, or run remote instance
 
-<img src="{{ "/static/docs/getting-started/neurodeskapp/engine-options.png" | relURL }}" width="400">
+<img src="{{< relurl "/static/docs/getting-started/neurodeskapp/engine-options.png" >}}" width="400">
 
 ### Minimum System Requirements
 
@@ -49,7 +49,7 @@ If you do NOT have privileged access → Use TinyRange Engine, or run remote ins
 **On Microsoft edge**, follow these steps to download the executable file:
 
 
-<img src="{{ "/static/docs/getting-started/neurodeskapp/neurodeskapp-edge-download.png" | relURL }}" style="max-width: 800px; width: 100%;" alt="Microsoft Edge download steps">
+<img src="{{< relurl "/static/docs/getting-started/neurodeskapp/neurodeskapp-edge-download.png" >}}" style="max-width: 800px; width: 100%;" alt="Microsoft Edge download steps">
 {{< /alert >}}
 
 ## Installing Docker
@@ -115,7 +115,7 @@ Sessions represent local project launches and connections to existing Neurodesk 
 
 You can start a new session by using the links at the Start section of the Welcome Page.
 
-<img src="{{ "/static/docs/getting-started/neurodeskapp/start-session.png" | relURL }}" style="max-width: 800px; width: 100%;" alt="Start session">
+<img src="{{< relurl "/static/docs/getting-started/neurodeskapp/start-session.png" >}}" style="max-width: 800px; width: 100%;" alt="Start session">
 
 - `Open Local Neurodesk..` creates a new session in the default working directory.
 - `Connect to remote Neurodesk server..` creates a session by connecting to a remote Neurodesk server.
@@ -131,13 +131,13 @@ This will show a Jupyterlab interface. There are two options to interact with Ne
 - By clicking the `NeurodeskApp` icon on the right. This will launch a new window to start a Neurodesk interface.
 - By module loading containers on the left bar. You can interact with loaded modules through the command line interface.
 
-<img src="{{ "/static/docs/getting-started/neurodeskapp/connect-to-local.png" | relURL }}" style="max-width: 800px; width: 100%;" alt="Connect to local">
+<img src="{{< relurl "/static/docs/getting-started/neurodeskapp/connect-to-local.png" >}}" style="max-width: 800px; width: 100%;" alt="Connect to local">
 
 ## Connecting to a remote Neurodesk Server
 
 It can also connect to an existing Neurodesk server instance that is running remotely. In order to connect to a server, click the `Connect to remote Neurodesk server..` button in the Start section of the Welcome Page.
 
-<img src="{{ "/static/docs/getting-started/neurodeskapp/connect-to-server.png" | relURL }}" style="max-width: 800px; width: 100%;" alt="Connect to server">
+<img src="{{< relurl "/static/docs/getting-started/neurodeskapp/connect-to-server.png" >}}" style="max-width: 800px; width: 100%;" alt="Connect to server">
 
 This will launch a dialog that automatically lists the remote Neurodesk server instances.
 
@@ -147,7 +147,7 @@ If the `Persist session data` option is checked, then the session information is
 
 You can delete the stored session data manually at any time by using the `Clear History` option in the Privacy tab of Settings dialog.
 
-<img src="{{ "/static/docs/getting-started/neurodeskapp/settings-privacy.png" | relURL }}" style="max-width: 800px; width: 100%;" alt="Settings privacy tab showing Clear History option">
+<img src="{{< relurl "/static/docs/getting-started/neurodeskapp/settings-privacy.png" >}}" style="max-width: 800px; width: 100%;" alt="Settings privacy tab showing Clear History option">
 
 ## Configuration and data files
 
@@ -173,7 +173,7 @@ podman machine init --rootful --now -v /Volumes:/Volumes -v $HOME:$HOME podman-m
 ```
 {{< /alert >}}
 
-<img src="{{ "/static/docs/getting-started/neurodeskapp/additional_dir.png" | relURL }}" style="max-width: 800px; width: 100%;" alt="Additional Directory settings interface">
+<img src="{{< relurl "/static/docs/getting-started/neurodeskapp/additional_dir.png" >}}" style="max-width: 800px; width: 100%;" alt="Additional Directory settings interface">
 
 {{< alert color="info">}}
 If you are using conda environments and you are installing packages or even new kernels, make sure to read this: https://neurodesk.org/tutorials-examples/tutorials/programming/conda/

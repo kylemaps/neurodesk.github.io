@@ -120,7 +120,7 @@ description: >
 	</div>
 </section>
 
-<script src="{{ "/static/js/command.js" | relURL }}"></script>
+<script src="{{< relurl "/static/js/command.js" >}}"></script>
 
 ## Release
 Ensure you note the release date of the Neurodesktop container image during installation, as it is indicated in the _docker run_ command, e.g. 

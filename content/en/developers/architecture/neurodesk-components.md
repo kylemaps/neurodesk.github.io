@@ -40,7 +40,7 @@ More info: [transparent-singularity](/developers/architecture/transparent_singul
 To ensure accessibility for users without privileged system access (root/admin permissions), Neurodesk has integrated [TinyRange](https://github.com/tinyrange/tinyrange), a lightweight container runtime that operates without requiring root privileges. This integration represents a significant advancement in making neuroimaging tools accessible to all users, regardless of their system permissions.
 
 <div style="text-align: center; margin: 2em 0;">
-  <img src="{{ "/static/developers/architecture/neurodesk-components/tinyrange.png" | relURL }}" alt="TinyRange Architecture" style="max-width: 800px; width: 100%;">
+  <img src="{{< relurl "/static/developers/architecture/neurodesk-components/tinyrange.png" >}}" alt="TinyRange Architecture" style="max-width: 800px; width: 100%;">
     
 </div>
 

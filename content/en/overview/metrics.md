@@ -24,7 +24,7 @@ Total Neurodesktop container pulls: ![Docker Pulls](https://img.shields.io/docke
 | [neurodesk-app](https://github.com/NeuroDesk/neurodesk-app)                     | ![](https://img.shields.io/github/stars/NeuroDesk/neurodesk-app)           | ![](https://img.shields.io/github/issues-raw/NeuroDesk/neurodesk-app)           | ![](https://img.shields.io/github/last-commit/NeuroDesk/neurodesk-app)           |
 
 ## Neurodesk App download metrics
-<img src="{{ "/static/docs/overview/neurodeskapp_metrics.png" | relURL }}" width="95%">
+<img src="{{< relurl "/static/docs/overview/neurodeskapp_metrics.png" >}}" width="95%">
 
 ## User metrics
 <iframe src="https://lookerstudio.google.com/embed/reporting/1b5d3da0-7a67-4440-bc3c-95bd6fd94f18/page/2VKTD" frameborder="0" style="border:0"></iframe>

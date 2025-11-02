@@ -36,7 +36,7 @@ type: landing
                 </div>
             </div>
 			<div class="col-md-4 order-md-2 text-center">
-				<img src="{{ "/static/favicons/neurodesk-logo.svg" | relURL }}" style="height:350px; max-width:100%;" alt="Neurodesk logo" />
+				<img src="{{< relurl "/static/favicons/neurodesk-logo.svg" >}}" style="height:350px; max-width:100%;" alt="Neurodesk logo" />
 			</div>
         </div>
     </div>
@@ -73,7 +73,7 @@ type: landing
   id="startup"
   class="row -bg-light justify-content-left h-auto col-big-desktop"
 	style="
-		background-image: url('{{ "/static/favicons/background-bottom.svg" | relURL }}');
+		background-image: url('{{< relurl "/static/favicons/background-bottom.svg" >}}');
     background-repeat: no-repeat;
     background-position: bottom center;
     background-size: 100% auto;">
@@ -95,7 +95,7 @@ type: landing
 									<p class="card-summary">Fully featured desktop in a container</p>
 								</div>
 								<div class="image-wrapper mt-2">
-									<img src="{{ "/static/favicons/neurodesktop.png" | relURL }}" alt="Neurodesktop" class="img-fluid shadow-sm" />
+									<img src="{{< relurl "/static/favicons/neurodesktop.png" >}}" alt="Neurodesktop" class="img-fluid shadow-sm" />
 								</div>
 							</a>
 						</div>
@@ -109,7 +109,7 @@ type: landing
 									<p class="card-summary">Software container library</p>
 								</div>
 								<div class="image-wrapper mt-auto">
-									<img src="{{ "/static/favicons/neurocontainer.png" | relURL }}" alt="neurocontainer" class="img-fluid" />
+									<img src="{{< relurl "/static/favicons/neurocontainer.png" >}}" alt="neurocontainer" class="img-fluid" />
 								</div>
 							</a>
 						</div>
@@ -123,7 +123,7 @@ type: landing
 									<p class="card-summary">Core installer</p>
 								</div>
 								<div class="image-wrapper mt-auto">
-									<img class="neurocommand img-fluid" src="{{ "/static/favicons/neurocommand.png" | relURL }}"
+									<img class="neurocommand img-fluid" src="{{< relurl "/static/favicons/neurocommand.png" >}}"
 										alt="Neurocommand" />
 									<div class="fake">
 										<div class=fakeMenu>
