@@ -37,6 +37,12 @@
     // Lunr
     //
 
+    // Hardening: if Lunr failed to load for any reason, disable offline search gracefully
+    if (typeof window.lunr === "undefined") {
+      console.warn("Lunr not available; offline search disabled.");
+      return;
+    }
+
     let idx = null; // Lunr index
     const resultDetails = new Map(); // Will hold the data for the search results (titles and summaries)
 
