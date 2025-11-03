@@ -24,7 +24,6 @@ This work is supported by the **Wellcome Trust** with a Discretionary Award as p
 <div style="display:flex; align-items:center; gap:40px; flex-wrap:wrap; margin-top:10px;">
   <img src="{{< relurl "/static/docs/overview/Wellcome_Trust_logo.png" >}}" width="150">
   <img src="{{< relurl "/static/docs/overview/czi_logo.png" >}}" width="250">
-  
 </div>
 
 
@@ -38,7 +37,6 @@ This project is also supported by the **Australian Research Data Commons (ARDC)*
   <img src="{{< relurl "/static/docs/overview/uq_logo.png" >}}" width="120" alt="UQ">
   <img src="{{< relurl "/static/docs/overview/swinburne_uni_logo.png" >}}" width="120" alt="Swinburne">
   <img src="{{< relurl "/static/docs/overview/liege_uni_logo.png" >}}" width="120" alt="Liege">
-  
 </div>
 
 This project is also supported by the **Australian National Imaging Facility (NIF)** via the **Foundational Digital Research Infrastructure Project**:  
@@ -46,7 +44,6 @@ This project is also supported by the **Australian National Imaging Facility (NI
 <div style="display:flex; gap:30px; flex-wrap:wrap; align-items:center; margin: 10px 0;">
   <img src="{{< relurl "/static/docs/overview/nif.png" >}}" width="120" alt="NIF">
   <img src="{{< relurl "/static/docs/overview/uq_logo.png" >}}" width="120" alt="UQ">
-  
 </div>
 
 
@@ -63,7 +60,6 @@ This work benefits from services and infrastructure provided by:
 <div style="display:flex; gap:30px; flex-wrap:wrap; align-items:center; margin: 10px 0;">
   <img src="{{< relurl "/static/docs/overview/EGI_Federation_logo.png" >}}" width="150">
   <img src="{{< relurl "/static/docs/overview/indiana_university_logo.jpeg" >}}" width="100">
-  
 </div>
 
 
@@ -76,7 +72,6 @@ We are also grateful for:
   <img src="{{< relurl "/static/docs/overview/aws.png" >}}" width="150">
   <img src="{{< relurl "/static/docs/overview/google_cloud.png" >}}" width="200">
   <img src="{{< relurl "/static/docs/overview/oracle.png" >}}" width="150">
-  
 </div>
 
 ## Citations and Credit
