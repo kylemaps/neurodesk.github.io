@@ -12,8 +12,8 @@ type: landing
                 <h2>Your platform for flexible, scalable, accessible research​</h2>
                 <div class="mt-4 mb-5">
                     <div class="row g-4 justify-content-center">
-                        <div class="col-10 col-sm-6">
-                            <a class="btn btn-lg btn-light w-100 p-3" href="docs/support/faq/#what-is-neurodesk">
+						<div class="col-10 col-sm-6">
+							<a class="btn btn-lg btn-light w-100 p-3" href="{{< relurl "/docs/support/faq/#what-is-neurodesk" >}}">
                                 <i class="fa fa-question-circle"></i> Neurodesk FAQ
                             </a>
                         </div>
@@ -22,13 +22,13 @@ type: landing
                                 <i class="fa fa-book"></i> See Examples
                             </a>
                         </div>
-                        <div class="col-10 col-sm-6">
-                            <a class="btn btn-lg btn-light w-100 p-3" href="docs/getting-started/local/neurodeskapp/">
+						<div class="col-10 col-sm-6">
+							<a class="btn btn-lg btn-light w-100 p-3" href="{{< relurl "/docs/getting-started/local/neurodeskapp/" >}}">
                                 <i class="fa fa-laptop"></i> Use Locally
                             </a>
                         </div>
-                        <div class="col-10 col-sm-6">
-                            <a class="btn btn-lg btn-light w-100 p-3" href="docs/getting-started/hosted">
+						<div class="col-10 col-sm-6">
+							<a class="btn btn-lg btn-light w-100 p-3" href="{{< relurl "/docs/getting-started/hosted" >}}">
                                 <i class="fa fa-cloud"></i> Use Hosted
                             </a>
                         </div>
@@ -49,7 +49,7 @@ type: landing
 			<h1 class="mt-0 mt-md-5 pb-4">Neurodesk brings neuroimaging analyses in notebooks and virtual desktops</h1>
 			<div class="position-relative" style="max-width: 1200px; margin: 0 auto;">
 				<div style="padding-top: 56.25%; position: relative;">
-					<img src="{{ "static/favicons/neurodesk.jpeg" | relURL }}"
+					<img src="{{< relurl "/static/favicons/neurodesk.jpeg" >}}"
 						class="w-100 h-100 position-absolute top-0 start-0 object-fit-contain"
 						style="z-index: 1;"
 						alt="Neurodesk overview placeholder">
@@ -57,8 +57,8 @@ type: landing
 						style="z-index: 2;"
 						autoplay muted loop
 						onloadstart="this.previousElementSibling.style.display='none';">
-						<source src="{{ "static/favicons/neurodesk.webm" | relURL }}" type="video/webm">
-						<source src="{{ "static/favicons/neurodesk.mp4" | relURL }}" type="video/mp4">
+						<source src="{{< relurl "/static/favicons/neurodesk.webm" >}}" type="video/webm">
+						<source src="{{< relurl "/static/favicons/neurodesk.mp4" >}}" type="video/mp4">
 						Your browser does not support the video tag.
 					</video>
 				</div>
@@ -88,7 +88,7 @@ type: landing
 				<div class="row justify-content-center">
 					<div class="col-10 col-md-4 col-lg-4 mb-4">
 						<div class="component-card shadow-sm desktop">
-							<a class="component-click-btn d-flex flex-column" href="{{ "/docs/getting-started/neurodesktop/" | relURL }}">
+							<a class="component-click-btn d-flex flex-column" href="{{< relurl "/docs/getting-started/neurodesktop/" >}}">
 								<div class="card-body">
 										<i class="fa fa-window-maximize"></i>
 									<h4 class="mt-2">Neurodesktop</h4>
@@ -102,7 +102,7 @@ type: landing
 					</div>
 					<div class="col-10 col-md-4 col-lg-4 mb-4">
 						<div class="component-card shadow-sm containers">
-							<a class="component-click-btn d-flex flex-column" href="{{ "/docs/getting-started/neurocontainers/" | relURL }}">
+							<a class="component-click-btn d-flex flex-column" href="{{< relurl "/docs/getting-started/neurocontainers/" >}}">
 								<div class="card-body">
 									<i class="fas fa-layer-group"></i>
 									<h4>Neurocontainers</h4>
@@ -116,7 +116,7 @@ type: landing
 					</div>
 					<div class="col-10 col-md-4 col-lg-4 mb-4">
 						<div class="component-card shadow-sm command">
-							<a class="component-click-btn d-flex flex-column" href="{{ "/docs/getting-started/neurocommand/" | relURL }}">
+							<a class="component-click-btn d-flex flex-column" href="{{< relurl "/docs/getting-started/neurocommand/" >}}">
 								<div class="card-body">
 									<i class="fas fa-terminal"></i>
 									<h4>Neurocommand</h4>
@@ -163,7 +163,7 @@ type: landing
 				<div class="row community">
 					<div class="col-6 col-md-5 col-lg-6 col-xl-3">
 						<div class="card community-card">
-							<a href="docs/overview/faq/#what-is-neurodesk">
+							<a href="{{< relurl "/docs/overview/faq/#what-is-neurodesk" >}}">
 								<div class="card-body">
 										<i class=" fas fa-question-circle"></i>
 									<h4>FAQ</h4>
@@ -186,7 +186,7 @@ type: landing
 					</div>
 					<div class="col-6 col-md-5 col-lg-6 col-xl-3">
 						<div class="card community-card">
-							<a href="/developers/contributors">
+							<a href="{{< relurl "/developers/contributors" >}}">
 								<div class="card-body">
 									<i class="fa fa-users"></i>
 									<h4>Contributors</h4>
@@ -197,7 +197,7 @@ type: landing
 					</div>
 					<div class="col-6 col-md-5 col-lg-6 col-xl-3">
 						<div class="card community-card">
-							<a href="/docs/overview/contribute">
+							<a href="{{< relurl "/docs/overview/contribute" >}}">
 								<div class="card-body">
 									<i class="fa fa-code"></i>
 									<h4>Contribution Guide</h4>

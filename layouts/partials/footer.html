@@ -36,11 +36,17 @@
 {{- define "footer-links-block" }}
 <ul class="td-footer__links-list">
   {{ range . }}
+  {{- $u := .url -}}
+  {{- $isExternal := or (strings.HasPrefix $u "http://") (strings.HasPrefix $u "https://") -}}
+  {{- $href := cond $isExternal $u ($u | relURL) -}}
   <li class="td-footer__links-item" data-bs-toggle="tooltip" title="{{ .name }}" aria-label="{{ .name }}">
-    <a target="_blank" rel="noopener" href="{{ .url }}" aria-label="{{ .name }}">
+    <a {{ if $isExternal }}target="_blank" rel="noopener"{{ end }} href="{{ $href }}" aria-label="{{ .name }}">
       <i class="{{ .icon }} responsive-icon"></i>&nbsp;&nbsp;{{ .name }}
     </a>
   </li>
   {{ end }}
 </ul>
 {{ end -}}
+
+<!-- Ensure Lunr is available before theme scripts when running under PR previews/staging -->
+<script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
