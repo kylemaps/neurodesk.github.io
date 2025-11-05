@@ -13,7 +13,7 @@ type: landing
                 <div class="mt-4 mb-5">
                     <div class="row g-4 justify-content-center">
 						<div class="col-10 col-sm-6">
-							<a class="btn btn-lg btn-light w-100 p-3" href="{{< relurl "/docs/support/faq/#what-is-neurodesk" >}}">
+							<a class="btn btn-lg btn-light w-100 p-3" href="{{< relurl "/overview/faq/#what-is-neurodesk" >}}">
                                 <i class="fa fa-question-circle"></i> Neurodesk FAQ
                             </a>
                         </div>
@@ -23,12 +23,12 @@ type: landing
                             </a>
                         </div>
 						<div class="col-10 col-sm-6">
-							<a class="btn btn-lg btn-light w-100 p-3" href="{{< relurl "/docs/getting-started/local/neurodeskapp/" >}}">
+							<a class="btn btn-lg btn-light w-100 p-3" href="{{< relurl "/getting-started/local/neurodeskapp/" >}}">
                                 <i class="fa fa-laptop"></i> Use Locally
                             </a>
                         </div>
 						<div class="col-10 col-sm-6">
-							<a class="btn btn-lg btn-light w-100 p-3" href="{{< relurl "/docs/getting-started/hosted" >}}">
+							<a class="btn btn-lg btn-light w-100 p-3" href="{{< relurl "/getting-started/hosted" >}}">
                                 <i class="fa fa-cloud"></i> Use Hosted
                             </a>
                         </div>
@@ -88,7 +88,7 @@ type: landing
 				<div class="row justify-content-center">
 					<div class="col-10 col-md-4 col-lg-4 mb-4">
 						<div class="component-card shadow-sm desktop">
-							<a class="component-click-btn d-flex flex-column" href="{{< relurl "/docs/getting-started/neurodesktop/" >}}">
+							<a class="component-click-btn d-flex flex-column" href="{{< relurl "/getting-started/neurodesktop/" >}}">
 								<div class="card-body">
 										<i class="fa fa-window-maximize"></i>
 									<h4 class="mt-2">Neurodesktop</h4>
@@ -102,7 +102,7 @@ type: landing
 					</div>
 					<div class="col-10 col-md-4 col-lg-4 mb-4">
 						<div class="component-card shadow-sm containers">
-							<a class="component-click-btn d-flex flex-column" href="{{< relurl "/docs/getting-started/neurocontainers/" >}}">
+							<a class="component-click-btn d-flex flex-column" href="{{< relurl "/getting-started/neurocontainers/" >}}">
 								<div class="card-body">
 									<i class="fas fa-layer-group"></i>
 									<h4>Neurocontainers</h4>
@@ -116,7 +116,7 @@ type: landing
 					</div>
 					<div class="col-10 col-md-4 col-lg-4 mb-4">
 						<div class="component-card shadow-sm command">
-							<a class="component-click-btn d-flex flex-column" href="{{< relurl "/docs/getting-started/neurocommand/" >}}">
+							<a class="component-click-btn d-flex flex-column" href="{{< relurl "/getting-started/neurocommand/" >}}">
 								<div class="card-body">
 									<i class="fas fa-terminal"></i>
 									<h4>Neurocommand</h4>
@@ -163,7 +163,7 @@ type: landing
 				<div class="row community">
 					<div class="col-6 col-md-5 col-lg-6 col-xl-3">
 						<div class="card community-card">
-							<a href="{{< relurl "/docs/overview/faq/#what-is-neurodesk" >}}">
+							<a href="{{< relurl "/overview/faq/#what-is-neurodesk" >}}">
 								<div class="card-body">
 										<i class=" fas fa-question-circle"></i>
 									<h4>FAQ</h4>
@@ -197,7 +197,7 @@ type: landing
 					</div>
 					<div class="col-6 col-md-5 col-lg-6 col-xl-3">
 						<div class="card community-card">
-							<a href="{{< relurl "/docs/overview/contribute" >}}">
+							<a href="{{< relurl "/overview/contribute" >}}">
 								<div class="card-body">
 									<i class="fa fa-code"></i>
 									<h4>Contribution Guide</h4>

@@ -1,2 +1,5 @@
-{{- $p := .Get 0 -}}
-{{- $p | relURL -}}
+{{- $path := .Get 0 -}}
+{{- $baseURL := strings.TrimSuffix "/" .Site.BaseURL -}}
+{{- $parsedBase := urls.Parse $baseURL -}}
+{{- $basePath := $parsedBase.Path -}}
+{{- printf "%s%s" $basePath $path -}}
