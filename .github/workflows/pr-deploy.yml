@@ -47,6 +47,16 @@ jobs:
             return prNumber;
           result-encoding: string
 
+      - name: Validate PR number
+        run: |
+          set -euo pipefail
+          PR="${{ steps.find-pr.outputs.result }}"
+          if ! [[ "$PR" =~ ^[0-9]+$ ]]; then
+            echo "Invalid PR number: '$PR'" >&2
+            exit 1
+          fi
+          echo "Validated PR number: $PR"
+
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
@@ -71,17 +81,6 @@ jobs:
           echo "base-name=${BASE_NAME}" >> $GITHUB_OUTPUT
           echo "head-sha=${HEAD_SHA}" >> $GITHUB_OUTPUT
           echo "head-ref=${HEAD_REF}" >> $GITHUB_OUTPUT
-
-      - name: Validate PR number
-        id: validate-pr
-        run: |
-          set -euo pipefail
-          PR="${{ steps.pr-meta.outputs.pr-number }}"
-          if ! [[ "$PR" =~ ^[0-9]+$ ]]; then
-            echo "Invalid PR number: '$PR'" >&2
-            exit 1
-          fi
-          echo "Validated PR number: $PR"
 
       - name: Remove legacy CNAME on gh-pages (target branch)
         if: ${{ steps.pr-meta.outputs.base-repo == 'neurodesk/neurodesk.github.io' }}
@@ -132,11 +131,15 @@ jobs:
             // Kick off the main Pages workflow which merges pr-* from gh-pages
             const PR = String(process.env.PR_NUMBER || '').trim();
             if (!/^[0-9]+$/.test(PR)) {
-              core.setFailed(`Invalid PR number: "${process.env.PR_NUMBER}"`);
+              core.setFailed(`Invalid PR number: "${PR}"`);
               return;
             }
-            const owner = process.env.REPO_OWNER || context.repo.owner;
-            const repo = process.env.REPO_NAME || context.repo.repo;
+            const owner = process.env.REPO_OWNER;
+            const repo = process.env.REPO_NAME;
+            if (!owner || !repo) {
+              core.setFailed('Missing required environment variables: REPO_OWNER or REPO_NAME');
+              return;
+            }
             await github.request('POST /repos/{owner}/{repo}/dispatches', {
               owner: owner,
               repo: repo,
