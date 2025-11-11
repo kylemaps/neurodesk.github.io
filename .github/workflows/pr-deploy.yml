@@ -84,6 +84,48 @@ jobs:
           echo "head-sha=${HEAD_SHA}" >> $GITHUB_OUTPUT
           echo "head-ref=${HEAD_REF}" >> $GITHUB_OUTPUT
 
+      - name: Validate PR metadata
+        run: |
+          set -euo pipefail
+          
+          BASE_REPO="${{ steps.pr-meta.outputs.base-repo }}"
+          BASE_OWNER="${{ steps.pr-meta.outputs.base-owner }}"
+          BASE_NAME="${{ steps.pr-meta.outputs.base-name }}"
+          HEAD_SHA="${{ steps.pr-meta.outputs.head-sha }}"
+          HEAD_REF="${{ steps.pr-meta.outputs.head-ref }}"
+          
+          # Validate BASE_REPO format (owner/repo)
+          if ! [[ "$BASE_REPO" =~ ^[a-zA-Z0-9_-]+/[a-zA-Z0-9_.-]+$ ]]; then
+            echo "Invalid BASE_REPO format: '$BASE_REPO'" >&2
+            exit 1
+          fi
+          
+          # Validate BASE_OWNER (alphanumeric, hyphens, underscores)
+          if ! [[ "$BASE_OWNER" =~ ^[a-zA-Z0-9_-]+$ ]]; then
+            echo "Invalid BASE_OWNER: '$BASE_OWNER'" >&2
+            exit 1
+          fi
+          
+          # Validate BASE_NAME (alphanumeric, hyphens, underscores, dots)
+          if ! [[ "$BASE_NAME" =~ ^[a-zA-Z0-9_.-]+$ ]]; then
+            echo "Invalid BASE_NAME: '$BASE_NAME'" >&2
+            exit 1
+          fi
+          
+          # Validate HEAD_SHA (40 character hex)
+          if ! [[ "$HEAD_SHA" =~ ^[a-f0-9]{40}$ ]]; then
+            echo "Invalid HEAD_SHA: '$HEAD_SHA'" >&2
+            exit 1
+          fi
+          
+          # Validate HEAD_REF (no dangerous characters)
+          if [[ "$HEAD_REF" =~ [\;\`\$\(\)] ]]; then
+            echo "Invalid characters in HEAD_REF: '$HEAD_REF'" >&2
+            exit 1
+          fi
+          
+          echo "All metadata validated successfully"
+
       - name: Remove legacy CNAME on gh-pages (target branch)
         if: ${{ steps.pr-meta.outputs.base-repo == 'neurodesk/neurodesk.github.io' }}
         env:
@@ -168,6 +210,16 @@ jobs:
             const baseName = process.env.BASE_NAME;
             const headSha = process.env.HEAD_SHA;
             const headRef = process.env.HEAD_REF;
+            
+            // Validate baseOwner and baseName before using in URL
+            if (!/^[a-zA-Z0-9_-]+$/.test(baseOwner)) {
+              core.setFailed(`Invalid base owner: "${baseOwner}"`);
+              return;
+            }
+            if (!/^[a-zA-Z0-9_.-]+$/.test(baseName)) {
+              core.setFailed(`Invalid base name: "${baseName}"`);
+              return;
+            }
             
             let previewUrl;
             if (baseRepo === 'neurodesk/neurodesk.github.io') {
