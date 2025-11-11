@@ -118,9 +118,16 @@ jobs:
             exit 1
           fi
           
-          # Validate HEAD_REF (no dangerous characters)
-          if [[ "$HEAD_REF" =~ [\;\`\$\(\)] ]]; then
-            echo "Invalid characters in HEAD_REF: '$HEAD_REF'" >&2
+          # Validate HEAD_REF (alphanumerics, hyphens, underscores, slashes, dots)
+          if ! [[ "$HEAD_REF" =~ ^[a-zA-Z0-9/_.-]+$ ]]; then
+            echo "Invalid HEAD_REF: '$HEAD_REF'" >&2
+            exit 1
+          fi
+          
+          # Validate PR_NUMBER from metadata (should match validated PR from artifact)
+          PR_NUMBER="${{ steps.pr-meta.outputs.pr-number }}"
+          if ! [[ "$PR_NUMBER" =~ ^[0-9]+$ ]]; then
+            echo "Invalid PR_NUMBER in metadata: '$PR_NUMBER'" >&2
             exit 1
           fi
           
@@ -174,10 +181,6 @@ jobs:
           script: |
             // Kick off the main Pages workflow which merges pr-* from gh-pages
             const PR = String(process.env.PR_NUMBER || '').trim();
-            if (!/^[0-9]+$/.test(PR)) {
-              core.setFailed(`Invalid PR number: "${PR}"`);
-              return;
-            }
             const owner = process.env.REPO_OWNER;
             const repo = process.env.REPO_NAME;
             if (!owner || !repo) {
