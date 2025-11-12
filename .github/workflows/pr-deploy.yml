@@ -181,6 +181,11 @@ jobs:
           script: |
             // Kick off the main Pages workflow which merges pr-* from gh-pages
             const PR = String(process.env.PR_NUMBER || '').trim();
+            const prNumber = Number(PR);
+            if (!Number.isInteger(prNumber) || prNumber <= 0) {
+              core.setFailed(`Invalid PR number: "${PR}"`);
+              return;
+            }
             const owner = process.env.REPO_OWNER;
             const repo = process.env.REPO_NAME;
             if (!owner || !repo) {
@@ -191,7 +196,7 @@ jobs:
               owner: owner,
               repo: repo,
               event_type: 'pr-preview-updated',
-              client_payload: { pr: PR }
+              client_payload: { pr: prNumber }
             });
             core.info('Triggered repository_dispatch: pr-preview-updated');
 
@@ -227,6 +232,16 @@ jobs:
             }
             if (!/^[a-zA-Z0-9_.-]+$/.test(baseName)) {
               core.setFailed(`Invalid base name: "${baseName}"`);
+              return;
+            }
+            
+            // Validate headSha and headRef before use (defense-in-depth)
+            if (!/^[a-fA-F0-9]{40}$/.test(headSha)) {
+              core.setFailed(`Invalid head SHA: "${headSha}"`);
+              return;
+            }
+            if (!/^[a-zA-Z0-9\/_.-]+$/.test(headRef)) {
+              core.setFailed(`Invalid head ref: "${headRef}"`);
               return;
             }
             
