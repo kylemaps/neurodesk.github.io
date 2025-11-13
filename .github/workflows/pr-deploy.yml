@@ -68,6 +68,9 @@ jobs:
         continue-on-error: false
 
       - name: Read PR metadata
+        # SECURITY: This reads metadata from artifacts which could be tampered with.
+        # These values are UNTRUSTED and must be validated before use.
+        # Validation happens in the next step before any dangerous operations.
         id: pr-meta
         run: |
           PR_NUMBER=$(cat pr-metadata/pr-number.txt)
@@ -85,14 +88,33 @@ jobs:
           echo "head-ref=${HEAD_REF}" >> $GITHUB_OUTPUT
 
       - name: Validate PR metadata
+        # SECURITY: This step validates untrusted data from artifacts before use.
+        # 
+        # Why this pattern is safe:
+        # 1. Expression evaluation (${{ }}) happens ONCE when GitHub Actions sets env vars
+        # 2. The run script reads env vars using shell syntax ($VAR), NOT ${{ env.VAR }}
+        # 3. No secondary expression evaluation occurs - values are literal strings
+        # 4. Validation runs immediately before any dangerous operations
+        # 
+        # Attack mitigation:
+        # - Even if artifact contains malicious content like "; rm -rf /"
+        # - It becomes a literal string in the env var, NOT executable code
+        # - Validation regex blocks any non-whitelisted characters
+        # - Whitelist-only approach (not blacklist) prevents bypass attempts
+        # 
+        # CodeQL may flag this as "code injection" because it traces untrusted data
+        # flow into expressions. This is a false positive - the env block pattern
+        # is GitHub's recommended approach and prevents actual code execution.
+        # See: https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-an-intermediate-environment-variable
+        env:
+          BASE_REPO: ${{ steps.pr-meta.outputs.base-repo }}
+          BASE_OWNER: ${{ steps.pr-meta.outputs.base-owner }}
+          BASE_NAME: ${{ steps.pr-meta.outputs.base-name }}
+          HEAD_SHA: ${{ steps.pr-meta.outputs.head-sha }}
+          HEAD_REF: ${{ steps.pr-meta.outputs.head-ref }}
+          PR_NUMBER: ${{ steps.pr-meta.outputs.pr-number }}
         run: |
           set -euo pipefail
-          
-          BASE_REPO="${{ steps.pr-meta.outputs.base-repo }}"
-          BASE_OWNER="${{ steps.pr-meta.outputs.base-owner }}"
-          BASE_NAME="${{ steps.pr-meta.outputs.base-name }}"
-          HEAD_SHA="${{ steps.pr-meta.outputs.head-sha }}"
-          HEAD_REF="${{ steps.pr-meta.outputs.head-ref }}"
           
           # Validate BASE_REPO format (owner/repo)
           if ! [[ "$BASE_REPO" =~ ^[a-zA-Z0-9_-]+/[a-zA-Z0-9_.-]+$ ]]; then
@@ -125,7 +147,6 @@ jobs:
           fi
           
           # Validate PR_NUMBER from metadata (should match validated PR from artifact)
-          PR_NUMBER="${{ steps.pr-meta.outputs.pr-number }}"
           if ! [[ "$PR_NUMBER" =~ ^[0-9]+$ ]]; then
             echo "Invalid PR_NUMBER in metadata: '$PR_NUMBER'" >&2
             exit 1
