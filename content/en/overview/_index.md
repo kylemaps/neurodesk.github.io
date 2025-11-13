@@ -27,7 +27,7 @@ To read more about Docker containers, visit [the Docker webpage](https://www.doc
 #### More information: 
 - A PowerPoint presentation including dynamic navigation and interactive buttons: [Neurodesk Overview SlideShow](https://osf.io/f2n7a) - and [PDF version of the presentation](https://osf.io/ca8rw)
 - A 2 minute video explaining Neurodesk: [Neurodesk in 2 minutes](https://www.youtube.com/watch?v=JLv_5fycugw)
-- A 4 minute video getting started with Neurodesk: [Neurodesk in 4 minutes](https://www.youtube.com/watch?v=BffOZcV2oaY&ab_channel=NeuroDesk)
+- A 4 minute video getting started with Neurodesk: [Neurodesk in 4 minutes](https://www.youtube.com/watch?v=BffOZcV2oaY&ab_channel=neurodesk)
 - An online interactive demo you can try RIGHT NOW in your browser: https://play.neurodesk.org/
 
 #### In-depth information:
@@ -56,7 +56,7 @@ Neurodesk originates from various projects at the Centre for Advanced Imaging th
 
 MIT License
 
-Copyright (c) 2021 NeuroDesk
+Copyright (c) 2021 neurodesk
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

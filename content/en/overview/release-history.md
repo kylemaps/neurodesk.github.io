@@ -14,7 +14,7 @@ description: >-
 Latest Version
 : {{< params/neurodesktop/jupyter_neurodesk_version >}}
 
-Please consult [this page](https://github.com/NeuroDesk/neurodesk.github.io/blob/main/.github/content-templates/release-history-template.md) for the template for new releases.
+Please consult [this page](https://github.com/neurodesk/neurodesk.github.io/blob/main/.github/content-templates/release-history-template.md) for the template for new releases.
 
 ## 2025-06-10
 ### New Features
@@ -163,7 +163,7 @@ Please consult [this page](https://github.com/NeuroDesk/neurodesk.github.io/blob
 - add jupyter_scheduler and ipycanvas
 - update guacamole version to 1.5.5 and tomcat to 9.0.87
 - add rise extension for presentations
-- https://github.com/NeuroDesk/neurocommand/releases/tag/2024-05-25
+- https://github.com/neurodesk/neurocommand/releases/tag/2024-05-25
 - fixed brkraw by @stebo85 in #268
 - [QSMxT](https://qsmxt.github.io/QSMxT/): v6.4.1 by @astewartau in #270
 - update mrtrix3 by @stebo85 in #271
@@ -220,7 +220,7 @@ Please consult [this page](https://github.com/NeuroDesk/neurodesk.github.io/blob
 
 ## 20221216
 - added VNC connection back into docker container because RDP currently causes issues for european keyboards
-- added [freesurfer](https://surfer.nmr.mgh.harvard.edu/) into AFNI container to get @SUMA_Make_Spec_FS to work (issue: https://github.com/orgs/NeuroDesk/discussions/210#discussioncomment-4337927)
+- added [freesurfer](https://surfer.nmr.mgh.harvard.edu/) into AFNI container to get @SUMA_Make_Spec_FS to work (issue: https://github.com/orgs/neurodesk/discussions/210#discussioncomment-4337927)
 - added deepretinotopy tool in version 1.0.0 20221201 (contributed by Xincheng & Fernanda)
 
 ## 20221129
@@ -295,7 +295,7 @@ Please consult [this page](https://github.com/NeuroDesk/neurodesk.github.io/blob
 ## 20211207
 - Physio toolbox compiled and added to SPM + update of SPM
 - added brainstorm 
-- new neurodesktop container management scripts for Linux, Mac and Windows: https://github.com/NeuroDesk/neurodesktop 
+- new neurodesktop container management scripts for Linux, Mac and Windows: https://github.com/neurodesk/neurodesktop 
 - added fieldtrip 
 - Datalad is now in the main image, so datalad run should work
 - added Oshy-X segmentation tool

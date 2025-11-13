@@ -1,5 +1,5 @@
 ---
-title: "Portable Unprivileged NeuroDesktop"
+title: "Portable Unprivileged neurodesktop"
 linkTitle: "Portable"
 weight: 1
 aliases:
@@ -7,7 +7,7 @@ aliases:
 - /docs//getting-started/neurodesktop/portable
 
 description: >
-  An unprivileged option for running NeuroDesktop without Docker or Podman.
+  An unprivileged option for running neurodesktop without Docker or Podman.
 ---
 
 {{< alert color="info" >}}

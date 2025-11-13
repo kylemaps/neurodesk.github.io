@@ -33,9 +33,9 @@ PhysIO is part of the open-source [TAPAS Software Package](https://translational
 
 Please cite these works if you use PhysIO and see the [FAQ](https://gitlab.ethz.ch/physio/physio-doc/-/wikis/FAQ#3-how-do-i-cite-physio) for details.
 
-NeuroDesk offers the possibility of running PhysIO without installing Matlab or requiring a Matlab license. The functionality should be equivalent, though debugging and extending the toolbox, as well as unreleased development features, will only be available in the Matlab version of PhysIO, which is exclusively hosted on the [TAPAS GitHub](https://github.com/translationalneuromodeling/tapas).
+neurodesk offers the possibility of running PhysIO without installing Matlab or requiring a Matlab license. The functionality should be equivalent, though debugging and extending the toolbox, as well as unreleased development features, will only be available in the Matlab version of PhysIO, which is exclusively hosted on the [TAPAS GitHub](https://github.com/translationalneuromodeling/tapas).
 
-More general info about PhysIO besides NeuroDesk usage is found in the [README](https://github.com/translationalneuromodeling/tapas/tree/master/PhysIO#readme) on GitHub.
+More general info about PhysIO besides neurodesk usage is found in the [README](https://github.com/translationalneuromodeling/tapas/tree/master/PhysIO#readme) on GitHub.
 
 
 ## Purpose
@@ -63,7 +63,7 @@ The accompanying technical paper about the toolbox concept and methodology can b
 
 ## Download Example Data
 
-The example data should already be present in NeuroDesk in the following folder `/opt/spm12`
+The example data should already be present in neurodesk in the following folder `/opt/spm12`
 
 If you cannot find the example data there:
 1. Download the latest version from the [location mentioned in the TAPAS distribution](https://github.com/translationalneuromodeling/tapas/blob/master/misc/log_tapas.txt)
@@ -72,19 +72,19 @@ If you cannot find the example data there:
 
 ## Copy your own data
 
-- On Windows, the folder `C:\neurodesktop-storage` should have been automatically created when starting NeuroDesk
-- This is your direct link to the NeuroDesk environment, and anything you put in there should end up within the NeuroDesk desktop in `/neurodesktop-storage/` and on your desktop under `storage`
+- On Windows, the folder `C:\neurodesktop-storage` should have been automatically created when starting neurodesk
+- This is your direct link to the neurodesk environment, and anything you put in there should end up within the neurodesk desktop in `/neurodesktop-storage/` and on your desktop under `storage`
 
 
 ## Example: Running PhysIO in the GUI
 1. Open the PhysIO GUI (Neurodesk -> Functional Imaging -> physio -> physioGUI r7771, see screenshot:
 
-![PhysIO GUI in NeuroDesk](/static/tutorials-examples/tutorials/functional_imaging/physio/physio_screenshot1.jpg 'physio_screenshot')
+![PhysIO GUI in neurodesk](/static/tutorials-examples/tutorials/functional_imaging/physio/physio_screenshot1.jpg 'physio_screenshot')
 
 2. SPM should automatically open up (might take a while). Select 'fMRI' from the modality selection screen.
 3. Press the "Batch Editor" button (see screenshot with open Batch Editor, red highlights)
 
-![NeuroDesk with SPM Batch Editor PhysIO](/static/tutorials-examples/tutorials/functional_imaging/physio/physio_screenshot2.jpg 'physio_screenshot2')
+![neurodesk with SPM Batch Editor PhysIO](/static/tutorials-examples/tutorials/functional_imaging/physio/physio_screenshot2.jpg 'physio_screenshot2')
 
     - NB: If you later want to create a new PhysIO batch with all parameters, from scratch or explore the options, select from the Batch Editor Menu top row, SPM -> Tools -> TAPAS PhysIO Toolbox (see screenshot, read highlights)
 

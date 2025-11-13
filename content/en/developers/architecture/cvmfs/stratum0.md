@@ -105,7 +105,7 @@ Repositories containing Linux container image contents (that is: container root 
 Extended attributes of files, such as file capabilities and SElinux attributes, are recorded. And previous file system revisions can be accessed from the clients.
 
 ## Currently not used
-We tested the DUCC tool in the beginning, but it was leading to too many docker pulls and we therefore replaced it with our own script: https://github.com/NeuroDesk/neurocommand/blob/main/cvmfs/sync_containers_to_cvmfs.sh
+We tested the DUCC tool in the beginning, but it was leading to too many docker pulls and we therefore replaced it with our own script: https://github.com/neurodesk/neurocommand/blob/main/cvmfs/sync_containers_to_cvmfs.sh
 
 This is the old DUCC setup
 ```bash
@@ -138,7 +138,7 @@ cd ..
 
 chmod +x convert_appsjson_to_wishlist.sh
 
-git clone https://github.com/NeuroDesk/neurodesk/
+git clone https://github.com/neurodesk/neurodesk/
 
 # setup cron job
 sudo vi /etc/cron.d/cvmfs_dockerpull

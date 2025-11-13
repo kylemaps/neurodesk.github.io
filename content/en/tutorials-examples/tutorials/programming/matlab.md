@@ -71,7 +71,7 @@ setenv("PATH",getenv("PATH") + ":/cvmfs/neurodesk.ardc.edu.au/containers/fsl_6.0
 ```
 
 Now you can, for example, use fslmaths in Matlab scripts:
-<img width="1477" alt="image" src="https://github.com/NeuroDesk/neurodesk.github.io/assets/4021595/c98957ff-2bbc-4e6e-b7f5-313ed8ce4132">
+<img width="1477" alt="image" src="https://github.com/neurodesk/neurodesk.github.io/assets/4021595/c98957ff-2bbc-4e6e-b7f5-313ed8ce4132">
 
 Let us know if this works well for you, and we would be very keen to hear if there is a better way of integrating the lmod system in Matlab.
 
@@ -80,8 +80,8 @@ By default, Matlab uses the emacs keyboard shortcuts in Linux, which might not b
 
 Open the Preferences menu:
 
-<img width="952" alt="image" src="https://github.com/NeuroDesk/neurodesk.github.io/assets/4021595/570c1ab4-2388-4f11-a8b4-939c5438a792">
+<img width="952" alt="image" src="https://github.com/neurodesk/neurodesk.github.io/assets/4021595/570c1ab4-2388-4f11-a8b4-939c5438a792">
 
 Navigate to Keyboard -> Shortcuts and change the active settings from "Emacs Default Set" to "Windows Default Set":
 
-<img width="656" alt="image" src="https://github.com/NeuroDesk/neurodesk.github.io/assets/4021595/59642792-2146-4ede-9bfa-90dffee7e85a">
+<img width="656" alt="image" src="https://github.com/neurodesk/neurodesk.github.io/assets/4021595/59642792-2146-4ede-9bfa-90dffee7e85a">

@@ -42,7 +42,7 @@ In a Desktop VNC session, open a Terminal (LXTerminal) from the bottom toolbar a
 <img width="700" alt="image" src="https://github.com/user-attachments/assets/548941cb-6f7d-47ba-87c0-844fa20da19a">
 
 ### Can I run Neurodesk on an HPC without Docker?
-Yes, our project aims to run on the hardware you have access to. However, without docker support you cannot use our desktop interface [NeuroDesktop](/docs/getting-started/neurodesktop) but you can still use the command line interface [NeuroCommand on HPC](https://neurodesk.org/docs/getting-started/neurocommand). This works well for batch processing on HPCs once you developed your pipeline in our desktop interface. If your HPC provides a desktop interface you can use all our graphical applications without any issues and the GUIs even work via SSH x-forwarding - it's not the most performant experience, but it works well enough.
+Yes, our project aims to run on the hardware you have access to. However, without docker support you cannot use our desktop interface [neurodesktop](/docs/getting-started/neurodesktop) but you can still use the command line interface [NeuroCommand on HPC](https://neurodesk.org/docs/getting-started/neurocommand). This works well for batch processing on HPCs once you developed your pipeline in our desktop interface. If your HPC provides a desktop interface you can use all our graphical applications without any issues and the GUIs even work via SSH x-forwarding - it's not the most performant experience, but it works well enough.
 
 ### How do I get my files into Neurodesk?
 It depends where you are running Neurodesk and where your files are. We provide many different ways from drag-and-drop, to cloud storage to file mounts in [Storage in Neurodesk](/docs/getting-started/neurodesktop/storage).
@@ -88,17 +88,17 @@ docker run --shm-size=1gb -it --privileged --user=root --name neurodesktop -v C:
 
 In the jupyter menu, click on File -> Hub Control Panel:
 
-<img width="350" alt="image" src="https://github.com/NeuroDesk/neurodesk.github.io/assets/4021595/e2fda6f8-bfc9-49c6-80b1-031e7597de66">
+<img width="350" alt="image" src="https://github.com/neurodesk/neurodesk.github.io/assets/4021595/e2fda6f8-bfc9-49c6-80b1-031e7597de66">
 
 
 Then "Stop My Server"
 
-<img width="250" alt="image" src="https://github.com/NeuroDesk/neurodesk.github.io/assets/4021595/4e288ff7-6aa0-4085-82de-eafdb688e433">
+<img width="250" alt="image" src="https://github.com/neurodesk/neurodesk.github.io/assets/4021595/4e288ff7-6aa0-4085-82de-eafdb688e433">
 
 
 Then "Start My Server"
 
-<img width="200" alt="image" src="https://github.com/NeuroDesk/neurodesk.github.io/assets/4021595/efbf6a95-bd2a-451b-97f9-bf67a839fdcd">
+<img width="200" alt="image" src="https://github.com/neurodesk/neurodesk.github.io/assets/4021595/efbf6a95-bd2a-451b-97f9-bf67a839fdcd">
 
 
 ### How to restart a stuck Neurodesk when running locally in Docker or using the NeurodeskApp?
@@ -245,13 +245,23 @@ If it still does not work, please report the problem and we will do our best to 
 3. Try to paste the text using the menu option "Edit" &rarr; "Paste"
 4. Try to paste the text again using CTRL+V
 5. If you don't have one already, please create a Github account [here](https://github.com/signup)
-6. Go to our discussion forum [here](https://github.com/orgs/NeuroDesk/discussions)
+6. Go to our discussion forum [here](https://github.com/orgs/neurodesk/discussions)
 7. If you are not logged into Github, please log in (upper right corner)
 8. Press "New Discussion" button
 9. In the message that you write, please specify your operating system, your internet browser, the application in question, and if you can copy/paste to Mousepad and how?
 
 ## **Docker, WSL, Memory**
 ### Docker
+
+#### Docker: Neurodesktop image doesn't start and fails with out of memory or CVMFS exceptions
+The reason could be that the Docker Disk is full. Check that this is not the case:
+<img width="664" height="54" alt="image" src="https://github.com/user-attachments/assets/04673cd2-a940-48d7-9002-fb56b527c0f7" />
+
+and expand in the settings:
+<img width="821" height="697" alt="image" src="https://github.com/user-attachments/assets/51c60c80-f203-45dc-9c27-1fb941cd3800" />
+
+
+
 #### Docker: Shows an error that unprivileged user namespaces are not enabled.
 This can be activated by running
 ```
@@ -348,4 +358,4 @@ We are still working on making this easier, but here is the current workflow to 
 
 ### I couldn't find the information I was looking for. Where can I get additional assistance?
 Neurodesk is an open-source project that is always evolving. If you are experiencing an issue not listed here, you can reach out to us on Github.
-Post your question at https://github.com/orgs/NeuroDesk/discussions or open a [new issue](https://github.com/NeuroDesk/neurodesk.github.io/issues), so that we can aim to solve it and update our help documentation. 
+Post your question at https://github.com/orgs/neurodesk/discussions or open a [new issue](https://github.com/neurodesk/neurodesk.github.io/issues), so that we can aim to solve it and update our help documentation. 

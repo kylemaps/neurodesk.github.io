@@ -216,7 +216,7 @@ enable = false
     #     desc = "Chat with other project developers"
 [[params.links.user]]
 	name = "Discussion"
-	url = "https://github.com/orgs/NeuroDesk/discussions"
+	url = "https://github.com/orgs/neurodesk/discussions"
  	icon = "fa fa-envelope"
     desc = "Discuss development issues around the project"
 [[params.links.developer]]
@@ -233,7 +233,7 @@ enable = false
 [[menu.main]]
     name = "GitHub"
     weight = 40
-    url = "https://github.com/NeuroDesk"
+    url = "https://github.com/neurodesk"
 	
 [module]
 proxy = "direct"

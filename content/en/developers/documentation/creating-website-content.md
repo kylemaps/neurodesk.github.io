@@ -50,12 +50,12 @@ This step is the same for macOS, Windows, and Linux.
 
 #### Using SSH
 ```bash
-git clone --recurse-submodules git@github.com:NeuroDesk/neurodesk.github.io.git
+git clone --recurse-submodules git@github.com:neurodesk/neurodesk.github.io.git
 ```
 or 
 #### Using HTTPS
 ```bash
-git clone --recurse-submodules https://github.com/NeuroDesk/neurodesk.github.io.git
+git clone --recurse-submodules https://github.com/neurodesk/neurodesk.github.io.git
 ```
 
 #### If you cloned without --recurse-submodules
@@ -102,7 +102,7 @@ For example, if you'd like to create new tutorial content, go in `neurodesk.gith
 ----------------
 ### Contribute your new content to the official documentation
 
-1. Once you are happy with your content, to avoid merge conflicts, rebase your branch with the *main* branch, which should be synced with *NeuroDesk/neurodesk.github.io:main* (on GitHub check if your repo is synced and locally checkout the *main* branch and run *git pull*).
+1. Once you are happy with your content, to avoid merge conflicts, rebase your branch with the *main* branch, which should be synced with *neurodesk/neurodesk.github.io:main* (on GitHub check if your repo is synced and locally checkout the *main* branch and run *git pull*).
 
 ```bash
 git rebase main
@@ -131,7 +131,7 @@ You might have to correct some merge conflicts, but [vscode](https://learn.micro
 
 8. Someone from the Neurodesk team will review and accept your changes, which will appear on our website soon! 
 
-Thanks so much for taking the time to contribute content to the Neurodesk community! If you have any feedback on the process, please let us know on [github discussions](https://github.com/orgs/NeuroDesk/discussions).
+Thanks so much for taking the time to contribute content to the Neurodesk community! If you have any feedback on the process, please let us know on [github discussions](https://github.com/orgs/neurodesk/discussions).
 
 ----------------
 ### Formatting guidelines
@@ -282,6 +282,6 @@ And a nested list:
 
 If you have questions or would like feedback before submitting:
 
-- Open a [discussion](https://github.com/NeuroDesk/neurodesk.github.io/discussions)
+- Open a [discussion](https://github.com/neurodesk/neurodesk.github.io/discussions)
 
 We appreciate your contribution to the Neurodesk community and reproducible science.

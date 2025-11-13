@@ -29,7 +29,7 @@ To contribute a new tutorial or example notebook:
 
 3. **Save your content**  
    - For **tutorials**: add your Markdown file to the 
-     [Github neurodesk.github.io: tutorials folder](https://github.com/NeuroDesk/neurodesk.github.io/tree/main/content/en/tutorials-examples/tutorials)
+     [Github neurodesk.github.io: tutorials folder](https://github.com/neurodesk/neurodesk.github.io/tree/main/content/en/tutorials-examples/tutorials)
 
    - For **example notebooks**: add your `.ipynb` file to the 
      [Github example-notebooks: books folder](https://github.com/Neurodesk/example-notebooks/tree/main/books)
@@ -53,7 +53,7 @@ To contribute a new tutorial or example notebook:
 ## Attribution
 
 We credit all tutorial contributors on the [Contributors page](/developers/contributors/).  
-If you would like to be listed, please include your name and a short description in your pull request, following [this format](https://github.com/NeuroDesk/neurodesk.github.io/blob/main/.github/content-templates/contributor-format.md).
+If you would like to be listed, please include your name and a short description in your pull request, following [this format](https://github.com/neurodesk/neurodesk.github.io/blob/main/.github/content-templates/contributor-format.md).
 
 In addition, each example notebook receives a DOI for formal attribution through Zenodo. This ensures that your contribution is citable and can be referenced in academic publications.
 
@@ -61,6 +61,6 @@ In addition, each example notebook receives a DOI for formal attribution through
 
 ## Need Help?
 
-If you have questions or would like feedback before submitting, feel free to open a [discussion](https://github.com/NeuroDesk/neurodesk.github.io/discussions).
+If you have questions or would like feedback before submitting, feel free to open a [discussion](https://github.com/neurodesk/neurodesk.github.io/discussions).
 
 Thank you for helping build a more accessible and collaborative neuroimaging community.

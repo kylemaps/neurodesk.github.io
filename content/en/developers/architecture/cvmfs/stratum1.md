@@ -6,7 +6,7 @@ description: >
   Host a Stratum 1 server
 ---
 
-The stratum 1 servers for the desktop are configured here: https://github.com/NeuroDesk/neurodesktop/blob/main/Dockerfile
+The stratum 1 servers for the desktop are configured here: https://github.com/neurodesk/neurodesktop/blob/main/Dockerfile
 
 If you want more speed in a region one way could be to setup another Stratum 1 server or a proxy. 
 

@@ -12,9 +12,9 @@ Our docker containers are converted to singularity containers and stored on Obje
 
 ## Download Singularity Containers
 First get an overview of which containers are available as Singularity containers:
-https://github.com/NeuroDesk/neurocommand/blob/main/cvmfs/log.txt
+https://github.com/neurodesk/neurocommand/blob/main/cvmfs/log.txt
 ```shell
-curl -s https://raw.githubusercontent.com/NeuroDesk/neurocommand/main/cvmfs/log.txt
+curl -s https://raw.githubusercontent.com/neurodesk/neurocommand/main/cvmfs/log.txt
 ```
 
 assign the container name to a variable:
@@ -43,9 +43,9 @@ The singularity containers can be also be used in combination with our [Transpar
 
 one example to do this is:
 ```shell
-curl -s https://raw.githubusercontent.com/NeuroDesk/neurocommand/main/cvmfs/log.txt
+curl -s https://raw.githubusercontent.com/neurodesk/neurocommand/main/cvmfs/log.txt
 export container=itksnap_3.8.0_20201208
-git clone https://github.com/NeuroDesk/transparent-singularity ${container}
+git clone https://github.com/neurodesk/transparent-singularity ${container}
 cd ${container}
 ./run_transparent_singularity.sh ${container}
 ```

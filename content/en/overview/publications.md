@@ -38,7 +38,7 @@ Have you used Neurodesk in your research or teaching?
 
 We welcome community contributions to this list. Submit your publication by opening a GitHub issue using the link below:
 
-- [Submit a publication](https://github.com/NeuroDesk/neurodesk.github.io/issues/new?template=publication.md)
+- [Submit a publication](https://github.com/neurodesk/neurodesk.github.io/issues/new?template=publication.md)
 
 Alternatively, you can email the core team or tag us on social media to get in touch.
 

@@ -14,9 +14,9 @@ To decide if a tool should be packaged in a **Neurocontainers** or be installed 
 
 **1) Neurodesk is a Platform, Not a Package Manager:** We don't distribute tools that can be easily installed via standard package managers.
 
-**2) Multiple versions of tools:** Neurodesk supports the use of multiple versions of a tool in parallel via [lmod]( https://lmod.readthedocs.io/en/latest). If a tool doesn't support this, follow [this instruction](#adding-new-tools-to-neurocontainers) to package it in [Neurocontainers](https://github.com/NeuroDesk/neurocontainers).
+**2) Multiple versions of tools:** Neurodesk supports the use of multiple versions of a tool in parallel via [lmod]( https://lmod.readthedocs.io/en/latest). If a tool doesn't support this, follow [this instruction](#adding-new-tools-to-neurocontainers) to package it in [Neurocontainers](https://github.com/neurodesk/neurocontainers).
 
-**3) Inter-Container Tool Linking:** Neurodesk is designed to facilitate the linking of tools from different containers, such as workflow managers like nipype or nextflow. Therefore, if a tool is needed to coordinate various container-tools, [create an issue](https://github.com/NeuroDesk/neurodesktop/issues/new) to have it installed directly in the [Neurodesktop container](https://github.com/NeuroDesk/neurodesktop).
+**3) Inter-Container Tool Linking:** Neurodesk is designed to facilitate the linking of tools from different containers, such as workflow managers like nipype or nextflow. Therefore, if a tool is needed to coordinate various container-tools, [create an issue](https://github.com/neurodesk/neurodesktop/issues/new) to have it installed directly in the [Neurodesktop container](https://github.com/neurodesk/neurodesktop).
 
 **Examples:**
 |            | easy install | coordinates containers | small in size | latest version is ok | useful to most users   | Conclusion                     |

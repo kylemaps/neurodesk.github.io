@@ -61,7 +61,7 @@ We welcome contributions to:
 4. Preview the site locally (see `[Local Hugo Docsy page](https://neurodesk.org/developers/documentation/local-hugo-docsy/)` for more detailed instructions)
 5. Submit a Pull Request
 
-Please follow our [content formatting templates](https://github.com/NeuroDesk/neurodesk.github.io/tree/main/.github/templates) when adding:
+Please follow our [content formatting templates](https://github.com/neurodesk/neurodesk.github.io/tree/main/.github/templates) when adding:
 - Release history sections
 - Contributor acknowledgments
 - Tool submission documentation (COMING SOON)

@@ -18,7 +18,7 @@ Neurodesk is a community-driven project. We welcome contributions from people wi
 Help us build better neuroimaging infrastructure by writing code, improving our containers, or developing new features.
 
 - [Add or update tools](/developers/new_tools/)
-- [Help solve issues](https://github.com/NeuroDesk/neurocontainers/issues) - visit our Github page and pick something out 
+- [Help solve issues](https://github.com/neurodesk/neurocontainers/issues) - visit our Github page and pick something out 
 
 ### Improve Documentation
 
@@ -32,7 +32,7 @@ Good documentation makes tools accessible. Contribute tutorials, usage guides, o
 Make it easier for others to use Neurodesk by sharing reproducible analysis pipelines or creating new workflows.
 
 - [Submit an example notebook](/tutorials-examples/contribute/contribute-examples/) 
-    (feel free to have a look at the [workflow examples](https://github.com/NeuroDesk/example-notebooks/tree/main) already available)
+    (feel free to have a look at the [workflow examples](https://github.com/neurodesk/example-notebooks/tree/main) already available)
 
 ### Donate
 
@@ -46,7 +46,7 @@ Support our mission to make neuroimaging tools more accessible and reproducible.
 
 We are committed to maintaining an inclusive, respectful, and welcoming environment for all contributors.
 
-- [Code of Conduct](https://github.com/NeuroDesk/.github/blob/main/CODE_OF_CONDUCT.md)
+- [Code of Conduct](https://github.com/neurodesk/.github/blob/main/CODE_OF_CONDUCT.md)
 
 ---
 

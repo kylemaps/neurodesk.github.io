@@ -62,7 +62,7 @@ For more detail, consult the [README in the example-notebooks repository](https:
 ## Attribution
 
 All notebook contributors are acknowledged on the Neurodesk [Contributors page](/developers/contributors/).  
-Please include your name and a short description in your pull request using [this format](https://github.com/NeuroDesk/neurodesk.github.io/blob/main/.github/content-templates/contributor-format.md).
+Please include your name and a short description in your pull request using [this format](https://github.com/neurodesk/neurodesk.github.io/blob/main/.github/content-templates/contributor-format.md).
 
 Each example notebook receives a DOI for formal citation via Zenodo, ensuring your work is citable in academic contexts.
 

@@ -50,7 +50,7 @@ module load aria2c
 3. Clone and Set Up the Repository
 Clone the repository into a directory with enough storage and ensure you are not using a symbolic link (to be sure run cd \`pwd -P\`). It’s recommended to perform this setup within a Python virtual environment (venv) or a Conda environment:
 ```bash
-git clone https://github.com/NeuroDesk/neurocommand.git 
+git clone https://github.com/neurodesk/neurocommand.git 
 cd neurocommand 
 pip3 install -r neurodesk/requirements.txt --user 
 bash build.sh --cli
@@ -199,7 +199,7 @@ Choose the module you want to update for example you want to update mrtrix3/3.0.
 ```
 module load singularity
 # now change to a directory with enough storage, e.g. /nfs/turbo/username
-git clone https://github.com/NeuroDesk/neurocommand.git 
+git clone https://github.com/neurodesk/neurocommand.git 
 cd neurocommand 
 pip3 install -r neurodesk/requirements.txt --user 
 bash build.sh --cli

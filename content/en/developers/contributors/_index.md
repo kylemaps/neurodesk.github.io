@@ -10,7 +10,7 @@ description: >
   If you contributed to the project, please list yourself here with a description of your contribution.
 
   Please consult
-  <a href="https://github.com/NeuroDesk/neurodesk.github.io/blob/main/.github/content-templates/contributor-format.md" target="_blank" rel="noopener noreferrer">
+  <a href="https://github.com/neurodesk/neurodesk.github.io/blob/main/.github/content-templates/contributor-format.md" target="_blank" rel="noopener noreferrer">
     this page
   </a> for the contributor's template. Simply copy the code and insert your information.
 </div>
@@ -18,11 +18,11 @@ description: >
 
 
 We try to update this page based on the git commit history:
-- [Neurodesk Contributors](https://github.com/NeuroDesk/neurodesktop/graphs/contributors)
-- [Neurocommand Contributors](https://github.com/NeuroDesk/neurocommand/graphs/contributors)
-- [Neurocontainers Contributors](https://github.com/NeuroDesk/neurocontainers/graphs/contributors)
-- [Neurodesk Website Contributors](https://github.com/NeuroDesk/neurodesk.github.io/graphs/contributors)
-- [Transparent Singularity Contributors](https://github.com/NeuroDesk/transparent-singularity/graphs/contributors)
+- [Neurodesk Contributors](https://github.com/neurodesk/neurodesktop/graphs/contributors)
+- [Neurocommand Contributors](https://github.com/neurodesk/neurocommand/graphs/contributors)
+- [Neurocontainers Contributors](https://github.com/neurodesk/neurocontainers/graphs/contributors)
+- [Neurodesk Website Contributors](https://github.com/neurodesk/neurodesk.github.io/graphs/contributors)
+- [Transparent Singularity Contributors](https://github.com/neurodesk/transparent-singularity/graphs/contributors)
 
 
 **Core team**: [Steffen](#steffen-bollmann----stebo85), [Aswin](#aswin-narayanan----aswinnarayanan), [Ashley](#ashley-stewart----astewartau), [Josh](#joshua-scarsbrook----vbitz), [Xincheng](#xincheng-ye----yexincheng), [Thuy](#thuy-dao----iishiishii), [Moni](#monika-doerig----monidoerig), [Michèle](#michèle-masson-trottier----micmas), [Marshall](#marshall-xu----kmarshallx)

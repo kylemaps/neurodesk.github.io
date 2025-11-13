@@ -3,11 +3,11 @@ _Information on the **Neurodesk** project is available at [neurodesk.org](https:
 #### Cloning this repository
 Using SSH
 ```
-git clone --recurse-submodules git@github.com:NeuroDesk/neurodesk.github.io.git
+git clone --recurse-submodules git@github.com:neurodesk/neurodesk.github.io.git
 ```
 Using Https:
 ```
-git clone --recurse-submodules https://github.com/NeuroDesk/neurodesk.github.io.git
+git clone --recurse-submodules https://github.com/neurodesk/neurodesk.github.io.git
 ````
 
 #### Download hugo extended

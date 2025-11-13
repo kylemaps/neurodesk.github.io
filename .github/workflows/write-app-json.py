@@ -11,7 +11,7 @@ def get_app_categories(app):
     Returns:
         list: List of categories
     """
-    url = "https://raw.githubusercontent.com/NeuroDesk/neurocommand/refs/heads/main/neurodesk/apps.json"
+    url = "https://raw.githubusercontent.com/neurodesk/neurocommand/refs/heads/main/neurodesk/apps.json"
     response = requests.get(url)
     if response.status_code != 200:
         raise Exception(f"Failed to fetch apps: {menu_entries.status_code} {menu_entries.text}")
@@ -34,7 +34,7 @@ def get_apps():
     Returns:
         list: List of categories
     """
-    url = "https://raw.githubusercontent.com/NeuroDesk/neurocommand/refs/heads/main/neurodesk/apps.json"
+    url = "https://raw.githubusercontent.com/neurodesk/neurocommand/refs/heads/main/neurodesk/apps.json"
     response = requests.get(url)
     if response.status_code != 200:
         raise Exception(f"Failed to fetch apps: {menu_entries.status_code} {menu_entries.text}")

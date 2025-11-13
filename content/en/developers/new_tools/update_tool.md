@@ -3,7 +3,7 @@ title: "Update tool in Neurodesk"
 linkTitle: "Update tool"
 weight: 3
 description: >-
-     Step-by-step instructions on how to update an existing NeuroDesk tool container.
+     Step-by-step instructions on how to update an existing neurodesk tool container.
 ---
 
 Updating an existing container is quite easy with this new build system. 
@@ -16,7 +16,7 @@ _There's a [detailled version](#detailled-version) below including screenshots a
 ---
 ## Condensed version
 
-1. Access the [Neurodesk Containers repository](https://github.com/NeuroDesk/neurocontainers)
+1. Access the [Neurodesk Containers repository](https://github.com/neurodesk/neurocontainers)
 2. Fork the repository
 3. Using your preferred development environment (such as VS Code locally or GitHub Codespaces), make changes to the desired container.
 
@@ -50,7 +50,7 @@ In the terminal, run:
 ## Detailled version
 ## 1. Access the Neurodesk Containers
 
-Navigate to the [Neurocontainers repository](https://github.com/NeuroDesk/neurocontainers):
+Navigate to the [Neurocontainers repository](https://github.com/neurodesk/neurocontainers):
 
 <img src="{{< relurl "/static/developers/new_tools/update_tool/neurocontainers.png" >}}" width="650">
 
@@ -161,7 +161,7 @@ To update Neurocontainer version, simply change the `version:` to 2.0.1
 <img src="{{< relurl "/static/developers/new_tools/update_tool/buildyaml-change.png" >}}" width="650">
 <br><br>
 
-If you are unsure how to structure the `build.yaml`, please refer to the examples provided in the [Neurocontainers builder documentation](https://github.com/NeuroDesk/neurocontainers/tree/main/builder).
+If you are unsure how to structure the `build.yaml`, please refer to the examples provided in the [Neurocontainers builder documentation](https://github.com/neurodesk/neurocontainers/tree/main/builder).
 
 {{< alert color="warning" >}} Important:
 Keep your formatting strict! YAML files are indentation-sensitive. Use spaces, not tabs. {{< /alert >}}
@@ -219,7 +219,7 @@ Make sure your commit message is clear and descriptive, for example:
 ## 7. Create a Pull Request
 After pushing your changes:
 1. Go back to your forked repository on GitHub.
-2. You should see a banner saying "This branch is X commits ahead of `NeuroDesk/neurocontainers:main`". 
+2. You should see a banner saying "This branch is X commits ahead of `neurodesk/neurocontainers:main`". 
 
 <div style="margin-left: 2em;">
 You can either click on **X commit ahead of** to view the differences between your repository and the Neurodesk repository and then **Create pull request**
@@ -247,12 +247,12 @@ click on **Contribute** > **Open pull request**.
 Our Neurodesk team will review your proposed update, test the updated container to make sure it work and merge your changes to Neurodesk if everything works correctly, allowing all users to benefit. 
 
 ---
-More detailed documentation can be found here: https://github.com/NeuroDesk/neurocontainers/tree/main/builder
+More detailed documentation can be found here: https://github.com/neurodesk/neurocontainers/tree/main/builder
 
 ## Need Help?
 
 If you have questions or would like feedback before submitting:
 
-- Open a [discussion](https://github.com/NeuroDesk/neurodesk.github.io/discussions)
+- Open a [discussion](https://github.com/neurodesk/neurodesk.github.io/discussions)
 
 We appreciate your contribution to the Neurodesk community and reproducible science.

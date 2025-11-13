@@ -24,7 +24,7 @@ jobs:
     name: Detect current versions
     runs-on: ubuntu-latest
     if: >-
-      ${{ github.repository == 'NeuroDesk/neurodesk.github.io' && github.ref == 'refs/heads/main' }}
+      ${{ github.repository == 'neurodesk/neurodesk.github.io' && github.ref == 'refs/heads/main' }}
     outputs:
       current_hugo: ${{ steps.detect.outputs.current_hugo }}
       current_docsy: ${{ steps.detect.outputs.current_docsy }}

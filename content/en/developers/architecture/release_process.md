@@ -7,11 +7,11 @@ description: >
 ---
 ## Neurodesktop:
 
-1. Check if the last automated build ran OK: https://github.com/NeuroDesk/neurodesktop/actions
+1. Check if the last automated build ran OK: https://github.com/neurodesk/neurodesktop/actions
 2. Run this build date and test if everything is ok and no regression happened
-3. Check what changes where made since the last release: https://github.com/NeuroDesk/neurodesktop/commits/main
+3. Check what changes where made since the last release: https://github.com/neurodesk/neurodesktop/commits/main
 4. Summarize the main changes and copy this to the Release History: https://neurodesk.org/docs/overview/release-history/
-5. Change the version of the latest desktop in https://github.com/NeuroDesk/neurodesk.github.io/blob/main/data/neurodesktop.toml
+5. Change the version of the latest desktop in https://github.com/neurodesk/neurodesk.github.io/blob/main/data/neurodesktop.toml
 6. Commit all changes
 7. Tweet a quick summary of the changes and announce new version: https://masto.ai/@Neurodesk
 
@@ -19,7 +19,7 @@ description: >
 ## Neurodesk App:
 
 ### Release process
-Follow these steps to create a new release of the [Neurodesk App](https://github.com/NeuroDesk/neurodesk-app).
+Follow these steps to create a new release of the [Neurodesk App](https://github.com/neurodesk/neurodesk-app).
 
 1. If there's new version of Neurodesktop image, Github Action will PR with updated jupyter_neurodesk_version in neurodesktop.toml file. Double-check and merge this PR.
 

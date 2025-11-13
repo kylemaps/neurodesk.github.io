@@ -6,7 +6,7 @@ description: >
   For more advanced users who wish to use Transparent Singularity directly
 ---
 
-Transparent singularity is here https://github.com/NeuroDesk/transparent-singularity/
+Transparent singularity is here https://github.com/neurodesk/transparent-singularity/
 
 This project allows to use singularity containers transparently on HPCs, so that an application inside the container can be used without adjusting any scripts or pipelines (e.g. nipype). 
 
@@ -17,14 +17,14 @@ export SINGULARITY_BINDPATH="/gpfs1/,/QRISdata,/data"
 ```
 
 ## This gives you a list of all tested images available in neurodesk:
-https://github.com/NeuroDesk/neurocommand/blob/main/cvmfs/log.txt
+https://github.com/neurodesk/neurocommand/blob/main/cvmfs/log.txt
 ```
-curl -s https://raw.githubusercontent.com/NeuroDesk/neurocommand/main/cvmfs/log.txt
+curl -s https://raw.githubusercontent.com/neurodesk/neurocommand/main/cvmfs/log.txt
 ```
 
 ## Clone repo into a folder with the intended image name
 ```
-git clone https://github.com/NeuroDesk/transparent-singularity convert3d_1.0.0_20210104
+git clone https://github.com/neurodesk/transparent-singularity convert3d_1.0.0_20210104
 ```
 
 ## Install

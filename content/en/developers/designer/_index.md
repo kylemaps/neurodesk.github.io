@@ -164,7 +164,7 @@ To ensure consistency in our branding, please follow the guidelines below when r
 Avoid the following incorrect variations:
 - neuroDesk
 - neurodesk in titles or headings
-- NeuroDesk
+- neurodesk
 
 ## Typography
 

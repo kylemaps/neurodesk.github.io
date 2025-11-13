@@ -16,12 +16,12 @@ This step is the same for macOS, Windows, and Linux.
 
 ### Using SSH
 ```bash
-git clone --recurse-submodules git@github.com:NeuroDesk/neurodesk.github.io.git
+git clone --recurse-submodules git@github.com:neurodesk/neurodesk.github.io.git
 ```
 or 
 ### Using HTTPS
 ```bash
-git clone --recurse-submodules https://github.com/NeuroDesk/neurodesk.github.io.git
+git clone --recurse-submodules https://github.com/neurodesk/neurodesk.github.io.git
 ```
 
 ### If you cloned without --recurse-submodules

@@ -47,11 +47,11 @@ Follow the steps for [contributing content to Neurodesk.org](/developers/documen
 
 1. Place your completed `.md` file in the appropriate subfolder under:
 
-   [`/content/en/tutorials-examples/tutorials/`](https://github.com/NeuroDesk/neurodesk.github.io/tree/main/content/en/tutorials-examples/tutorials)
+   [`/content/en/tutorials-examples/tutorials/`](https://github.com/neurodesk/neurodesk.github.io/tree/main/content/en/tutorials-examples/tutorials)
 
 2. Store any images in a matching subfolder in `/static/tutorials-examples/tutorials/`
 
-3. Open a pull request in the [neurodesk.github.io repository](https://github.com/NeuroDesk/neurodesk.github.io)
+3. Open a pull request in the [neurodesk.github.io repository](https://github.com/neurodesk/neurodesk.github.io)
 
 4. In your pull request, include:
    - A short summary of your tutorial
@@ -62,7 +62,7 @@ Follow the steps for [contributing content to Neurodesk.org](/developers/documen
 ## Attribution
 
 All tutorial contributors are acknowledged on the [Contributors page](/developers/contributors/).  
-To be listed, include your name and a short description in your pull request using [this format](https://github.com/NeuroDesk/neurodesk.github.io/blob/main/.github/content-templates/contributor-format.md).
+To be listed, include your name and a short description in your pull request using [this format](https://github.com/neurodesk/neurodesk.github.io/blob/main/.github/content-templates/contributor-format.md).
 
 ---
 
@@ -70,6 +70,6 @@ To be listed, include your name and a short description in your pull request usi
 
 If you have questions or would like feedback before submitting:
 
-- Open a [discussion](https://github.com/NeuroDesk/neurodesk.github.io/discussions)
+- Open a [discussion](https://github.com/neurodesk/neurodesk.github.io/discussions)
 
 We appreciate your contribution to the Neurodesk community and reproducible science.

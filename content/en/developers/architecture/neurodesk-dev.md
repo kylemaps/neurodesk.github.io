@@ -11,7 +11,7 @@ For development and testing only. Not recommended for production use
 {{% /alert %}}
 
 ## Building neurodesktop-dev
-Dev builds can be triggered by Neurodesk admins from https://github.com/NeuroDesk/neurodesktop/actions/workflows/build-neurodesktop-dev.yml
+Dev builds can be triggered by Neurodesk admins from https://github.com/neurodesk/neurodesktop/actions/workflows/build-neurodesktop-dev.yml
 
 ## Running latest neurodesktop-dev
 

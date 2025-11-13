@@ -20,7 +20,7 @@ On a linux machine you have mutliple options to use Neurodesk:
 
 ## Highest abstraction level, and easiest option: Neurodeskapp
 
-Download Neurodeskapp: https://github.com/NeuroDesk/neurodesk-app/releases/latest/download/NeurodeskApp-Setup-Debian-x64.deb
+Download Neurodeskapp: https://github.com/neurodesk/neurodesk-app/releases/latest/download/NeurodeskApp-Setup-Debian-x64.deb
 
 and Install:
 ```bash
@@ -164,7 +164,7 @@ sudo apt install python3-pip
 Then install neurocommand:
 ```bash
 cd ~
-git clone https://github.com/NeuroDesk/neurocommand.git 
+git clone https://github.com/neurodesk/neurocommand.git 
 cd neurocommand 
 python3 -m venv ./venv
 ./venv/bin/pip3 install -r neurodesk/requirements.txt
@@ -265,7 +265,7 @@ for this you only need apptainer or singularity installed. See above for install
 Then you can download a container and run it directly:
 ```bash
 #find out which containers are available:
-curl -s https://raw.githubusercontent.com/NeuroDesk/neurocommand/main/cvmfs/log.txt
+curl -s https://raw.githubusercontent.com/neurodesk/neurocommand/main/cvmfs/log.txt
 
 #select a container and download it:
 export container=itksnap_3.8.0_20201208

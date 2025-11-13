@@ -25,7 +25,7 @@ os.environ["APPTAINER_BINDPATH"] = "/content"
 os.environ["MPLCONFIGDIR"] = "/content/matplotlib-mpldir"
 os.environ["LMOD_CMD"] = "/usr/share/lmod/lmod/libexec/lmod"
 
-!curl -J -O https://raw.githubusercontent.com/NeuroDesk/neurocommand/main/googlecolab_setup.sh
+!curl -J -O https://raw.githubusercontent.com/neurodesk/neurocommand/main/googlecolab_setup.sh
 !chmod +x googlecolab_setup.sh
 !./googlecolab_setup.sh
 

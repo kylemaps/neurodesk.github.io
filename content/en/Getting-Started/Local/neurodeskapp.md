@@ -36,13 +36,13 @@ If you do NOT have privileged access → Use TinyRange Engine, or run remote ins
 
 ## Downloading Neurodesk App
 
-- [Debian, Ubuntu Linux Installer x64](https://github.com/NeuroDesk/neurodesk-app/releases/latest/download/NeurodeskApp-Setup-Debian-x64.deb)
-- [Red Hat, Fedora, SUSE Linux Installer x64](https://github.com/NeuroDesk/neurodesk-app/releases/latest/download/NeurodeskApp-Setup-Fedora-x64.rpm)
-- [Debian, Ubuntu Linux Installer arm64](https://github.com/NeuroDesk/neurodesk-app/releases/download/v1.8.0/NeurodeskApp-Setup-Debian-arm64.deb)
-- [Red Hat, Fedora, SUSE Linux Installer arm64](https://github.com/NeuroDesk/neurodesk-app/releases/latest/download/NeurodeskApp-Setup-Fedora-arm64.rpm)
+- [Debian, Ubuntu Linux Installer x64](https://github.com/neurodesk/neurodesk-app/releases/latest/download/NeurodeskApp-Setup-Debian-x64.deb)
+- [Red Hat, Fedora, SUSE Linux Installer x64](https://github.com/neurodesk/neurodesk-app/releases/latest/download/NeurodeskApp-Setup-Fedora-x64.rpm)
+- [Debian, Ubuntu Linux Installer arm64](https://github.com/neurodesk/neurodesk-app/releases/download/v1.8.0/NeurodeskApp-Setup-Debian-arm64.deb)
+- [Red Hat, Fedora, SUSE Linux Installer arm64](https://github.com/neurodesk/neurodesk-app/releases/latest/download/NeurodeskApp-Setup-Fedora-arm64.rpm)
 - [Arch-based package via AUR](https://aur.archlinux.org/packages/neurodeskapp-bin)
-- [macOS Intel Installer](https://github.com/NeuroDesk/neurodesk-app/releases/latest/download/NeurodeskApp-Setup-macOS-x64.dmg), [macOS Apple silicon Installer](https://github.com/neurodesk/neurodesk-app/releases/latest/download/NeurodeskApp-Setup-macOS-arm64.dmg)
-- [Windows Installer](https://github.com/NeuroDesk/neurodesk-app/releases/latest/download/NeurodeskApp-Setup-Windows.exe)
+- [macOS Intel Installer](https://github.com/neurodesk/neurodesk-app/releases/latest/download/NeurodeskApp-Setup-macOS-x64.dmg), [macOS Apple silicon Installer](https://github.com/neurodesk/neurodesk-app/releases/latest/download/NeurodeskApp-Setup-macOS-arm64.dmg)
+- [Windows Installer](https://github.com/neurodesk/neurodesk-app/releases/latest/download/NeurodeskApp-Setup-Windows.exe)
 
 
 {{< alert color="info" >}}

@@ -174,7 +174,7 @@ type: landing
 					</div>
 					<div class="col-6 col-md-5 col-lg-6 col-xl-3">
 						<div class="card community-card">
-							<a target="_blank" href="https://github.com/orgs/NeuroDesk/discussions">
+							<a target="_blank" href="https://github.com/orgs/neurodesk/discussions">
 								<div class="card-body">
 									<i class="fa fa-envelope"></i>
 									<h4>Discussions</h4>
