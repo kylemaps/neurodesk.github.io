@@ -18,6 +18,10 @@ concurrency:
 jobs:
   deploy:
     # Only deploy if the build succeeded and came from a pull_request event
+    # SECURITY NOTE: This condition does NOT prevent artifact tampering!
+    # An attacker can submit a PR that modifies pr-build.yml to tamper with
+    # artifact contents before upload. That's why we validate all metadata
+    # from artifacts before use (see "Validate PR metadata" step).
     if: |
       github.event.workflow_run.conclusion == 'success' &&
       github.event.workflow_run.event == 'pull_request'
@@ -117,7 +121,8 @@ jobs:
           set -euo pipefail
           
           # Validate BASE_REPO format (owner/repo)
-          if ! [[ "$BASE_REPO" =~ ^[a-zA-Z0-9_-]+/[a-zA-Z0-9_.-]+$ ]]; then
+          # Note: GitHub allows dots in both owner and repo names
+          if ! [[ "$BASE_REPO" =~ ^[a-zA-Z0-9_.-]+/[a-zA-Z0-9_.-]+$ ]]; then
             echo "Invalid BASE_REPO format: '$BASE_REPO'" >&2
             exit 1
           fi
@@ -261,7 +266,8 @@ jobs:
               core.setFailed(`Invalid head SHA: "${headSha}"`);
               return;
             }
-            if (!/^[a-zA-Z0-9\/_.-]+$/.test(headRef)) {
+            // Note: Forward slashes don't need escaping in JavaScript string regex
+            if (!/^[a-zA-Z0-9/_.-]+$/.test(headRef)) {
               core.setFailed(`Invalid head ref: "${headRef}"`);
               return;
             }
