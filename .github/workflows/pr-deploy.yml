@@ -127,8 +127,9 @@ jobs:
             exit 1
           fi
           
-          # Validate BASE_OWNER (alphanumeric, hyphens, underscores)
-          if ! [[ "$BASE_OWNER" =~ ^[a-zA-Z0-9_-]+$ ]]; then
+          # Validate BASE_OWNER (alphanumeric, hyphens, underscores, dots)
+          # Note: GitHub allows dots in organization names (rare but valid)
+          if ! [[ "$BASE_OWNER" =~ ^[a-zA-Z0-9_.-]+$ ]]; then
             echo "Invalid BASE_OWNER: '$BASE_OWNER'" >&2
             exit 1
           fi
@@ -154,6 +155,15 @@ jobs:
           # Validate PR_NUMBER from metadata (should match validated PR from artifact)
           if ! [[ "$PR_NUMBER" =~ ^[0-9]+$ ]]; then
             echo "Invalid PR_NUMBER in metadata: '$PR_NUMBER'" >&2
+            exit 1
+          fi
+          
+          # CRITICAL: Verify PR_NUMBER in metadata matches the artifact name
+          # This prevents cross-PR attacks where attacker uploads artifact for PR #123
+          # but includes different PR number in metadata to deploy to PR #456
+          VALIDATED_PR="${{ steps.validate-pr.outputs.pr-number }}"
+          if [[ "$PR_NUMBER" != "$VALIDATED_PR" ]]; then
+            echo "PR number mismatch: artifact name has $VALIDATED_PR, metadata has $PR_NUMBER" >&2
             exit 1
           fi
           
@@ -252,7 +262,8 @@ jobs:
             }
             
             // Validate baseOwner and baseName before using in URL
-            if (!/^[a-zA-Z0-9_-]+$/.test(baseOwner)) {
+            // Note: Consistent with bash validation - allows dots for organization names
+            if (!/^[a-zA-Z0-9_.-]+$/.test(baseOwner)) {
               core.setFailed(`Invalid base owner: "${baseOwner}"`);
               return;
             }
